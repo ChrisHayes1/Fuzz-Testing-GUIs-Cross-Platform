@@ -1,0 +1,15 @@
+Directory: cores
+
+This directory contains the core files for some of the clients that
+crashed when tested.
+
+Filename conventions: Each core file has a name:
+	core.<utility-name>.<timestamp>.gz
+where <utility-name> is the name of the client that core dumped and
+<timestamp> gives the date and time when the core dump occurred.  The
+timestamp gives the date, the month-name, and the time in hours and
+minutes.  All core dumps were generated in 1994.
+
+The files have been compressed using gzip version 1.2.4 of 18 August
+1993 on a Sun SPARCstation 10/40 (sparc-sun-sunos4.1.3).  The core
+files were generated on the same platform.

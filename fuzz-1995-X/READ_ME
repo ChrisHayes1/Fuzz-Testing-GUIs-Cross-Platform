@@ -1,0 +1,3 @@
+Two tools were used to test X-Window applications and X-Window
+servers, xjig and winjig.  Source code, results,and other information
+for each of these tools can be found in their respective directories.
