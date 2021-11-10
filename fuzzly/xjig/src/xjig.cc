@@ -766,10 +766,12 @@ int main(int argc, char *argv[]) {
   // *** Make initial connects ***
   //THB - Make socket with ? sets 'handle' from socket.h with FD
   //x is type socket.
-  Brief("Connecting to X-Server\n");
+  Brief("Connecting to X-Server as client\n");
   printf("...%s on port %d\n", x_host_name, 6000);
   // THB Make a new socket set up for x_host_name
   // and port 6000.
+  // X = connection to X Server, with this cxn
+  // we are acting as the client, talking to server
   New(X, Socket(x_host_name, 6000));
 
   if (!X) {
@@ -780,9 +782,13 @@ int main(int argc, char *argv[]) {
   //THB
   X->Connect();
 
+  //THB Now we need to talk with the application
+  // In this case we are the server, sending msgs
+  // to the application (the client).
   //THB - Connecting to application using program_port.
-  Brief("Connecting remote port\n");
+  Brief("Connecting to X-Server\n");
   Socket program_port_socket(host_name, program_port);
+  
 
   //THB - Create PROG socket.  Why this and above?
   Brief("Connecting client\n");
@@ -793,9 +799,6 @@ int main(int argc, char *argv[]) {
     terminate();
   };
 
-  std::cout << "Press enter to continue: ";
-  std::string moveon;
-  std::cin >> moveon;
 
   struct rlimit max_file_num;  
   SET_RLIM_MAX;

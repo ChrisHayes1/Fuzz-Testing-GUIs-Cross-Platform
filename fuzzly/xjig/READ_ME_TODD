@@ -1,0 +1,32 @@
+Ubuntu 20.04 startup
+
+1) Single time - Enable TCP on X11
+
+sudo vim /etc/gdm3/custom.conf
+
+under [Security] add
+DisallowTCP=false
+
+under [xdmcp]
+ServerArguments=-listen tcp
+
+2) After every restart
+
+2a)
+DISPLAY must be set on the terminal you use to call the application, it can't be set in a different location
+
+$ export DISPLAY = <hostname>:2
+$ export DISPLAY=markBox:2
+
+2b)
+After setting display try: xhost +
+
+3) For each test
+
+start xjig //might not have to restart inbetween
+
+start the app you want to run
+
+magic
+
+Seems to be inconsitant. Unsure why.

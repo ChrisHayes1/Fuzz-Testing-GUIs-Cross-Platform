@@ -5,6 +5,11 @@
 #include <iostream>
 #include <errno.h>
 
+
+//Us pretending to be the client
+// We set up communication with the X-server
+// on port 6000
+
 Socket::Socket(char *host_name, int port_number) {
 
   hostent *hp = gethostbyname(host_name);
@@ -56,7 +61,7 @@ Socket::Socket(char *host_name, int port_number) {
     fprintf(stderr, "Error %i on setsockopt():1\n", errno);
     terminate();
   };
-
+  
   if (setsockopt(handle,       // what socket
 		 SOL_SOCKET,    // option level
 		 SO_RCVBUF,      // change send buffer size
@@ -71,16 +76,31 @@ Socket::Socket(char *host_name, int port_number) {
 
 
 static int hack_flag = 0;
+// This is us acting as a server, waiting for 
+// the x-client to connect
 
 Socket::Socket(Socket const &s) {
 
-
+  fprintf(stderr, "...checking hack flag");
   if (!hack_flag) {
-    
+    fprintf(stderr, "...Not hackflag");
     hack_flag = 1;
     
+    // THB - Below socket opt added by todd
+    int m_flag = 1;
+    if (setsockopt(s.handle,       // what socket
+      SOL_SOCKET,    // option level
+      SO_REUSEADDR,      // change send buffer size
+      &m_flag,
+      sizeof(m_flag)
+      )) {
+      fprintf(stderr, "Error %i on setsockopt():5\n", errno);
+      terminate();
+    };
+
+
     // bind should probably be unlink'ed! (See man page)
-    
+    fprintf(stderr, "...Binding");
     if (bind(s.handle, (struct sockaddr *)&s.address, sizeof(s.address))) {
       fprintf(stderr, "Error %i on bind()\n", errno);
       terminate();
@@ -88,18 +108,20 @@ Socket::Socket(Socket const &s) {
     
     
     // *** Listen for a connection ***
-    
+    fprintf(stderr, "...Listening");
     if (listen(s.handle, 5) == -1) {
       fprintf(stderr, "Error %i on listen()\n", errno);
       terminate();
     };
   };  
 
+  fprintf(stderr, "...Trying to connect");
   // *** Accept a connect ***
   
   bcopy((char *)&s.address, (char *)&address, sizeof(address));
   socklen_t addr_size = sizeof(address);
   
+  fprintf(stderr, "...About to accept");
   handle = accept(s.handle, (sockaddr *)&address, &addr_size);
   if (handle == -1) {
     fprintf(stderr, "Error %i on accept()\n", errno);
@@ -108,6 +130,7 @@ Socket::Socket(Socket const &s) {
 
   unsigned int temp = 8192;
 
+  fprintf(stderr, "...Setting socket opts");
   if (setsockopt(handle,       // what socket
 		 SOL_SOCKET,    // option level
 		 SO_SNDBUF,      // change send buffer size
@@ -118,6 +141,7 @@ Socket::Socket(Socket const &s) {
     terminate();
   };
 
+  fprintf(stderr, "...Setting more socket opts");
   if (setsockopt(handle,       // what socket
 		 SOL_SOCKET,    // option level
 		 SO_RCVBUF,      // change send buffer size
@@ -127,6 +151,10 @@ Socket::Socket(Socket const &s) {
     fprintf(stderr, "Error %i on setsockopt():4\n", errno);
     terminate();
   };
+
+   
+
+
 };
 
 void Socket::Connect() {
