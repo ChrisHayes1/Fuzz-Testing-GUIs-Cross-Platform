@@ -22,6 +22,7 @@ public:
   UINT32 Size() const { return size; };
   UINT8 operator[](UINT32 index) const;
   void Modify(UINT32 position, UINT32 length, UINT8 const *source);
+
 protected:
 #ifdef DEBUG
   static UINT32 object_count;
@@ -30,16 +31,15 @@ protected:
   UINT32 size;
   UINT32 max_size;
   int size_lock;
-  friend void ResetByteOrder() { Message::byte_order = -1; };
-  friend void SetByteOrder(UINT8 code);
-  friend void Check_Byte_Order();
-  friend char *ByteOrder();  // Returns "MSB First", "LSB First" or "Undefined"
   friend UINT16 GetUINT16(Message const &msg, UINT32 index);
   friend UINT32 GetUINT32(Message const &msg, UINT32 index);
   friend void PutUINT8(Message &msg, UINT32 index, UINT8 value);
   friend void PutUINT16(Message &msg, UINT32 index, UINT16 value);
   friend void PutUINT32(Message &msg, UINT32 index, UINT32 value);
-
+  friend void ResetByteOrder() { Message::byte_order = -1; };
+  friend void SetByteOrder(UINT8 code);
+  friend void Check_Byte_Order();
+  friend char *ByteOrder();  // Returns "MSB First", "LSB First" or "Undefined"
   static int byte_order;  // -1 = undefined, 0 = MSB first, 1 = LSB first
 
   Message(Message const&msg) {fprintf(stderr, "Message(Message)\n"); exit(1);};

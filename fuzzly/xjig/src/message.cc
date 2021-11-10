@@ -188,19 +188,19 @@ void Message::Modify(UINT32 position, UINT32 length, UINT8 const *source) {
 
 void SetByteOrder(UINT8 code) {
   int flag = Message::byte_order;
-  
+
   switch (code) {
   case 'B':   // Big Endian (MSB first)
     Message::byte_order = 0;
     flag += 1;
     break;
-    
+
   case 'l':   // little endian (LSB first)
     Message::byte_order = 1;
     flag += 1;
     break;
   };
-  
+
   if (flag > 0) {
     fprintf(stderr, "Warning: Client sent connection setup message more than once\n");
     if (flag - 1 != Message::byte_order) {

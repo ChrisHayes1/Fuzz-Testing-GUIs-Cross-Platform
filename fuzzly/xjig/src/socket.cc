@@ -2,6 +2,8 @@
 #include "system.h"
 #include "socket.h"
 #include "New.h"
+#include <iostream>
+#include <errno.h>
 
 Socket::Socket(char *host_name, int port_number) {
 
@@ -11,7 +13,9 @@ Socket::Socket(char *host_name, int port_number) {
     fprintf(stderr, "Error getting host name for port %i\n", port_number);
     terminate();
   };
-
+  //THB
+  printf("-->Host Name: %s\n", hp->h_name);
+  printf("-->Host Addy length: %d\n", hp->h_length);
   if (hp->h_length > sizeof(in_addr)) {
     printf("Host address is too large\n");
     terminate();
@@ -23,13 +27,18 @@ Socket::Socket(char *host_name, int port_number) {
 // which is wrong since hp->h_addr_list[0] is not in dotted
 // form, but is instead just a sequence of control characters
 // it should be:
+
+// Removed by THB
   memcpy(&address.sin_addr.s_addr, hp->h_addr_list[0],
 	 sizeof(address.sin_addr.s_addr));
 
-  address.sin_family = hp->h_addrtype;
-  address.sin_port = htons(port_number);
+    address.sin_family = hp->h_addrtype;
+    address.sin_port = htons(port_number);
+//  address.sin_addr.s_addr = htonl(INADDR_ANY);
+//  address.sin_family = AF_INET;
+//  address.sin_port = htons(port_number);
   
-  handle = socket(PF_INET, SOCK_STREAM, 0);
+  handle = socket(AF_INET, SOCK_STREAM, 0);
   if (handle == -1) {
     fprintf(stderr, "Error creating socket for host %s, port %i\n",
 	    host_name, port_number);
@@ -74,7 +83,7 @@ Socket::Socket(Socket const &s) {
     
     if (bind(s.handle, (struct sockaddr *)&s.address, sizeof(s.address))) {
       fprintf(stderr, "Error %i on bind()\n", errno);
-    terminate();
+      terminate();
     };
     
     
@@ -89,7 +98,7 @@ Socket::Socket(Socket const &s) {
   // *** Accept a connect ***
   
   bcopy((char *)&s.address, (char *)&address, sizeof(address));
-  int addr_size = sizeof(address);
+  socklen_t addr_size = sizeof(address);
   
   handle = accept(s.handle, (sockaddr *)&address, &addr_size);
   if (handle == -1) {
@@ -121,9 +130,9 @@ Socket::Socket(Socket const &s) {
 };
 
 void Socket::Connect() {
-  
   if (connect(handle, (sockaddr *)&address, sizeof(address)) == -1) {
     fprintf(stderr, "Error %i on connect()\n", errno);
+    printf(strerror(errno));
     terminate();
   };
 };

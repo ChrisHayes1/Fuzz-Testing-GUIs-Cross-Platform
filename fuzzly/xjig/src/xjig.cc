@@ -48,6 +48,14 @@ List<UINT32> orphan_windows;
 
 //using namespace std;
 
+/******************************************
+ * Friend functions are not being seen, declaring them here
+ * Added by Todd
+ * *****************/
+  extern void ResetByteOrder();
+  extern void SetByteOrder(UINT8 code);
+  extern void Check_Byte_Order();
+  extern char *ByteOrder();
 // ******************************************
 
 // *** FileExists(filename) returns 1 if <filename> exists, otherwise 0
@@ -645,6 +653,7 @@ int main(int argc, char *argv[]) {
   int arg;
   Message msg;
 
+  //THB - 0 msg buffer
   Message *last_msg[128];
   int i;
   for (i = 0; i <= 127; i++) {
@@ -670,6 +679,7 @@ int main(int argc, char *argv[]) {
   };
   x_host_name = host_name;
 
+  //THB -  Verify port
   int program_port = atoi(argv[1]);
   if (program_port < 6001 || program_port > 6999) {
     fprintf(stderr, "Bad port number\n");
@@ -688,48 +698,53 @@ int main(int argc, char *argv[]) {
   random_chance = 50;           // in percent
   smart_win_on = 0;
 
+  // THB - parse args
+  printf("Starting to parse args\n");
   for (arg = 2; arg < argc; arg++) {
+    // THB
+    printf("... Arg[%d] = %s\n", arg, argv[arg]);
     if (argv[arg][0] != '-') {
       syntax();
     } else switch (argv[arg][1]) {
-    case 'x':
+    case 'x': //THB - X server modifications
       X_mod = atoi(&(argv[arg][2]));
       if ((X_mod & RandomWellFormed_Mod) || (X_mod & RandomLegal_Mod)) {
-	fprintf(stderr, "Can not send events to X, only to PROG\n\n");
-	syntax();
+	    fprintf(stderr, "Can not send events to X, only to PROG\n\n");
+	    syntax();
       };
       if (X_mod > MAX_MODIFIER) {
-	syntax();
+	    syntax();
       };
       break;
-    case 'p':
+    case 'p': //THB -  Program modifications
       if ((PROG_mod = atoi(&(argv[arg][2]))) > MAX_MODIFIER) {
-	syntax();
+	    syntax();
       };
+      printf(".....PROG_mod = %d\n", PROG_mod );
       break;
-    case 's':
+    case 's': //THB - Seed for randomization
       srand(atoi(&(argv[arg][2])));
       break;
-    case 'w':
+    case 'w': //THB - Wait count?
       wait_count = atoi(&(argv[arg][2]));
       break;
-    case 'd':
+    case 'd': //THB - Detail level in messages
       message_detail = (MessageDetail)atoi(&(argv[arg][2]));
       printf("   Setting detail to level %i\n", (int)message_detail);
       break;
-    case 'm':
+    case 'm': // Minimum delay between ??
       min_delay = atoi(&(argv[arg][2]));
       break;
-    case 't':
+    case 't': //THB - Max rub time
       max_time = atoi(&(argv[arg][2]));
       break;
-    case 'h':
+    case 'h': //THB - Hang time?
       hang_time = atoi(&(argv[arg][2]));
       break;
-    case 'c':
+    case 'c': //THB - ??
       random_chance = atoi(&(argv[arg][2]));
       break;
-    case 'u':
+    case 'u': //THB - Smart window on
       smart_win_on = atoi(&(argv[arg][2]));
       break;
     default:
@@ -749,9 +764,12 @@ int main(int argc, char *argv[]) {
 */
 
   // *** Make initial connects ***
-    
-  Brief("Connecting X\n");
-  
+  //THB - Make socket with ? sets 'handle' from socket.h with FD
+  //x is type socket.
+  Brief("Connecting to X-Server\n");
+  printf("...%s on port %d\n", x_host_name, 6000);
+  // THB Make a new socket set up for x_host_name
+  // and port 6000.
   New(X, Socket(x_host_name, 6000));
 
   if (!X) {
@@ -759,27 +777,33 @@ int main(int argc, char *argv[]) {
     terminate();
   };
   
+  //THB
   X->Connect();
-  
+
+  //THB - Connecting to application using program_port.
   Brief("Connecting remote port\n");
-  
   Socket program_port_socket(host_name, program_port);
-  
+
+  //THB - Create PROG socket.  Why this and above?
   Brief("Connecting client\n");
-  
   New(PROG, Socket(program_port_socket));
 
   if (!PROG) {
     fprintf(stderr, "Socket PROG not allocated\n");
     terminate();
   };
-  
+
+  std::cout << "Press enter to continue: ";
+  std::string moveon;
+  std::cin >> moveon;
+
   struct rlimit max_file_num;  
   SET_RLIM_MAX;
   
   fd_set fdset, nullset;  
   FD_ZERO(&nullset);
-  
+
+  // THB - At this point we have socket for app and socket for x-server
 // ******************* MAIN LOOP *****************************************
   
   int temp;
@@ -863,6 +887,7 @@ int main(int argc, char *argv[]) {
 	{
 	  last_time = current_time;
 
+      //THB - Insert legal message
 	  if (PROG_mod & RandomLegal_Mod) {
 	    Brief("Inserting synthetic legal event message\n");
 	    Event *event_pointer;
@@ -1239,7 +1264,7 @@ int main(int argc, char *argv[]) {
       };
 
       if (message_detail >= Packet_Detail) {
-	printf("Packet %u from X of size %u\n",
+	    printf("Packet %u from X of size %u\n",
 	       (unsigned int)X_packet_count - 1,
 	       (unsigned int)msg.Size());
       };
