@@ -32,8 +32,8 @@ typedef enum tag_bool
 
 enum endianness
 {
-	LITTLE_ENDIAN = 0154,
-	BIG_ENDIAN    = 0102
+	LITTLE_ENDIAN_NEW = 0154,
+	BIG_ENDIAN_NEW    = 0102
 };
 
 /* ---------------------------------------------------------------- */

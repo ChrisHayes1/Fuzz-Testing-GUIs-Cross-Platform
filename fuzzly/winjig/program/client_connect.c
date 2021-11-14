@@ -126,7 +126,9 @@ int client_connect(int port, enum endianness *endian_ptr,
 	 *  Discard the authorization part of the opening message.
 	 *  This shouldn't reach the real X server.
 	 */
-	if (recv(client_message_socket, buffer, 12, 0) < 12)
+    // THB - added tracking rcv length, length is funky, maybe it doesnt matter.
+    int x = recv(client_message_socket, buffer, 12, 0);
+	if (x < 12)
 	{
 #ifdef ERROR_MESSAGES
 		fprintf(stderr, "%s (client_connect): Can't recv data.\n",
@@ -136,6 +138,10 @@ int client_connect(int port, enum endianness *endian_ptr,
 		close(client_message_socket);
 		return -1;
 	}
+
+    //THB - added to qc.
+    fprintf(stderr, "Initial message (%d) is:%s:\n", x, buffer);
+
 
 	/*
 	 *  Copy required data out.

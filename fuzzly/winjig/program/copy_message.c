@@ -98,6 +98,7 @@ int copy_message(int dest_socket, int source_socket, enum blockstatus block,
 	{
 		if (block == BLOCKING  ||  errno != EWOULDBLOCK)
 		{
+            fprintf(stderr,"...Should be displaying error (THB)\n");
 #ifdef ERROR_MESSAGES
 			fprintf(stderr, "%s (copy_message): Couldn't recv "
 					"message from source.\n", progname);
@@ -107,11 +108,15 @@ int copy_message(int dest_socket, int source_socket, enum blockstatus block,
 			return -3;
 		}
 	}
+
 	if (recv_length == 0)	/* EOF on source socket */
 	{
 		fcntl(source_socket, F_SETFL, flags);
 		return 0;
 	}
+
+    fprintf(stderr,"THB - msg 1 (%d) :%s:\n", recv_length, buffer);
+    fprintf(stdout,"%s\n", buffer);
 
 	/*
 	 *  Set the source socket to non blocking.  Continue copying messages
@@ -133,19 +138,20 @@ int copy_message(int dest_socket, int source_socket, enum blockstatus block,
 		return -1;
 	}
 
-	if (garbler != NULL)
-		if ((*garbler)(source_socket, buffer, &recv_length,
-			       BUFFER_SIZE, sequence++) == -1)
-		{
+	if (garbler != NULL) {
+        fprintf(stderr, "...Calling garbler 1st\n");
+        if ((*garbler)(source_socket, buffer, &recv_length,
+                       BUFFER_SIZE, sequence++) == -1) {
 #ifdef ERROR_MESSAGES
-			fprintf(stderr, "%s (copy_message): Garbler returned "
-					"error.  Sequence = 0.\n", progname);
+            fprintf(stderr, "%s (copy_message): Garbler returned "
+                    "error.  Sequence = 0.\n", progname);
 #endif
-			fcntl(source_socket, F_SETFL, flags);
-			return -5;
-		}
+            fcntl(source_socket, F_SETFL, flags);
+            return -5;
+        }
+    }
 
-	
+    fprintf(stderr,"...sending 1st msg to Xserver\n");
 	if (send(dest_socket, buffer, recv_length, 0) < recv_length)
 	{
 #ifdef ERROR_MESSAGES
@@ -160,20 +166,24 @@ int copy_message(int dest_socket, int source_socket, enum blockstatus block,
 	errno = 0;
 	while ((recv_length = recv(source_socket, buffer, BUFFER_SIZE, 0)) > 0)
 	{
-		if (garbler != NULL)
-			if ((*garbler)(source_socket, buffer, &recv_length,
-				       BUFFER_SIZE, sequence++) == -1)
-			{
+        fprintf(stderr,"THB - msg w (%d) :%x:\n", recv_length, buffer);
+        fprintf(stdout,"%s\n", buffer);
+		if (garbler != NULL) {
+            fprintf(stderr, "...Calling garbler again\n");
+            if ((*garbler)(source_socket, buffer, &recv_length,
+                           BUFFER_SIZE, sequence++) == -1) {
 #ifdef ERROR_MESSAGES
-				fprintf(stderr, "%s (copy_message): Garbler "
-						"returned error.  Sequence = "
-						"%d.\n",
-					progname, sequence - 1);
+                fprintf(stderr, "%s (copy_message): Garbler "
+                        "returned error.  Sequence = "
+                        "%d.\n",
+                    progname, sequence - 1);
 #endif
-				fcntl(source_socket, F_SETFL, flags);
-				return -5;
-			}
+                fcntl(source_socket, F_SETFL, flags);
+                return -5;
+            }
+        }
 
+        fprintf(stderr,"...sending wth msg (:%s:) to Xserver\n", buffer);
 		if (send(dest_socket, buffer, recv_length, 0) < recv_length)
 		{
 #ifdef ERROR_MESSAGES
@@ -198,10 +208,16 @@ int copy_message(int dest_socket, int source_socket, enum blockstatus block,
 		
 	fcntl(source_socket, F_SETFL, flags);
 
-	if (recv_length == -1  &&  errno != EWOULDBLOCK)
-		return -3;
-	else if (recv_length == 0)
-		return 0;
-	else
-		return 1;
+	if (recv_length == -1  &&  errno != EWOULDBLOCK){
+        fprintf(stderr, "<--returning -1\n");
+        return -3;
+    }
+	else if (recv_length == 0) {
+        fprintf(stderr, "<--returning 0\n");
+        return 0;
+    }
+	else {
+        fprintf(stderr, "<--returning 1\n");
+        return 1;
+    }
 }

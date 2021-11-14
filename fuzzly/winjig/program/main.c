@@ -167,6 +167,7 @@ int main(int argc, char *argv[ ])
 	install_sigint_handler();
 	install_sigquit_handler();
 
+    fprintf(stderr, "THB - Connecting with client\n");
 	srandom(1857);
 	client_socket = client_connect(port, &endian, &major, &minor);
 	if (client_socket == -1)
@@ -174,7 +175,8 @@ int main(int argc, char *argv[ ])
 		fprintf(stderr, "%s (main): Can't connect to client.\n", progname);
 		return 2;
 	}
-	
+
+    fprintf(stderr, "THB - Connecting with server\n");
 	server_socket = server_connect(endian, major, minor);
 	if (server_socket == -1)
 	{
@@ -211,17 +213,23 @@ int main(int argc, char *argv[ ])
 	}
 	else if (mode == 2  ||  mode == 3)	/* random events */
 	{
+        fprintf(stderr, "THB - Setting client garbler to random events\n");
 		server_to_client_garbler = random_events;
 		client_to_server_garbler = NULL;
 	}
 
+
+    fprintf(stderr, "THB - Entering main loop\n****************************\n");
+    long int t_count = 0;
 	while ((return_status_1 = copy_message(client_socket, server_socket,
 		       NON_BLOCKING, server_to_client_garbler)) == 1  &&
 	       (return_status_2 = copy_message(server_socket, client_socket,
 		       NON_BLOCKING, client_to_server_garbler)) == 1)
 	{
+        fprintf(stderr, "=%ld\n", ++t_count);
 		if (mode == 0)		/* random message */
 		{
+            fprintf(stderr, "@");
 			/*
 			 *  no random messages until startgap.
 			 */
@@ -259,6 +267,8 @@ int main(int argc, char *argv[ ])
 			printf("RANDOM MESSAGE SENT\n");
 		}  /* if (mode == 0) */
 	}  /* while (...) */
+
+    fprintf(stderr, "THB - done with main loop - closing");
 
 	if (return_status_1 == 0)
 	{
@@ -340,6 +350,7 @@ int parse_command_line(int argc, char *argv[ ])
 				mode = 0;
 			else if (strcmp(argv[i + 1], "garbling") == 0)
 				mode = 1;
+
 			else if (strcmp(argv[i + 1], "events") == 0)
 				mode = 2;
 			else if (strcmp(argv[i + 1], "kmevents") == 0)
