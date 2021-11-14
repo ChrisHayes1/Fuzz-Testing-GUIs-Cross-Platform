@@ -47,7 +47,7 @@
  *  to the buffer before sending it out.  There is ample slack.
  */
 
-#define	BUFFER_SIZE	8192
+#define	BUFFER_SIZE	16384
 
 /* ------------------------------------------------------------------ */
 

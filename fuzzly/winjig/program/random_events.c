@@ -11,6 +11,7 @@
 #include <fcntl.h>
 #include <sys/types.h>
 #include <sys/socket.h>
+#include <stdio.h>
 
 #include "testos.h"
 #include "functions.h"
@@ -30,7 +31,7 @@
  *  We record this sequence number so that we can put it in our own random
  *  events.  We wait for a message boundary (message boundaries can be
  *  detected because we know the message formats and lengths).  We then decide
- *  whether or not to insert a random event. 
+ *  whether to insert a random event.
  *  The opcode, the timestamp, and the sequence number in the random event
  *  are valid.  The rest of the event is random.
  */
@@ -74,6 +75,7 @@ int random_events(int source_socket, char *buf, int *len_ptr, int max_len,
 	 *  Since the recvs are non-blocking, we may be called even when there
 	 *  is no message.  Check this case and get out.
 	 */
+    fprintf(stderr, "!!! THB - ENTERING RANDOM EVENT\n");
 	if (*len_ptr <= 0)
 	{
 		if (n_bytes_recved == 0)
@@ -133,19 +135,19 @@ int random_events(int source_socket, char *buf, int *len_ptr, int max_len,
 				? temp_sequence_number 
 				: sequence_number;
 
-	if (opcode == 1)
-		if (first_time)
-		{
-			first_time = false;
-			length = *((unsigned short *) (bytes_recved + 6)) - 6;
-			/*
-			 *  Reason for the 6: Length field is 8 + .../4
-			 *  but actual length in 4 byte units is (8 + ...)/4.
-			 *  (8 - 8/4) == 6.
-			 */
-		}
-		else
-			length = *((unsigned *) (bytes_recved + 4));
+	if (opcode == 1) {
+        if (first_time) {
+            first_time = false;
+            length = *((unsigned short *) (bytes_recved + 6)) - 6;
+            /*
+             *  Reason for the 6: Length field is 8 + .../4
+             *  but actual length in 4 byte units is (8 + ...)/4.
+             *  (8 - 8/4) == 6.
+             */
+        } else {
+            length = *((unsigned *) (bytes_recved + 4));
+        }
+    }
 
 	if (opcode != 1  ||  (opcode == 1  &&  length == 0))
 	{
