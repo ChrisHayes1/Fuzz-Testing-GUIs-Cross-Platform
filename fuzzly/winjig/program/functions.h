@@ -201,4 +201,7 @@ int insert_random_event(char * b, unsigned int len, int seq);
 
 /* --------------------------------------------------------------------- */
 
+void my_log(char* my_string);
+
+
 #endif  /* _FUNCTIONS_H */

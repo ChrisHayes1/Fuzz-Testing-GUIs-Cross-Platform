@@ -66,21 +66,21 @@ int server_connect(enum endianness endian,
 	 */
 	if (gethostname(my_hostname, MAXHOSTNAMELEN) == -1)
 	{
-#ifdef ERROR_MESSAGES
-		fprintf(stderr, "%s (server_connect): Can't get hostname.\n",
-			progname);
-		perror("(server_connect)");
-#endif
+		if (DISPLAY_MSGS) {
+			fprintf(stderr, "%s (server_connect): Can't get hostname.\n",
+				progname);
+			perror("(server_connect)");
+		}
 		return -1;
 	}
 	if ((hostent_ptr = gethostbyname(my_hostname)) == NULL)
 	{
-#ifdef ERROR_MESSAGES
-		fprintf(stderr,
-			"%s (server_connect): Can't get IP address of %s.\n",
-			progname, my_hostname);
-		perror("(server_connect)");
-#endif
+		if (DISPLAY_MSGS) {					
+			fprintf(stderr,
+				"%s (server_connect): Can't get IP address of %s.\n",
+				progname, my_hostname);
+			perror("(server_connect)");
+		}
 		return -1;
 	}
 	bzero((char *) &server_sock_addr, sizeof(struct sockaddr_in));
@@ -99,15 +99,15 @@ int server_connect(enum endianness endian,
 					  strlen("MIT-MAGIC-COOKIE-1"),
 					  "MIT-MAGIC-COOKIE-1")) == NULL)
 	{
-#ifdef ERROR_MESSAGES
-		fprintf(stderr, "%s (server_connect): Can't get "
-				"authorization data for %s [%d.%d.%d.%d].\n",
-			progname, my_hostname,
-			(unsigned char) hostent_ptr->h_addr_list[0][0],
-			(unsigned char) hostent_ptr->h_addr_list[0][1],
-			(unsigned char) hostent_ptr->h_addr_list[0][2],
-			(unsigned char) hostent_ptr->h_addr_list[0][3]);
-#endif
+		if (DISPLAY_MSGS) {
+			fprintf(stderr, "%s (server_connect): Can't get "
+					"authorization data for %s [%d.%d.%d.%d].\n",
+				progname, my_hostname,
+				(unsigned char) hostent_ptr->h_addr_list[0][0],
+				(unsigned char) hostent_ptr->h_addr_list[0][1],
+				(unsigned char) hostent_ptr->h_addr_list[0][2],
+				(unsigned char) hostent_ptr->h_addr_list[0][3]);
+		}
 		return -1;
 	}
 	
@@ -119,10 +119,10 @@ int server_connect(enum endianness endian,
 				  NEAREST_MULTIPLE_OF_4(xauth_ptr->data_length)))
 	    == NULL)
 	{
-#ifdef ERROR_MESSAGES
-		fprintf(stderr, "%s (server_connect): Can't allocate buffer.\n",
-			progname);
-#endif
+		if (DISPLAY_MSGS) {
+			fprintf(stderr, "%s (server_connect): Can't allocate buffer.\n",
+				progname);
+		}
 		XauDisposeAuth(xauth_ptr);
 		return -1;
 	}
@@ -145,11 +145,11 @@ int server_connect(enum endianness endian,
 	 */
 	if ((server_side_socket = socket(AF_INET, SOCK_STREAM, 0)) == -1)
 	{
-#ifdef ERROR_MESSAGES
-		fprintf(stderr, "%s (server_connect): Can't get server side socket.\n",
-			progname);
-		perror("(server_connect)");
-#endif
+		if (DISPLAY_MSGS) {
+			fprintf(stderr, "%s (server_connect): Can't get server side socket.\n",
+				progname);
+			perror("(server_connect)");
+		}
 		free(auth_buffer);
 		return -1;
 	}
@@ -158,16 +158,16 @@ int server_connect(enum endianness endian,
 	if (connect(server_side_socket, (struct sockaddr *) &server_sock_addr,
 		    sizeof(server_sock_addr)) == -1)
 	{
-#ifdef ERROR_MESSAGES
-		fprintf(stderr,
-			"%s (server_connect): Can't connect to %s [%u.%u.%u.%u], port %d.\n",
-			progname, my_hostname,
-			hostent_ptr->h_addr_list[0][0],
-			hostent_ptr->h_addr_list[0][1],
-			hostent_ptr->h_addr_list[0][2],
-			hostent_ptr->h_addr_list[0][3],
-			X_PORT);
-#endif
+		if (DISPLAY_MSGS) {
+			fprintf(stderr,
+				"%s (server_connect): Can't connect to %s [%u.%u.%u.%u], port %d.\n",
+				progname, my_hostname,
+				hostent_ptr->h_addr_list[0][0],
+				hostent_ptr->h_addr_list[0][1],
+				hostent_ptr->h_addr_list[0][2],
+				hostent_ptr->h_addr_list[0][3],
+				X_PORT);
+		}
 		close(server_side_socket);
 		free(auth_buffer);
 		return -1;
@@ -179,11 +179,11 @@ int server_connect(enum endianness endian,
 	 */
 	if (send(server_side_socket, buffer, 12, 0) < 12)
 	{
-#ifdef ERROR_MESSAGES
-		fprintf(stderr, "%s (server_connect): Can't send initial part "
-				"of connection message.\n", progname);
-		perror("(server_connect)");
-#endif
+		if (DISPLAY_MSGS) {
+			fprintf(stderr, "%s (server_connect): Can't send initial part "
+					"of connection message.\n", progname);
+			perror("(server_connect)");
+		}
 		close(server_side_socket);
 		free(auth_buffer);
 		return -1;
@@ -191,10 +191,10 @@ int server_connect(enum endianness endian,
 			
 	if (send(server_side_socket, auth_buffer, total_length, 0) < total_length)
 	{
-#ifdef ERROR_MESSAGES
-		fprintf(stderr, "%s (server_connect): Can't send authorization part"
-				" of connection data.\n", progname);
-#endif
+		if (DISPLAY_MSGS) {
+			fprintf(stderr, "%s (server_connect): Can't send authorization part"
+					" of connection data.\n", progname);
+		}
 		close(server_side_socket);
 		free(auth_buffer);
 		return -1;
