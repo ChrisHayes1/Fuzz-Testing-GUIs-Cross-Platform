@@ -155,11 +155,11 @@ void SendMessage(Message &msg, Modifier mod, Socket *dest) {
       UINT8 *garbage;
       New(garbage, UINT8[length]);
       if (!garbage) {
-	fprintf(stderr, "No room for garbage (take it out)\n");
-	terminate();
+        fprintf(stderr, "No room for garbage (take it out)\n");
+        terminate();
       };
       for (UINT32 i = 0; i < length; i++) {
-	garbage[i] = (UINT8)Random(0xFF);
+	      garbage[i] = (UINT8)Random(0xFF);
       };
       msg.Modify(start, length, garbage);
       DELETE_ARRAY(garbage);
@@ -171,7 +171,7 @@ void SendMessage(Message &msg, Modifier mod, Socket *dest) {
       UINT32 append_size = Random(127) + 1;
       msg.SetSizeLock(0);
       for (UINT32 i = 0; i <= append_size; i++) {
-	PutUINT8(msg, msg.Size(), Random(255));
+	      PutUINT8(msg, msg.Size(), Random(255));
       };
       msg.SetSizeLock(1);
     };
@@ -693,8 +693,8 @@ int main(int argc, char *argv[]) {
   UINT32 wait_count = 0;
   message_detail = Brief_Detail;
   UINT32 min_delay = 0;         // in 1/1000th of seconds
-  time_t max_time = 0x70000000; // in seconds
-  time_t hang_time = 5*60;      // in seconds
+  time_t max_time = 0x70000000; // in seconds - total amount of time to run app
+  time_t hang_time = 5*60;      // in seconds - total amount of time to wait for client to send msg
   random_chance = 50;           // in percent
   smart_win_on = 0;
 
@@ -725,7 +725,7 @@ int main(int argc, char *argv[]) {
     case 's': //THB - Seed for randomization
       srand(atoi(&(argv[arg][2])));
       break;
-    case 'w': //THB - Wait count?
+    case 'w': //THB - Wait count - wait for x msgs before interfearing
       wait_count = atoi(&(argv[arg][2]));
       break;
     case 'd': //THB - Detail level in messages
@@ -735,10 +735,10 @@ int main(int argc, char *argv[]) {
     case 'm': // Minimum delay between ??
       min_delay = atoi(&(argv[arg][2]));
       break;
-    case 't': //THB - Max rub time
+    case 't': //THB - Max run time
       max_time = atoi(&(argv[arg][2]));
       break;
-    case 'h': //THB - Hang time?
+    case 'h': //THB - Hang time - Total amount of time to wait for client to respond
       hang_time = atoi(&(argv[arg][2]));
       break;
     case 'c': //THB - ??
@@ -833,12 +833,15 @@ int main(int argc, char *argv[]) {
   };
   time_t start_seconds = time_pointer->time;
   UINT32 last_time = time_pointer->millitm;
-  UINT32 current_time;
+  UINT32 current_time; // Time at start of each loop
   time_t last_PROG_message_time = start_seconds;
   PROG_message_count = 0;
   X_message_count = 0;
 
   while (1) {
+    //THB - Looks like it looks for messages from the prog, or X
+    //temp is 0 if no msgs, otherwise below checks for ISSET on prog
+    //followed by XSERV.
     FD_ZERO(&fdset);
     FD_SET(PROG->Handle(), &fdset);
     FD_SET(X->Handle(), &fdset);
@@ -847,27 +850,35 @@ int main(int argc, char *argv[]) {
 		  (FD_SET_CAST)&nullset,
 		  (FD_SET_CAST)&nullset, 
 		  &zero_time);
+    //THB - Look for errors on FD
     if (temp == -1) {
       fprintf(stderr, "Error %i on select()\n", errno);
       terminate();
     };
-    
+    //THB - Look for error in time pointer
     if (ftime(time_pointer) == -1) {
       fprintf(stderr, "Error %i from ftime()\n", errno);
       terminate();
     };
+
+    //THB - Overall a client is only given so long to run.  This is similar to hang_time
+    // but suggests that some apps may send msgs but still be overall unresponsive?
     if (time_pointer->time - start_seconds > max_time) {
       fprintf(stderr, "Application ran out of time\n");
       terminate();
     };
+
+    //THB - Check and see if client has become non-responsive
     if (time_pointer->time - last_PROG_message_time > hang_time) {
       if (FileExists("core")) {
-	fprintf(stderr, "Application dumped core\n");
-	terminate();
+        fprintf(stderr, "Application dumped core\n");
+        terminate();
       };
       fprintf(stderr, "Application hung\n");
       terminate();
     };
+
+
     current_time = (time_pointer->time - start_seconds) * 1000
       + time_pointer->millitm;
 
@@ -875,195 +886,198 @@ int main(int argc, char *argv[]) {
       if (packet_count <= wait_count) packet_count++;
     };
 
-    if (temp == 0) {
+    //THB - This column
+    // if No messages, insert event
+    // else if Message from Prog
+    // else if Message from X-Server
+    // else rando msg
 
+    if (temp == 0) {    
     // ********** No Messages Yet, Insert Event? **********
 
       {
-	if (packet_count > wait_count
-	    && ((PROG_mod & RandomLegal_Mod)
-	     || (PROG_mod & RandomWellFormed_Mod)
-	     || (PROG_mod & RandomBogus_Mod))
-	    && PROG_message_count > wait_count
-	    && Random(BASE_CHANCE) + 1 <= random_chance
-	    && current_time >= last_time + min_delay)
-	{
-	  last_time = current_time;
+        if (packet_count > wait_count
+            && ((PROG_mod & RandomLegal_Mod)
+            || (PROG_mod & RandomWellFormed_Mod)
+            || (PROG_mod & RandomBogus_Mod))
+            && PROG_message_count > wait_count
+            && Random(BASE_CHANCE) + 1 <= random_chance
+            && current_time >= last_time + min_delay)
+        {
+          last_time = current_time;
 
-      //THB - Insert legal message
-	  if (PROG_mod & RandomLegal_Mod) {
-	    Brief("Inserting synthetic legal event message\n");
-	    Event *event_pointer;
+            //THB - Insert legal message
+          if (PROG_mod & RandomLegal_Mod) {
+            Brief("Inserting synthetic legal event message\n");
+            Event *event_pointer;
 
-	    UINT32 win_id, child_id = 0, event_x, event_y, root_x, root_y;
-	    UINT32 event_mask = 0;
-	    Window *win = 0;
-	    int looking = 1;
+            UINT32 win_id, child_id = 0, event_x, event_y, root_x, root_y;
+            UINT32 event_mask = 0;
+            Window *win = 0;
+            int looking = 1;
 
-	    printf("1\n");
+            printf("1\n");
 
-	    if (smart_win_on) {
-	      // Find a child window (most of the time)
-	      while(looking) {
+            if (smart_win_on) {
+              // Find a child window (most of the time)
+              while(looking) {
 
-		printf("2\n");
+                printf("2\n");
 
-		win = Window::Number(Random(Window::Count() - 1));
+                win = Window::Number(Random(Window::Count() - 1));
 
-		printf("3, win = %p\n", win);
+                printf("3, win = %p\n", win);
 
-		if (win->IsChild() || Random(100) < 5) {
-		  looking = 0;
-		};
-	      };
+                if (win->IsChild() || Random(100) < 5) {
+                  looking = 0;
+                };
+              };
 
-	      printf("4\n");
+              printf("4\n");
 
-	      win_id = win->ID();
-	      event_x = Random(win->Max_x());
-	      event_y = Random(win->Max_y());
-	      root_x = win->Root_x(event_x);
-	      root_y = win->Root_y(event_y);
+              win_id = win->ID();
+              event_x = Random(win->Max_x());
+              event_y = Random(win->Max_y());
+              root_x = win->Root_x(event_x);
+              root_y = win->Root_y(event_y);
 
-	      printf("5\n");
+              printf("5\n");
 
-	      if (win->IsRoot()
-		  && orphan_windows.Size() > 0
-		  && Random(100) < 95)
-	      {
-		printf("6\n");
+              if (win->IsRoot()
+                && orphan_windows.Size() > 0
+                && Random(100) < 95)
+              {
+                printf("6\n");
 
-		win = 0;
-		if (!orphan_windows.Next()) {
-		  printf("7\n");
-		  orphan_windows.Rewind();
-		};		  
-		printf("8, current = %p\n", orphan_windows.Current());
-		win_id = *(orphan_windows.Current());
-		printf("9\n");
-	      };
-	    } else {
-	      win_id = 0;
-	      event_x = Random(1000);
-	      event_y = Random(1000);
-	      root_x = Random(1000);
-	      root_y = Random(1000);
-	    };
+                win = 0;
+                if (!orphan_windows.Next()) {
+                  printf("7\n");
+                  orphan_windows.Rewind();
+                };		  
+                printf("8, current = %p\n", orphan_windows.Current());
+                win_id = *(orphan_windows.Current());
+                printf("9\n");
+              };
+            } else {
+              win_id = 0;
+              event_x = Random(1000);
+              event_y = Random(1000);
+              root_x = Random(1000);
+              root_y = Random(1000);
+            };
 
-	    switch (Random(2)) {
-//	    switch (Random(0)) {
-	    case 0:
-	      New(event_pointer, Event(event_context, Key(Random(247) + 8)));
-	      break;
-	    case 1:
-	      New(event_pointer, Event(event_context, Button(Random(4) + 1)));
-	      break;
-	    default:
-	      New(event_pointer,
-		  Event(event_context, Motion(0,
-					      root_x,
-					      root_y
-		                             )
-		       )
-		 );
-	      break;
-	    };
+            switch (Random(2)) {
+      //	    switch (Random(0)) {
+              case 0:
+                New(event_pointer, Event(event_context, Key(Random(247) + 8)));
+                break;
+              case 1:
+                New(event_pointer, Event(event_context, Button(Random(4) + 1)));
+                break;
+              default:
+                New(event_pointer,
+                Event(event_context, Motion(0,
+                        root_x,
+                        root_y
+                                        )
+                  )
+                );
+                break;
+            };
 
-		printf("10\n");
+            printf("10\n");
 
-	    switch ((*event_pointer)[0]) {
-	    case 2:
-	      event_mask = 1;
-	      break;
-	    case 3:
-	      event_mask = 2;
-	      break;
-	    case 4:
-	      event_mask = 4;
-	      break;
-	    case 5:
-	      event_mask = 8;
-	      break;
-	    case 7:
-	      event_mask = 16;
-	      break;
-	    case 8:
-	      event_mask = 32;
-	      break;
-	    case 6:
-	      event_mask = 64;
-	      break;
-	    };
+            switch ((*event_pointer)[0]) {
+              case 2:
+                event_mask = 1;
+                break;
+              case 3:
+                event_mask = 2;
+                break;
+              case 4:
+                event_mask = 4;
+                break;
+              case 5:
+                event_mask = 8;
+                break;
+              case 7:
+                event_mask = 16;
+                break;
+              case 8:
+                event_mask = 32;
+                break;
+              case 6:
+                event_mask = 64;
+                break;
+            };
 
-		printf("11\n");
+            printf("11\n");
 
-	    // Propagate if event is masked from current window
-	    if (win) {
-	      while (!win->IsRoot() && !(win->EventMask() & event_mask)) {
+            // Propagate if event is masked from current window
+            if (win) {
+              while (!win->IsRoot() && !(win->EventMask() & event_mask)) {
 
-		printf("12\n");
+                printf("12\n");
 
-		child_id = win_id;
+                child_id = win_id;
 
-		printf("13\n");
-		win = win->Parent();
-		printf("14\n");
-		win_id = win->ID();
-	      };
-		printf("15\n");
-	      PutUINT32(*event_pointer, 8, Window::RootID());
-	      PutUINT32(*event_pointer, 12, win_id);
-	      PutUINT32(*event_pointer, 16, child_id);
-	    };
-		printf("16\n");
+                printf("13\n");
+                win = win->Parent();
+                printf("14\n");
+                win_id = win->ID();
+              };
+              printf("15\n");
+              PutUINT32(*event_pointer, 8, Window::RootID());
+              PutUINT32(*event_pointer, 12, win_id);
+              PutUINT32(*event_pointer, 16, child_id);
+            };
+            printf("16\n");
 
-	    PutUINT16(*event_pointer, 20, root_x);
-	    PutUINT16(*event_pointer, 22, root_y);
-	    PutUINT16(*event_pointer, 24, event_x);
-	    PutUINT16(*event_pointer, 26, event_y);
+            PutUINT16(*event_pointer, 20, root_x);
+            PutUINT16(*event_pointer, 22, root_y);
+            PutUINT16(*event_pointer, 24, event_x);
+            PutUINT16(*event_pointer, 26, event_y);
 
-	    PutUINT16(*event_pointer, 2, last_seq_num);
-		printf("17\n");
-	    Snoop_X_Message(*event_pointer);
-		printf("18\n");
+            PutUINT16(*event_pointer, 2, last_seq_num);
+            printf("17\n");
+            Snoop_X_Message(*event_pointer);
+            printf("18\n");
 
-	    event_pointer->Send(*PROG);
-		printf("19\n");
-	    
-	    DELETE(event_pointer);
-		printf("20\n");
-	  } else if (PROG_mod & RandomWellFormed_Mod) {
-	    Brief("Inserting synthetic well formed event message\n");
-	    Message event(32);
-	    event.SetSizeLock(0);
-	    PutUINT8(event, 0, Random(32) + 2);  // Event Type
-	    for (UINT32 i = 1; i <= 31; i++) {
-	      PutUINT8(event, i, Random(255));
-	    };
-	    event.SetSizeLock(1);
-	    Snoop_X_Message(event);
-	    //PutUINT16(event, 2, 1);  // sequence number
-	    //PutUINT32(event, 8, 42); // RootID
-	    event.Send(*PROG);
-	  } else {
-	    Brief("Inserting synthetic bogus event message\n");
-	    UINT32 size = Random(1023) + 1;
-	    Message event(size);
-	    event.SetSizeLock(0);
-	    for (UINT32 i = 0; i < size; i++) {
-	      PutUINT8(event, i, Random(255));
-	    };
-	    event.SetSizeLock(1);
-	    //Snoop_X_Message(event);
-	    //PutUINT16(event, 2, 1);  // sequence number
-	    //PutUINT32(event, 8, 42); // RootID
-	    event.Send(*PROG);
+            event_pointer->Send(*PROG);
+            printf("19\n");
+            
+            DELETE(event_pointer);
+            printf("20\n");
+          } else if (PROG_mod & RandomWellFormed_Mod) {
+            Brief("Inserting synthetic well formed event message\n");
+            Message event(32);
+            event.SetSizeLock(0);
+            PutUINT8(event, 0, Random(32) + 2);  // Event Type
+            for (UINT32 i = 1; i <= 31; i++) {
+              PutUINT8(event, i, Random(255));
+            };
+            event.SetSizeLock(1);
+            Snoop_X_Message(event);
+            //PutUINT16(event, 2, 1);  // sequence number
+            //PutUINT32(event, 8, 42); // RootID
+            event.Send(*PROG);
+          } else {
+            Brief("Inserting synthetic bogus event message\n");
+            UINT32 size = Random(1023) + 1;
+            Message event(size);
+            event.SetSizeLock(0);
+            for (UINT32 i = 0; i < size; i++) {
+              PutUINT8(event, i, Random(255));
+            };
+            event.SetSizeLock(1);
+            //Snoop_X_Message(event);
+            //PutUINT16(event, 2, 1);  // sequence number
+            //PutUINT32(event, 8, 42); // RootID
+            event.Send(*PROG);
 
-	  };
-	};
+          };
+        };
       };      
-
-
     } else if (FD_ISSET(PROG->Handle(), &fdset)) {
 
       // ********** Got Message From PROG **********
@@ -1072,189 +1086,193 @@ int main(int argc, char *argv[]) {
 
       // *** Record time last message received from PROG to watch for hang ***
       if (ftime(time_pointer) == -1) {
-	fprintf(stderr, "Error %i from ftime()\n", errno);
-	terminate();
+        fprintf(stderr, "Error %i from ftime()\n", errno);
+        terminate();
       };
       last_PROG_message_time = time_pointer->time;
 
       if(msg.Receive(*PROG) == -1) {
-	fprintf(stderr, "Connection reset by client\n");
-	terminate();
+        fprintf(stderr, "Connection reset by client\n");
+        terminate();
       };
 
       if (message_detail >= Packet_Detail) {
-	printf("Packet %u from PROG of size %u\n",
-	       (unsigned int)PROG_packet_count - 1,
-	       (unsigned int)msg.Size());
+        printf("Packet %u from PROG of size %u\n",
+        (unsigned int)PROG_packet_count - 1,
+        (unsigned int)msg.Size());
       };
 
       if (msg.Size() > 0) {
-	if (!(PROG_mod & RandomLegal_Mod) && !(X_mod & ForceCracking_Mod)) {
-	  skip_break = 1;
-	} else {
-	  int reset_flag = 0;
-	  // *** Prescan packet and see if it parses correctly ***
-	  // *** If it can't be cracked, just send whole packet ***
-	  //if (PROG_message_count > 0) {
-	    temp_count = PROG_message_count;
-	    for (index = 0; index + 1 <= msg.Size() && skip_break == 0;
-			    index += size) {
-	      if ((msg[index] == 'B' || msg[index] == 'l')
-		  && PROG_message_count == 0 && index == 0) {
-		// This is a Connection Setup message
-	      printf("PROG_message_count = %u\n",
-		     (unsigned int)PROG_message_count);
-		SetByteOrder(msg[index]);
-	      reset_flag = 1;
-	      };
-	      size = ClientSubLength(msg, index);
-	      if (size == 0) {
-		if (message_detail >= Min_Detail) {
-		  printf("About to send message #%u which is of size 0!\n",
-			 (unsigned int)temp_count - 1);
-		  skip_break = 1;
-		};
-	      } else {
-		if (message_detail >= Full_Detail) {
-		  printf("  (pre-scan) Message code: %u, size %u\n",
-			 (unsigned int)msg[index],
-			 (unsigned int)size);
-		};
-		temp_count++;
-		if (index + size > msg.Size()) {
-		  if (message_detail >= Min_Detail) {
-		    printf("About to send message #%u which is too big\n",
-			   (unsigned int)temp_count - 1);
-		    skip_break = 1;
-		  };
-		};
-	      //};
-	    };
-	  };
-	  if (reset_flag) {
-	    ResetByteOrder(); // So that double-connection error doesn't occur
-	  };
-	  //Brief("Finished pre-scan\n");
-	};
+        //THB - We got a message now check
+        if (!(PROG_mod & RandomLegal_Mod) && !(X_mod & ForceCracking_Mod)) {
+          //THB - Program is not set for rnadom legal mods, and x-server is
+          //not set to force cracking, pass message directly to server
+          skip_break = 1;
+        } else {          
+          int reset_flag = 0;
+          // *** Prescan packet and see if it parses correctly ***
+          // *** If it can't be cracked, just send whole packet ***
+          //if (PROG_message_count > 0) {
+          temp_count = PROG_message_count;
+          for (index = 0; index + 1 <= msg.Size() && skip_break == 0;
+            index += size) {
+            if ((msg[index] == 'B' || msg[index] == 'l')
+            && PROG_message_count == 0 && index == 0) {
+              // This is a Connection Setup message
+              printf("PROG_message_count = %u\n",
+              (unsigned int)PROG_message_count);
+              SetByteOrder(msg[index]);
+              reset_flag = 1;
+            };
+            size = ClientSubLength(msg, index);
+            if (size == 0) {
+              if (message_detail >= Min_Detail) {
+                printf("About to send message #%u which is of size 0!\n",
+                (unsigned int)temp_count - 1);
+                skip_break = 1;
+              };
+            } else {
+              if (message_detail >= Full_Detail) {
+                printf("  (pre-scan) Message code: %u, size %u\n",
+                (unsigned int)msg[index],
+                (unsigned int)size);
+              };
+              temp_count++;
+              if (index + size > msg.Size()) {
+                if (message_detail >= Min_Detail) {
+                  printf("About to send message #%u which is too big\n",
+                  (unsigned int)temp_count - 1);
+                  skip_break = 1;
+                };
+              };
+              //};
+            };
+          };
+          if (reset_flag) {
+            ResetByteOrder(); // So that double-connection error doesn't occur
+          };
+          //Brief("Finished pre-scan\n");
+        };
 
 
-	if (skip_break) {
-	  if (PROG_message_count == 0) {
-	      printf("PROG_message_count = %u\n",
-		     (unsigned int)PROG_message_count);
-	      SetByteOrder(msg[0]);
-	      connect_request_flag = 1;
-	  };
-	  skip_break = 0;  // Send whole packet without cracking it
-	  msg.Send(*X);
-	  PROG_message_count++;
-	} else {
-	  for (index = 0; index + 1 <= msg.Size(); index += size) {
-	    
-	    if ((msg[index] == 'B' || msg[index] == 'l')
-		&& PROG_message_count == 0 && index == 0) {
-	      // This is a Connection Setup message
-	      printf("PROG_message_count = %u\n",
-		     (unsigned int)PROG_message_count);
-	      SetByteOrder(msg[index]);
-	    };
+        if (skip_break) {
+          if (PROG_message_count == 0) {
+              printf("PROG_message_count = %u\n",
+              (unsigned int)PROG_message_count);
+              SetByteOrder(msg[0]);
+              connect_request_flag = 1;
+          };
+          skip_break = 0;  // Send whole packet without cracking it
+          msg.Send(*X);
+          PROG_message_count++;
+        } else {
+          //THB - we have a valid msg lets do work on it
+          for (index = 0; index + 1 <= msg.Size(); index += size) {
+            
+            if ((msg[index] == 'B' || msg[index] == 'l')
+              && PROG_message_count == 0 && index == 0) {
+              // This is a Connection Setup message
+              printf("PROG_message_count = %u\n",
+              (unsigned int)PROG_message_count);
+              SetByteOrder(msg[index]);
+            };
 
-	    size = ClientSubLength(msg, index);
-	    
-	    if (message_detail >= Brief_Detail) {
-	      printf("  Message code: %u, size %u\n",
-		     (unsigned int)msg[index],
-		     (unsigned int)size);
-	    };
-	    
-	    if (index + size > msg.Size()) {
-	      fprintf(stderr, "Uncrackable packet recieved from PROG\n");
-	      fprintf(stderr, "Byte order: %s\n", ByteOrder());
-	      msg.Dump();
-	      
-	      {
-		FILE *f = fopen("bad.PROG.message", "w");
-		if (!f) {
-		  fprintf(stderr, "Unable to dump bad message\n");
-		} else {
-		  fprintf(f, "Byte order: %s\n", ByteOrder());
-		  msg.Dump(f, 16);
-		  for (index = 0; index + 1 <= msg.Size(); index += size) {
-		    size = ClientSubLength(msg, index);
-		    if (msg[index] == 'B' || msg[index] == 'l') {
-		      fprintf(f, "%u: code: %u, name size: %u, data size: %u, bytes: %u\n",
-			      (unsigned int)index,
-			      (unsigned int)msg[index],
-			      (unsigned int)GetUINT16(msg, index + 6),
-			      (unsigned int)GetUINT16(msg, index + 8),
-			      (unsigned int)size);
-		    } else {
-		      fprintf(f, "%u: code: %u, words: %u, bytes: %u\n",
-			      (unsigned int)index,
-			      (unsigned int)msg[index],
-			      (unsigned int)size / 4,
-			      (unsigned int)size);
-		    }; //* endif *
-		  };  //* endfor *
-		}; //* endif *
-	      }; //* end scope *
-	      terminate();
-	    }; //* end error-if *
-	    
-	    {
-	      Message extracted_msg(msg, index, size);
-	      Snoop_PROG_Message(extracted_msg);
-	      SendMessage(extracted_msg,
-			  (packet_count > wait_count) ? (Modifier)X_mod : No_Mod,
-			  X
-		         );
-	    };
-	  };
-	};
+            size = ClientSubLength(msg, index);
+            
+            if (message_detail >= Brief_Detail) {
+              printf("  Message code: %u, size %u\n",
+              (unsigned int)msg[index],
+              (unsigned int)size);
+            };
+            
+            //THB - Issue with message - not sure what causes this yet
+            if (index + size > msg.Size()) {
+              fprintf(stderr, "Uncrackable packet recieved from PROG\n");
+              fprintf(stderr, "Byte order: %s\n", ByteOrder());
+              msg.Dump();                
+              {
+                FILE *f = fopen("bad.PROG.message", "w");
+                if (!f) {
+                  fprintf(stderr, "Unable to dump bad message\n");
+                } else {
+                  fprintf(f, "Byte order: %s\n", ByteOrder());
+                  msg.Dump(f, 16);
+                  for (index = 0; index + 1 <= msg.Size(); index += size) {
+                    size = ClientSubLength(msg, index);
+                    if (msg[index] == 'B' || msg[index] == 'l') {
+                      fprintf(f, "%u: code: %u, name size: %u, data size: %u, bytes: %u\n",
+                        (unsigned int)index,
+                        (unsigned int)msg[index],
+                        (unsigned int)GetUINT16(msg, index + 6),
+                        (unsigned int)GetUINT16(msg, index + 8),
+                        (unsigned int)size);
+                    } else {
+                      fprintf(f, "%u: code: %u, words: %u, bytes: %u\n",
+                        (unsigned int)index,
+                        (unsigned int)msg[index],
+                        (unsigned int)size / 4,
+                        (unsigned int)size);
+                    }; //* endif *
+                  };  //* endfor *
+                }; //* endif *
+              }; //* end scope *
+              terminate();
+            }; //* end error-if *
+            
+            //Message looks good, lets finally work with it
+            {
+              Message extracted_msg(msg, index, size);
+              Snoop_PROG_Message(extracted_msg);
+              SendMessage(extracted_msg,
+              (packet_count > wait_count) ? (Modifier)X_mod : No_Mod,
+              X
+                  );
+            };
+          };
+        };
 
       } else {
 
-	// ********** PROG Disconnected, Set Up for Reconnect **********
-	
-	Min("Closing windows\n");
-	Window::DeleteAll();
+        // ********** PROG Disconnected, Set Up for Reconnect **********
+        
+        Min("Closing windows\n");
+        Window::DeleteAll();
 
-	Min("Closing X session\n");
-	DELETE(X);
-	X = 0;
-	
-	Min("Reconnecting to X\n");
-	New(X, Socket(x_host_name, 6000));
-	if (!X) {
-	  fprintf(stderr, "Socket X not allocated (in loop)\n");
-	  terminate();
-	};
-	X->Connect();
-	
-	Min("Closing PROG\n");
-	DELETE(PROG);
-	PROG = 0;
-	
-	Min("Reconnecting to test program\n");
-	New(PROG, Socket(program_port_socket));
-	if (!PROG) {
-	  fprintf(stderr, "Socket PROG not allocated (in loop)\n");
-	  terminate();
-	};
+        Min("Closing X session\n");
+        DELETE(X);
+        X = 0;
+        
+        Min("Reconnecting to X\n");
+        New(X, Socket(x_host_name, 6000));
+        if (!X) {
+          fprintf(stderr, "Socket X not allocated (in loop)\n");
+          terminate();
+        };
+        X->Connect();
+        
+        Min("Closing PROG\n");
+        DELETE(PROG);
+        PROG = 0;
+        
+        Min("Reconnecting to test program\n");
+        New(PROG, Socket(program_port_socket));
+        if (!PROG) {
+          fprintf(stderr, "Socket PROG not allocated (in loop)\n");
+          terminate();
+        };
 
-	ResetByteOrder();
-	packet_count = 0;
-	X_packet_count = 0;
-	PROG_packet_count = 0;
-	X_message_count = 0;
-	PROG_message_count = 0;
+        ResetByteOrder();
+        packet_count = 0;
+        X_packet_count = 0;
+        PROG_packet_count = 0;
+        X_message_count = 0;
+        PROG_message_count = 0;
 
-	orphan_windows.Rewind();
-	while (orphan_windows.Next()) {
-	  orphan_windows.Delete();
-	};
-      };
-      
+        orphan_windows.Rewind();
+        while (orphan_windows.Next()) {
+          orphan_windows.Delete();
+        };
+      };        
     } else if (FD_ISSET(X->Handle(), &fdset)) {
 
       // ********** Got Message From X **********
@@ -1262,98 +1280,99 @@ int main(int argc, char *argv[]) {
       X_packet_count++;
 
       if(msg.Receive(*X) == -1) {
-	fprintf(stderr, "Connection reset by X server\n");
-	terminate();
+        fprintf(stderr, "Connection reset by X server\n");
+        terminate();
       };
 
       if (message_detail >= Packet_Detail) {
-	    printf("Packet %u from X of size %u\n",
-	       (unsigned int)X_packet_count - 1,
-	       (unsigned int)msg.Size());
+        printf("Packet %u from X of size %u\n",
+          (unsigned int)X_packet_count - 1,
+          (unsigned int)msg.Size());
       };
 
       if (X_message_count > 0) {
-	if (!(PROG_mod & RandomLegal_Mod) && !(PROG_mod & ForceCracking_Mod)) {
-	  skip_break = 1;
-	} else {
-	  // *** Prescan packet and see if it parses correctly ***
-	  // *** If it can't be cracked, just send whole packet ***
-	  temp_count = X_message_count;
-	  for (index = 0; index + 1 <= msg.Size() && skip_break == 0;
-			  index += size) {
-	    size = XSubLength(msg, index);
-	    if (size == 0) {
-	      if (message_detail >= Min_Detail) {
-		printf("About to send message #%u which is of size 0!\n",
-		       (unsigned int)temp_count - 1);
-		skip_break = 1;
-	      };
-	    } else {
-	      if (message_detail >= Full_Detail) {
-		printf("  (pre-scan) Message code: %u, size %u\n",
-		       (unsigned int)msg[index],
-		       (unsigned int)size);
-	      };
-	      temp_count++;
-	      if (index + size > msg.Size()) {
-		if (message_detail >= Min_Detail) {
-		  printf("About to send message #%u from X which is too big\n",
-			 (unsigned int)temp_count - 1);
-		  skip_break = 1;
-		};
-	      };
-	    };
-	  };
-	};
+        if (!(PROG_mod & RandomLegal_Mod) && !(PROG_mod & ForceCracking_Mod)) {
+          fprintf(stderr, "setting skip_break for X to 1 right away");
+          skip_break = 1;
+        } else {
+          // *** Prescan packet and see if it parses correctly ***
+          // *** If it can't be cracked, just send whole packet ***
+          temp_count = X_message_count;
+          for (index = 0; index + 1 <= msg.Size() && skip_break == 0;
+              index += size) {
+            size = XSubLength(msg, index);
+            if (size == 0) {
+              if (message_detail >= Min_Detail) {
+                printf("About to send message #%u which is of size 0!\n",
+                    (unsigned int)temp_count - 1);
+                skip_break = 1;
+              };
+            } else {
+              if (message_detail >= Full_Detail) {
+                printf("  (pre-scan) Message code: %u, size %u\n",
+                  (unsigned int)msg[index],
+                  (unsigned int)size);
+              };
+              temp_count++;
+              if (index + size > msg.Size()) {
+                if (message_detail >= Min_Detail) {
+                  printf("About to send message #%u from X which is too big\n",
+                  (unsigned int)temp_count - 1);
+                  skip_break = 1;
+                };
+              };
+            };
+          };
+        };
       };
 
       if (skip_break) {
-	skip_break = 0;  // Send whole packet without cracking it
-	msg.Send(*PROG);
-	X_message_count++;
+        skip_break = 0;  // Send whole packet without cracking it
+        msg.Send(*PROG);
+        X_message_count++;
       } else {
-	for (index = 0; index + 1 <= msg.Size(); index += size) {
-	  size = XSubLength(msg, index);
-	  
-	  if (message_detail >= Brief_Detail) {
-	    printf("  Message code: %u, size %u\n",
-		   (unsigned int)msg[index],
-		   (unsigned int)size);
-	  };
+        for (index = 0; index + 1 <= msg.Size(); index += size) {
+          size = XSubLength(msg, index);
+          
+          if (message_detail >= Brief_Detail) {
+            printf("  Message code: %u, size %u\n",
+            (unsigned int)msg[index],
+            (unsigned int)size);
+          };
 
-	  if (index + size > msg.Size()) {
-	    fprintf(stderr, "Uncrackable packet recieved from X\n");
-	    fprintf(stderr, "Byte order: %s\n", ByteOrder());
-	    msg.Dump();
-	    {
-	      FILE *f = fopen("bad.X.message", "w");
-	      if (!f) {
-		fprintf(stderr, "Unable to dump bad message\n");
-	      } else {
-		fprintf(f, "Byte order: %s\n", ByteOrder());
-		msg.Dump(f);
-		for (index = 0; index + 1 <= msg.Size(); index += size) {
-		  size = XSubLength(msg, index);
-		  fprintf(f, "%u: code: %u, words: %u, bytes: %u\n",
-			  (unsigned int)index,
-			  (unsigned int)msg[index],
-			  (unsigned int)size / 4,
-			  (unsigned int)size);
-		};  //* endfor *
-	      }; //* endif *
-	    }; //* end scope *
-	    terminate();
-	  }; //* end error-if *
+          if (index + size > msg.Size()) {
+            fprintf(stderr, "Uncrackable packet recieved from X\n");
+            fprintf(stderr, "Byte order: %s\n", ByteOrder());
+            msg.Dump();
+            {
+              FILE *f = fopen("bad.X.message", "w");
+              if (!f) {
+                fprintf(stderr, "Unable to dump bad message\n");
+              } else {
+                fprintf(f, "Byte order: %s\n", ByteOrder());
+                msg.Dump(f);
+                for (index = 0; index + 1 <= msg.Size(); index += size) {
+                  size = XSubLength(msg, index);
+                  fprintf(f, "%u: code: %u, words: %u, bytes: %u\n",
+                    (unsigned int)index,
+                    (unsigned int)msg[index],
+                    (unsigned int)size / 4,
+                    (unsigned int)size);
+                };  //* endfor *
+              }; //* endif *
+            }; //* end scope *
+            terminate();
+          }; //* end error-if *
 
-	  {
-	    Message extracted_msg(msg, index, size);
-	    Snoop_X_Message(extracted_msg);
-	    SendMessage(extracted_msg,
-		        (packet_count > wait_count) ? (Modifier)PROG_mod : No_Mod,
-			PROG
-	               );
-	  };
-	};
+          {
+            Message extracted_msg(msg, index, size);
+            Snoop_X_Message(extracted_msg);
+            SendMessage(extracted_msg,
+                  (packet_count > wait_count) ? (Modifier)PROG_mod : No_Mod,
+            PROG
+                      );
+          };
+        };
       };
     } else {
       fprintf(stderr, "Message recieved from unknown connection\n");

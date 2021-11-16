@@ -45,65 +45,59 @@ int copy_message(int dest_socket, int source_socket, enum blockstatus block,
 	
 	if (flags == -1)
 	{
-#ifdef ERROR_MESSAGES
-		fprintf(stderr, "%s (copy_message): Couldn't get flags of "
-				"source socket.\n", progname);
-		perror("(copy_message)");
-#endif
+		if (DISPLAY_MSGS) {
+			fprintf(stderr, "%s (copy_message): Couldn't get flags of "
+					"source socket.\n", progname);
+			perror("(copy_message)");
+		}
 		return -1;
 	}
 
 	switch (block)
 	{
-	case NON_BLOCKING:
-#ifdef	HPUX
-		status = fcntl(source_socket, F_SETFL, O_NDELAY);
-#else
-		status = fcntl(source_socket, F_SETFL, FNDELAY);
-#endif
-		break;
+		case NON_BLOCKING:
+			status = fcntl(source_socket, F_SETFL, FNDELAY);
+			break;
 
-	case BLOCKING:
-#ifdef	HPUX
-		status = fcntl(source_socket, F_SETFL, flags & ~O_NDELAY);
-#else
-		status = fcntl(source_socket, F_SETFL, flags & ~FNDELAY);
-#endif
-		break;
+		case BLOCKING:
+			status = fcntl(source_socket, F_SETFL, flags & ~FNDELAY);
+			break;
 
-	default:
-#ifdef ERROR_MESSAGES
-		fprintf(stderr, "%s (copy_message): Invalid blocking status.\n",
-			progname);
-#endif
-		return -1;
+		default:
+			if (DISPLAY_MSGS) {
+				fprintf(stderr, "%s (copy_message): Invalid blocking status.\n",
+					progname);
+			}
+			return -1;
 	}
 
 	if (status == -1)
 	{
-#ifdef ERROR_MESSAGES
-		fprintf(stderr, "%s (copy_message): Can't set blocking status.\n",
-			progname);
-		perror("(copy_message)");
-#endif
+		if (DISPLAY_MSGS) {
+			fprintf(stderr, "%s (copy_message): Can't set blocking status.\n",
+				progname);
+			perror("(copy_message)");
+		}
 		return -1;
 	}
 
 	/*
 	 *  Recv first message.
+	 *  When non-blocking recv_length of -1 means no messages were found
+	 *  unclear why the program continues when no message is found?
 	 */
 	errno = 0;
-	recv_length = recv(source_socket, buffer, BUFFER_SIZE, 0);
+	recv_length = recv(source_socket, buffer, BUFFER_SIZE, 0);	
 	if (recv_length == -1)
 	{
 		if (block == BLOCKING  ||  errno != EWOULDBLOCK)
 		{
-            fprintf(stderr,"...Should be displaying error (THB)\n");
-#ifdef ERROR_MESSAGES
-			fprintf(stderr, "%s (copy_message): Couldn't recv "
-					"message from source.\n", progname);
-			perror("(copy_message)");
-#endif
+
+			if (DISPLAY_MSGS) {
+				fprintf(stderr, "%s (copy_message): Couldn't recv "
+						"message from source.\n", progname);
+				perror("(copy_message)");
+			}
 			fcntl(source_socket, F_SETFL, flags); /* this could clobber errno */
 			return -3;
 		}
@@ -116,24 +110,21 @@ int copy_message(int dest_socket, int source_socket, enum blockstatus block,
 	}
 
     fprintf(stderr,"THB - msg 1 (%d) :%s:\n", recv_length, buffer);
-    fprintf(stdout,"%s\n", buffer);
+    fprintf(stderr,"%s\n", buffer);
 
 	/*
 	 *  Set the source socket to non blocking.  Continue copying messages
 	 *  until EWOULDBLOCK.  That way we exhaust what is currently available
 	 *  even if it would not fit into the buffer in one go.
 	 */
-#ifdef	HPUX
-	if (block == BLOCKING  &&  fcntl(source_socket, F_SETFL, O_NDELAY) == -1)
-#else
+
 	if (block == BLOCKING  &&  fcntl(source_socket, F_SETFL, FNDELAY) == -1)
-#endif
 	{
-#ifdef ERROR_MESSAGES
-		fprintf(stderr, "%s (copy_message): Unable to make source "
-				"socket non-blocking.\n", progname);
-		perror("(copy_message)");
-#endif
+		if (DISPLAY_MSGS) {
+			fprintf(stderr, "%s (copy_message): Unable to make source "
+					"socket non-blocking.\n", progname);
+			perror("(copy_message)");
+		}
 		fcntl(source_socket, F_SETFL, flags);
 		return -1;
 	}
@@ -142,10 +133,10 @@ int copy_message(int dest_socket, int source_socket, enum blockstatus block,
         fprintf(stderr, "...Calling garbler 1st\n");
         if ((*garbler)(source_socket, buffer, &recv_length,
                        BUFFER_SIZE, sequence++) == -1) {
-#ifdef ERROR_MESSAGES
-            fprintf(stderr, "%s (copy_message): Garbler returned "
-                    "error.  Sequence = 0.\n", progname);
-#endif
+			if (DISPLAY_MSGS) {
+				fprintf(stderr, "%s (copy_message): Garbler returned "
+						"error.  Sequence = 0.\n", progname);
+			}
             fcntl(source_socket, F_SETFL, flags);
             return -5;
         }
@@ -167,7 +158,7 @@ int copy_message(int dest_socket, int source_socket, enum blockstatus block,
 	while ((recv_length = recv(source_socket, buffer, BUFFER_SIZE, 0)) > 0)
 	{
         fprintf(stderr,"THB - msg w (%d) :%x:\n", recv_length, buffer);
-        fprintf(stdout,"%s\n", buffer);
+        fprintf(stderr,"%s\n", buffer);
 		if (garbler != NULL) {
             fprintf(stderr, "...Calling garbler again\n");
             if ((*garbler)(source_socket, buffer, &recv_length,

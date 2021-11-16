@@ -45,6 +45,16 @@ int random_events(int sock, char *buf, int *len_ptr, int max_len,
  *  values.
  */
 
+/*
+ * DISPLAY_MSGS
+ *
+ * Do we display error messages
+ */
+#ifdef ERROR_MESSAGES
+	int DISPLAY_MSGS = 1;
+#else
+	int DISPLAY_MSGS = 0;
+#endif
 
 /*
  *  seed
@@ -119,6 +129,18 @@ int mode = 0;
 /* -------------------------------------------------------------- */
 
 /*
+ * log
+ *
+ * output to stderr and stdout for terminal and file output
+ * Should be used with program call that outputs stderr to file
+ */ 
+
+void my_log(char* my_string){
+    fprintf(stderr, "%s", my_string);
+    fprintf(stdout, "%s", my_string);
+}
+
+/*
  *  usage
  *
  *  Output useful usage information on stderr.
@@ -126,17 +148,17 @@ int mode = 0;
 
 void usage(void)
 {
-	fprintf(stderr, "Usage: %s [-mode <mode>] [-rate <rate>] "
+	fprintf(stdout, "Usage: %s [-mode <mode>] [-rate <rate>] "
 		"[-startgap <startgap>]\n"
 		"       [-port <port>] [-direction <dir> [-seed <seed>]\n",
 		progname);
-	fprintf(stderr, "       %s -h[elp]\n", progname);
-	fprintf(stderr, "       <mode>      = messages, garbling, events, kmevents\n");
-	fprintf(stderr, "       <rate>      = # unaltered messages between operations\n");
-	fprintf(stderr, "       <startgap>  = # unaltered messages before first operation\n");
-	fprintf(stderr, "       <port>      = port on which Winjig listens\n");
-	fprintf(stderr, "       <direction> = s2c, c2s, both\n");
-	fprintf(stderr, "       <seed>      = seed for random number generator\n");
+	fprintf(stdout, "       %s -h[elp]\n", progname);
+	fprintf(stdout, "       <mode>      = messages, garbling, events, kmevents\n");
+	fprintf(stdout, "       <rate>      = # unaltered messages between operations\n");
+	fprintf(stdout, "       <startgap>  = # unaltered messages before first operation\n");
+	fprintf(stdout, "       <port>      = port on which Winjig listens\n");
+	fprintf(stdout, "       <direction> = s2c, c2s, both\n");
+	fprintf(stdout, "       <seed>      = seed for random number generator\n");
 }
 
 /* -------------------------------------------------------------- */
@@ -167,8 +189,10 @@ int main(int argc, char *argv[ ])
 	install_sigint_handler();
 	install_sigquit_handler();
 
-    fprintf(stderr, "THB - Connecting with client\n");
+    my_log("THB - Connecting with client\n");
 	srandom(1857);
+
+	//Connect to client
 	client_socket = client_connect(port, &endian, &major, &minor);
 	if (client_socket == -1)
 	{
@@ -176,7 +200,8 @@ int main(int argc, char *argv[ ])
 		return 2;
 	}
 
-    fprintf(stderr, "THB - Connecting with server\n");
+	//Connect to server
+    my_log("THB - Connecting with server\n");
 	server_socket = server_connect(endian, major, minor);
 	if (server_socket == -1)
 	{
@@ -185,8 +210,10 @@ int main(int argc, char *argv[ ])
 		return 3;
 	}
 
+	// Set garbling based on mode	
 	if (mode == 0)		/* random messages */
 	{
+		my_log("THB - Setting no garblers\n");
 		server_to_client_garbler = client_to_server_garbler = NULL;
 		if (direction == 0)
 			destination_socket = client_socket;
@@ -194,39 +221,42 @@ int main(int argc, char *argv[ ])
 			destination_socket = server_socket;
 	}
 	else if (mode == 1)	/* garbling */
-	{
+	{		
 		if (direction == 0)
 		{
+			my_log("THB - Setting server garbler to garbler\n");
 			server_to_client_garbler = garbler;
 			client_to_server_garbler = NULL;
 		}
 		else if (direction == 1)
 		{
+			my_log("THB - Setting client garbler to garbler\n");
 			client_to_server_garbler = garbler;
 			server_to_client_garbler = NULL;
 		}
 		else
 		{
+			my_log("THB - Setting both garblers to garbler\n");
 			client_to_server_garbler = garbler;
 			server_to_client_garbler = garbler;
 		}
 	}
 	else if (mode == 2  ||  mode == 3)	/* random events */
 	{
-        fprintf(stderr, "THB - Setting client garbler to random events\n");
+        my_log("THB - Setting client garbler to random events\n");
 		server_to_client_garbler = random_events;
 		client_to_server_garbler = NULL;
 	}
 
 
-    fprintf(stderr, "THB - Entering main loop\n****************************\n");
+    my_log("****************************\nTHB - Entering main loop\n****************************\n");
     long int t_count = 0;
+	fprintf(stderr, "\n\nloop count: %ld\n************\n", ++t_count);
 	while ((return_status_1 = copy_message(client_socket, server_socket,
 		       NON_BLOCKING, server_to_client_garbler)) == 1  &&
 	       (return_status_2 = copy_message(server_socket, client_socket,
 		       NON_BLOCKING, client_to_server_garbler)) == 1)
-	{
-        fprintf(stderr, "=%ld\n", ++t_count);
+	{        
 		if (mode == 0)		/* random message */
 		{
             fprintf(stderr, "@");
@@ -264,11 +294,12 @@ int main(int argc, char *argv[ ])
 				close(server_socket);
 				return 4;
 			}
-			printf("RANDOM MESSAGE SENT\n");
+			my_log("RANDOM MESSAGE SENT\n");
 		}  /* if (mode == 0) */
+		fprintf(stderr, "\n\nloop count: %ld\n************\n", ++t_count);
 	}  /* while (...) */
 
-    fprintf(stderr, "THB - done with main loop - closing");
+    my_log("THB - done with main loop - closing");
 
 	if (return_status_1 == 0)
 	{

@@ -9,19 +9,24 @@
 
 /* --------------------------------------------------------------- */
 
-void signal_handler(void)
+void signal_handler_quit(void)
 {
 	exit(7);
+}
+
+void signal_handler_sigint(void)
+{
+	exit(8);
 }
 
 /* --------------------------------------------------------------- */
 
 void install_sigint_handler(void)
 {
-	signal(SIGINT, signal_handler);
+	signal(SIGINT, signal_handler_sigint);
 }
 
 void install_sigquit_handler(void)
 {
-	signal(SIGQUIT, signal_handler);
+	signal(SIGQUIT, signal_handler_quit);
 }

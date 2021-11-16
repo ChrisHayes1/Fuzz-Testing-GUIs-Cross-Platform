@@ -43,10 +43,10 @@ int client_connect(int port, enum endianness *endian_ptr,
 	 */
 	if (port <= X_PORT  ||  port > X_PORT + X_LIMIT)
 	{
-#ifdef ERROR_MESSAGES
-		fprintf(stderr, "%s (client_connect): Bad parameters.\n",
-			progname);
-#endif
+		if (DISPLAY_MSGS) {
+			fprintf(stderr, "%s (client_connect): Bad parameters.\n",
+				progname);
+		}
 		return -1;
 	}
 
@@ -61,11 +61,11 @@ int client_connect(int port, enum endianness *endian_ptr,
 	client_side_socket = socket(AF_INET, SOCK_STREAM, 0);
 	if (client_side_socket == -1)
 	{
-#ifdef ERROR_MESSAGES
-		fprintf(stderr, "%s (client_connect): Can't create socket.\n",
-			progname);
-		perror("(client_connect)");
-#endif
+		if (DISPLAY_MSGS) {
+			fprintf(stderr, "%s (client_connect): Can't create socket.\n",
+				progname);
+			perror("(client_connect)");
+		}
 		return -1;
 	}
 
@@ -79,11 +79,11 @@ int client_connect(int port, enum endianness *endian_ptr,
 	if (bind(client_side_socket, (struct sockaddr *) &my_ip_address,
 		 sizeof(my_ip_address)) == -1)
 	{
-#ifdef ERROR_MESSAGES
-		fprintf(stderr, "%s (client_connect): Can't bind socket.\n",
-			progname);
-		perror("(client_connect)");
-#endif
+		if (DISPLAY_MSGS) {
+			fprintf(stderr, "%s (client_connect): Can't bind socket.\n",
+				progname);
+			perror("(client_connect)");
+		}
 		close(client_side_socket);
 		return -1;
 	}
@@ -94,28 +94,29 @@ int client_connect(int port, enum endianness *endian_ptr,
 	 */
 	if (listen(client_side_socket, 5) == -1)
 	{
-#ifdef ERROR_MESSAGES
-		fprintf(stderr,
-			"%s (client_connect): Can't set backlog on socket.\n",
-			progname);
-		perror("(client_connect)");
-#endif
+		if (DISPLAY_MSGS) {
+			fprintf(stderr,
+				"%s (client_connect): Can't set backlog on socket.\n",
+				progname);
+			perror("(client_connect)");
+		}
 		close(client_side_socket);
 		return -1;
 	}
 
 	/*
 	 *  accept the connection.
+	 * THB: Why not use the same socket, why set to client_msg_socket?
 	 */
 	if ((client_message_socket = accept(client_side_socket,
 					    &client_ip_address,
 					    &client_ip_address_len)) == -1)
 	{
-#ifdef ERROR_MESSAGES
-		fprintf(stderr, "%s (client_connect): Can't accept connection.\n",
-			progname);
-		perror("(client_connect)");
-#endif
+		if (DISPLAY_MSGS) {
+			fprintf(stderr, "%s (client_connect): Can't accept connection.\n",
+				progname);
+			perror("(client_connect)");
+		}
 		close(client_side_socket);
 		return -1;
 	}
@@ -130,11 +131,11 @@ int client_connect(int port, enum endianness *endian_ptr,
     int x = recv(client_message_socket, buffer, 12, 0);
 	if (x < 12)
 	{
-#ifdef ERROR_MESSAGES
-		fprintf(stderr, "%s (client_connect): Can't recv data.\n",
-			progname);
-		perror("(client_connect)");
-#endif
+		if (DISPLAY_MSGS) {
+			fprintf(stderr, "%s (client_connect): Can't recv data.\n",
+				progname);
+			perror("(client_connect)");
+		}
 		close(client_message_socket);
 		return -1;
 	}
@@ -152,36 +153,51 @@ int client_connect(int port, enum endianness *endian_ptr,
 	       sizeof(*protocol_minor_version_ptr));
 	*endian_ptr = (enum endianness) buffer[0];
 
+
 	/*
 	 *  Discard the rest of the message.
 	 */
 	memcpy(&auth_name_len, buffer + 6, sizeof(auth_name_len));
 	memcpy(&auth_data_len, buffer + 8, sizeof(auth_data_len));
 	total_len = (auth_name_len + auth_data_len);
+	
+	//THB - for EC
+	if (DISPLAY_MSGS) {
+		fprintf(stderr, "...protocol_major_version_ptr: %u\n", *protocol_major_version_ptr);
+		fprintf(stderr, "...protocol_minor_version_ptr: %u\n", *protocol_minor_version_ptr);
+		fprintf(stderr, "...endian_ptr: %u\n", *endian_ptr);
+		fprintf(stderr, "...auth_name_len: %u\n", auth_name_len);
+		fprintf(stderr, "...auth_data_len: %u\n", auth_data_len);
+		fprintf(stderr, "...total_len: %i\n", total_len);
+	}
+
 	if (total_len > 0)
 	{
 		auth_buffer = malloc(total_len);
 		if (auth_buffer == NULL)
 		{
-#ifdef ERROR_MESSAGES
-			fprintf(stderr, "%s (client_connect): Can't allocate "
-					"temporary buffer.\n", progname);
-#endif
+			if (DISPLAY_MSGS) {
+				fprintf(stderr, "%s (client_connect): Can't allocate "
+						"temporary buffer.\n", progname);
+			}
 			close(client_message_socket);
 			return -1;
 		}
 		if (recv(client_message_socket, auth_buffer,
 			 total_len, 0) < total_len)
 		{
-#ifdef ERROR_MESSAGES
-			fprintf(stderr, "%s (client_connect): Couldn't discard "
-					"authorization data.\n", progname);
-			perror("(client_connect)");
-#endif
+			if (DISPLAY_MSGS) {
+				fprintf(stderr, "%s (client_connect): Couldn't discard "
+						"authorization data.\n", progname);
+				perror("(client_connect)");
+			}
 			close(client_message_socket);
 			free(auth_buffer);
 			return -1;
 		}
+		if (DISPLAY_MSGS) {
+			fprintf(stderr, "...auth: %s\n", auth_buffer);
+		}			
 		free(auth_buffer);
 	}
 

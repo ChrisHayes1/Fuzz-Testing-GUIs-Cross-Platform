@@ -15,7 +15,9 @@
 
 extern char	*progname;
 extern int	 seed, direction, port, startgap, rate, mode;
+extern int DISPLAY_MSGS;
 
 /* -------------------------------------------------------------- */
+
 
 #endif  /* _GLOBALS_H */
