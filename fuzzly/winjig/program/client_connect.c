@@ -140,7 +140,7 @@ int client_connect(int port, enum endianness *endian_ptr,
 	}
 
     //THB - added to qc.
-    fprintf(stderr, "Initial message (%d) is:%s:\n", x, buffer);
+    fprintf(stderr, "   Client Connect - Initial message (%d) is:%s:\n", x, buffer);
 
 
 	/*
