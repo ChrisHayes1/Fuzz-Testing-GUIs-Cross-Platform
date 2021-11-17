@@ -2,12 +2,14 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+#include <unistd.h>
 
 #include "_const.h"
 #include "_types.h"
 #include "_globals.h"
 #include "_functions.h"
 #include "_logger.h"
+
 
 /* --------------------------------------------------------------------- */
 
@@ -173,7 +175,7 @@ int main(int argc, char *argv[ ])
     }
 
     //Connect to server
-    my_log("THB - Connecting with server\n");
+    logger("THB - Connecting with server\n");
     server_socket = server_connect(endian, major, minor);
     if (server_socket == -1)
     {

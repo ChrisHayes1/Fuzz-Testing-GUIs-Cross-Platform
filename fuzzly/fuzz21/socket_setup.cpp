@@ -38,11 +38,12 @@ int client_connect(int port, enum endianness *endian_ptr,
                    unsigned short *protocol_major_version_ptr,
                    unsigned short *protocol_minor_version_ptr)
 {
-    int			client_side_socket, client_message_socket;
-    struct sockaddr_in	my_ip_address, client_ip_address;
-    int			client_ip_address_len = sizeof(client_ip_address);
-    short			auth_name_len, auth_data_len, total_len;
-    char			buffer[12], *auth_buffer;
+    int	client_side_socket, client_message_socket;
+    struct sockaddr_in	my_ip_address;
+    sockaddr client_ip_address;
+    socklen_t client_ip_address_len = sizeof(client_ip_address);
+    short auth_name_len, auth_data_len, total_len;
+    char buffer[12], *auth_buffer;
 
     /*
      *  Check parameters.  port shouldn't be unreasonable.
@@ -179,7 +180,7 @@ int client_connect(int port, enum endianness *endian_ptr,
 
     if (total_len > 0)
     {
-        auth_buffer = malloc(total_len);
+        auth_buffer = (char*)malloc(total_len);
         if (auth_buffer == NULL)
         {
             if (DISPLAY_MSGS) {
@@ -298,7 +299,7 @@ int server_connect(enum endianness endian,
     /*
      *  Build up the authorization part of the connection message.
      */
-    if ((auth_buffer = malloc(total_length =
+    if ((auth_buffer = (char*)malloc(total_length =
                                       NEAREST_MULTIPLE_OF_4(xauth_ptr->name_length) +
                                       NEAREST_MULTIPLE_OF_4(xauth_ptr->data_length)))
         == NULL)

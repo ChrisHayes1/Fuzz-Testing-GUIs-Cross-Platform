@@ -6,16 +6,16 @@
 #define FUZZ_LOGGER_H
 
 #include <sstream>
+#include <iostream>
+std::stringstream slog;
 
-sstream slog;
+enum LogMode {OUT, ERR, BOTH};
 
-enum LOGGER = {OUT, ERR, BOTH};
-
-int logger(string msg_log, LOGGER=BOTH){
-    if (DISPLAY_MSGS && (LOGGER=ERR || LOGGER=BOTH)) {
+void logger(string msg_log, LogMode log_mode=BOTH){
+    if (DISPLAY_MSGS && (log_mode==ERR || log_mode==BOTH)) {
         cerr << msg_log;
     }
-    cout << msg_log;
+    if (log_mode==ERR || log_mode==BOTH) {cout << msg_log;}
 }
 
 #endif //FUZZ_LOGGER_H

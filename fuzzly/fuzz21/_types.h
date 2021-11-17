@@ -52,6 +52,6 @@ enum blockstatus
 
 /* ---------------------------------------------------------------- */
 
-enum LogMode {OUT, ERR, BOTH};
+
 
 #endif  /* _TYPES_H */
