@@ -207,7 +207,7 @@ int server_connect(enum endianness endian,
 ///* --------------------------------------------------------------------- */
 //
 //
-void my_log(string my_string, LogMode lMode=BOTH);
+
 
 
 #endif  /* _FUNCTIONS_H */
