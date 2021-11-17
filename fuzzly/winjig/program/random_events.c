@@ -15,7 +15,7 @@
 
 #include "testos.h"
 #include "functions.h"
-#include "const.h"
+#include "../../fuzz21/_const.h"
 
 /* -------------------------------------------------------------------- */
 

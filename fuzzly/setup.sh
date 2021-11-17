@@ -1,6 +1,6 @@
 echo $DISPLAY
-echo export DISPLAY=markBox:2
-export DISPLAY=markBox:2
+echo export DISPLAY=$HOSTNAME:2
+export DISPLAY=$HOSTNAME:2
 echo $DISPLAY
 echo xcalc
 xcalc

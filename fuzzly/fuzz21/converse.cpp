@@ -19,6 +19,12 @@
 #include "globals.h"
 #include "functions.h"
 
+
+int converse(int dest_socket, int source_socket){
+
+}
+
+
 /* ------------------------------------------------------------------- */
 
 /*

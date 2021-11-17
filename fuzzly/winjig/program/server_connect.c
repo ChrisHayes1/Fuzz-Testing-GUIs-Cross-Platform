@@ -20,7 +20,7 @@
 #include <X11/X.h>
 #include <X11/Xauth.h>		/* authorization related functions */
 
-#include "const.h"
+#include "../../fuzz21/_const.h"
 #include "types.h"
 #include "globals.h"
 #include "macros.h"

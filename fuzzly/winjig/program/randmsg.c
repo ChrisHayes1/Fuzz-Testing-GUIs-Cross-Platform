@@ -10,7 +10,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "const.h"
+#include "../../fuzz21/_const.h"
 #include "globals.h"
 #include "functions.h"
 
@@ -25,8 +25,7 @@
  *  to the dest_socket.
  */
 
-int send_random_message(int dest_socket,
-			int (*gen_msg)(char *buf, int *len_ptr))
+int send_random_message(int dest_socket, int (*gen_msg)(char *buf, int *len_ptr))
 {
 	char buffer[BUFFER_SIZE];
 	int  buflen = BUFFER_SIZE;

@@ -189,7 +189,7 @@ int main(int argc, char *argv[ ])
 	install_sigint_handler();
 	install_sigquit_handler();
 
-    my_log("THB - Connecting with client\n");
+    fprintf(stderr,"THB - Connecting with client\n");
 	srandom(1857);
 
 	//Connect to client

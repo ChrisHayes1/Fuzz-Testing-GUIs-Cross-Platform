@@ -14,7 +14,7 @@
 #include <stdio.h>		/* general */
 #include <stdlib.h>
 
-#include "const.h"
+#include "../../fuzz21/_const.h"
 #include "types.h"
 #include "globals.h"
 #include "functions.h"
