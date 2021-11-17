@@ -1,0 +1,26 @@
+THB - Connecting with client
+     Client Connect - Initial message (12) is:l:
+...protocol_major_version_ptr: 11
+...protocol_minor_version_ptr: 0
+...endian_ptr: 108
+...auth_name_len: 18
+...auth_data_len: 16
+...total_len: 34
+...auth: MIT-MAGIC-COOKIE-1
+THB - Connecting with server
+.Poll returned 1
+:Event found - client has input
+   Ready to recv -> Receive msg of size 2
+   Sending msg of size 2-> Message sent
+:Poll returned 1
+::Event found - Server has input
+   Ready to recv -> Receive msg of size 12308
+   Sending msg of size 12308-> Message sent
+Poll returned 1
+:Event found - client has input
+   Ready to recv -> Receive msg of size 20
+   Sending msg of size 20-> Message sent
+:.........
+..........
+..........
+......

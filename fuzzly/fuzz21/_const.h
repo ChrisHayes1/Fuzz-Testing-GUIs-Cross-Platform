@@ -49,6 +49,9 @@
 
 #define	BUFFER_SIZE	16384
 
+#define CLIENT  0
+#define XSERVER  1
+
 /* ------------------------------------------------------------------ */
 
 #endif  /* _CONST_H */

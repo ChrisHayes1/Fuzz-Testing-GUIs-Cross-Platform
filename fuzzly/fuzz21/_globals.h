@@ -6,6 +6,7 @@
 
 #ifndef _GLOBALS_H
 #define _GLOBALS_H
+#include <sstream>
 
 /* -------------------------------------------------------------- */
 
@@ -16,6 +17,7 @@
 extern char	*progname;
 extern int	 seed, direction, port, startgap, rate, mode;
 extern int DISPLAY_MSGS;
+extern std::stringstream slog;
 
 /* -------------------------------------------------------------- */
 

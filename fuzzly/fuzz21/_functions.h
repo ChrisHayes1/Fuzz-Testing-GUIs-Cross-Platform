@@ -160,6 +160,8 @@ int server_connect(enum endianness endian,
  *	-5	garbler asked for an abort.
  */
 
+int converse(int client_socket, int server_socket);
+//int copy_msgs(int source_socket,int dest_socket);
 //int copy_message(int dest_socket, int source_socket, enum blockstatus block,
 //		 int (*garbler)(int source_socket, char *buf, int *buflen_ptr,
 //				int max_buflen, unsigned int sequence));

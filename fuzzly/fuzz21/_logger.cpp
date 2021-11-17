@@ -5,20 +5,15 @@
 #include <iostream>
 
 std::stringstream slog;
-
-
-
-int DISPLAY_MSGS = 0;
-
-#ifdef ERROR_MESSAGES
-    DISPLAY_MSGS = 1;
-#endif
+int DISPLAY_MSGS = 1;
 
 void logger(string msg_log, LogMode log_mode){
     if (DISPLAY_MSGS && (log_mode==ERR || log_mode==BOTH)) {
         cerr << msg_log;
     }
-    if (log_mode==ERR || log_mode==BOTH) {cout << msg_log;}
+    if (log_mode==OUT || log_mode==BOTH) {cout << msg_log;}
+    slog.str("");
+    slog.clear();
 }
 
 

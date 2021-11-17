@@ -8,13 +8,13 @@ CC=	g++
 CFLAGS=	-g -DERROR_MESSAGES -Wall
 
 LD=	g++
-LDFLAGS=-g -Wall
+LDFLAGS=-g -Wall -DERROR_MESSAGES
 LIBS=	-lXau
 
 RM=	rm -f
 
 EXE=	fuzz21
-SRCS=	main.cpp signal.cpp socket_setup.cpp
+SRCS=	main.cpp signal.cpp socket_setup.cpp converse.cpp
 OBJS=	$(SRCS:.cpp=.o)
 
 $(EXE):	$(OBJS)

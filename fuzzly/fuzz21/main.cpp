@@ -183,6 +183,14 @@ int main(int argc, char *argv[ ])
         return 3;
     }
 
+    /*
+     * Main loop
+     */
+
+    if(converse(client_socket, server_socket) < 0){
+        logger("Got response from convers of < 0\n");
+    }
+
     close(client_socket);
     close(server_socket);
 
