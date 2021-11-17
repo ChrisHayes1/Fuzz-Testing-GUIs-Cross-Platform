@@ -6,9 +6,8 @@
 
 #include "_const.h"
 #include "_types.h"
-#include "_globals.h"
 #include "_functions.h"
-#include "_logger.h"
+#include "_logger.cpp"
 
 
 /* --------------------------------------------------------------------- */

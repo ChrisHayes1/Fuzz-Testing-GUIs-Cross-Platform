@@ -208,6 +208,6 @@ int server_connect(enum endianness endian,
 //
 //
 
-
+void logger(string msg_log, LogMode log_mode=BOTH);
 
 #endif  /* _FUNCTIONS_H */
