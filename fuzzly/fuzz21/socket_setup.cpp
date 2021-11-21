@@ -18,6 +18,7 @@
 
 #include <X11/X.h>
 #include <X11/Xauth.h>		/* authorization related functions */
+#include <iostream>
 
 #include "_const.h"
 #include "_types.h"
@@ -34,6 +35,91 @@
  *  client only.
  */
 
+void dumpSS(char * msg, int size){
+    cerr << "Dumping message:" << endl;
+    for (int i = 0; i < size; i++){
+        cerr << msg[i];
+    }
+    cerr << endl;
+}
+
+int client_authenticate(int client_message_socket, enum endianness *endian_ptr,
+                        unsigned short *protocol_major_version_ptr,
+                        unsigned short *protocol_minor_version_ptr){
+    short auth_name_len, auth_data_len, total_len;
+    char buffer[12], *auth_buffer;
+
+    /*
+     *  Discard the authorization part of the opening message.
+     *  This shouldn't reach the real X server.
+     */
+    // THB - added tracking rcv length, length is funky, maybe it doesnt matter.
+    int x = recv(client_message_socket, buffer, 12, 0);
+    if (x < 12)
+    {
+        logger("(client_connect): Can't recv data.\n", ERR);
+        perror("(client_connect)");
+        close(client_message_socket);
+        return -1;
+    }
+
+    /*
+     *  Copy required data out.
+     */
+    *endian_ptr = (enum endianness) buffer[0];
+    memcpy(protocol_major_version_ptr, buffer + 2, sizeof(*protocol_major_version_ptr));
+    memcpy(protocol_minor_version_ptr, buffer + 4, sizeof(*protocol_minor_version_ptr));
+    memcpy(&auth_name_len, buffer + 6, sizeof(auth_name_len));
+    memcpy(&auth_data_len, buffer + 8, sizeof(auth_data_len));
+    total_len = (auth_name_len + auth_data_len);
+
+    //THB - for EC
+    if (DISPLAY_MSGS) {
+        fprintf(stderr, "...protocol_major_version_ptr: %u\n", *protocol_major_version_ptr);
+        fprintf(stderr, "...protocol_minor_version_ptr: %u\n", *protocol_minor_version_ptr);
+        fprintf(stderr, "...endian_ptr: %u\n", *endian_ptr);
+        fprintf(stderr, "...auth_name_len: %u\n", auth_name_len);
+        fprintf(stderr, "...auth_data_len: %u\n", auth_data_len);
+        fprintf(stderr, "...total_len: %i\n", total_len);
+    }
+
+    if (total_len > 0)
+    {
+        auth_buffer = (char*)malloc(total_len);
+        if (auth_buffer == NULL)
+        {
+            logger("(client_connect): Can't allocate temporary buffer.\n", ERR);
+            close(client_message_socket);
+            return -1;
+        }
+
+        int auth_buffer_length = recv(client_message_socket, auth_buffer, BUFFER_SIZE, 0);
+        slog << "Auth Buffer received message of size " << auth_buffer_length;
+        logger(slog.str());
+
+        if (auth_buffer_length < total_len)
+        {
+            logger("(client_connect): Couldn't discard authorization data.", ERR);
+            perror("(client_connect)");
+            close(client_message_socket);
+            free(auth_buffer);
+            return -1;
+        }
+        char author_name[auth_name_len];
+        char * author_data;
+        memcpy(&author_name, auth_buffer , auth_name_len);
+        //memcpy(&author_data, auth_buffer+auth_name_len, auth_data_len);
+        if (DISPLAY_MSGS) {
+            //fprintf(stderr, "...Author Name: %s\n", author_name);
+            //fprintf(stderr, "...Author Data: %s\n", author_data);
+        }
+        dumpSS(auth_buffer, total_len);
+        free(auth_buffer);
+    }
+
+    return client_message_socket;
+}
+
 int client_connect(int port, enum endianness *endian_ptr,
                    unsigned short *protocol_major_version_ptr,
                    unsigned short *protocol_minor_version_ptr)
@@ -42,8 +128,7 @@ int client_connect(int port, enum endianness *endian_ptr,
     struct sockaddr_in	my_ip_address;
     sockaddr client_ip_address;
     socklen_t client_ip_address_len = sizeof(client_ip_address);
-    short auth_name_len, auth_data_len, total_len;
-    char buffer[12], *auth_buffer;
+
 
     /*
      *  Check parameters.  port shouldn't be unreasonable.
@@ -128,87 +213,9 @@ int client_connect(int port, enum endianness *endian_ptr,
         return -1;
     }
 
+    // Deal with client authentication
     close(client_side_socket);
-
-    /*
-     *  Discard the authorization part of the opening message.
-     *  This shouldn't reach the real X server.
-     */
-    // THB - added tracking rcv length, length is funky, maybe it doesnt matter.
-    int x = recv(client_message_socket, buffer, 12, 0);
-    if (x < 12)
-    {
-        if (DISPLAY_MSGS) {
-            fprintf(stderr, "%s (client_connect): Can't recv data.\n",
-                    progname);
-            perror("(client_connect)");
-        }
-        close(client_message_socket);
-        return -1;
-    }
-
-    //THB - added to qc.
-    fprintf(stderr, "   Client Connect - Initial message (%d) is:%s:\n", x, buffer);
-
-
-    /*
-     *  Copy required data out.
-     */
-    memcpy(protocol_major_version_ptr, buffer + 2,
-           sizeof(*protocol_major_version_ptr));
-    memcpy(protocol_minor_version_ptr, buffer + 4,
-           sizeof(*protocol_minor_version_ptr));
-    *endian_ptr = (enum endianness) buffer[0];
-
-
-    /*
-     *  Discard the rest of the message.
-     */
-    memcpy(&auth_name_len, buffer + 6, sizeof(auth_name_len));
-    memcpy(&auth_data_len, buffer + 8, sizeof(auth_data_len));
-    total_len = (auth_name_len + auth_data_len);
-
-    //THB - for EC
-    if (DISPLAY_MSGS) {
-        fprintf(stderr, "...protocol_major_version_ptr: %u\n", *protocol_major_version_ptr);
-        fprintf(stderr, "...protocol_minor_version_ptr: %u\n", *protocol_minor_version_ptr);
-        fprintf(stderr, "...endian_ptr: %u\n", *endian_ptr);
-        fprintf(stderr, "...auth_name_len: %u\n", auth_name_len);
-        fprintf(stderr, "...auth_data_len: %u\n", auth_data_len);
-        fprintf(stderr, "...total_len: %i\n", total_len);
-    }
-
-    if (total_len > 0)
-    {
-        auth_buffer = (char*)malloc(total_len);
-        if (auth_buffer == NULL)
-        {
-            if (DISPLAY_MSGS) {
-                fprintf(stderr, "%s (client_connect): Can't allocate "
-                                "temporary buffer.\n", progname);
-            }
-            close(client_message_socket);
-            return -1;
-        }
-        if (recv(client_message_socket, auth_buffer,
-                 total_len, 0) < total_len)
-        {
-            if (DISPLAY_MSGS) {
-                fprintf(stderr, "%s (client_connect): Couldn't discard "
-                                "authorization data.\n", progname);
-                perror("(client_connect)");
-            }
-            close(client_message_socket);
-            free(auth_buffer);
-            return -1;
-        }
-        if (DISPLAY_MSGS) {
-            fprintf(stderr, "...auth: %s\n", auth_buffer);
-        }
-        free(auth_buffer);
-    }
-
-    return client_message_socket;
+    return client_authenticate(client_message_socket, endian_ptr, protocol_major_version_ptr, protocol_minor_version_ptr);
 }
 
 /* ---------------------------------------------------------------- */
@@ -373,6 +380,14 @@ int server_connect(enum endianness endian,
         free(auth_buffer);
         return -1;
     }
+
+    slog << "   Buffer: " << endl;
+    logger(slog.str(), ERR);
+    dumpSS(buffer, total_length);
+
+    slog << "   Auth Buffer: " << endl;
+    logger(slog.str(), ERR);
+    dumpSS(auth_buffer, total_length);
 
     if (send(server_side_socket, auth_buffer, total_length, 0) < total_length)
     {

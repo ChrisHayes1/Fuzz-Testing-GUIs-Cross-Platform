@@ -15,7 +15,7 @@
 #include <cstring>
 #include <stdio.h>		/* general */
 #include <errno.h>
-
+#include <iostream>
 #include "_const.h"
 #include "_types.h"
 #include "_globals.h"
@@ -23,6 +23,16 @@
 
 //Specific to verify, can remove when done with it.
 #include <fcntl.h>
+
+void dump(char * msg, int size){
+    cerr << "\nDumping message: msg[0] = " << msg[0] << "********************" << endl;
+    for (int i = 0; i < size; i++){
+        cerr << msg[i];
+    }
+    cerr << "********************" << endl;
+    cerr << endl << endl;
+
+}
 
 int copy_msgs(int source_socket, int dest_socket){
     char buffer[BUFFER_SIZE];
@@ -39,13 +49,15 @@ int copy_msgs(int source_socket, int dest_socket){
         logger("NOTE: Source socket gracefully failed\n", ERR);
         return -1;
     } else {
-        slog << "   Sending msg of size " << recv_length << "-> ";
+        slog << "   Sending msg of size " << recv_length << "-> " << endl;
         logger(slog.str());
+        dump(buffer, recv_length);
         send_length = send(dest_socket, buffer, recv_length, 0);
         if (send_length < recv_length){
             logger("ERROR: Entire message not sent\n");
         }
-        logger("Message sent\n");
+        logger("Message sent: \n");
+        logger(slog.str());
     }
     return 0;
 }
@@ -110,10 +122,10 @@ int converse(int client_socket, int server_socket){
             slog << "Poll returned " << fd_available << endl;
             logger(slog.str(), ERR);
             int mreturn = 0;
-            for (int i = 0; i < nfds; i++) {
-                logger(":");
+            for (int i = nfds-1; i >=0; i--) { // backwards to check server first
+                logger(to_string(i));
                 if (fds[i].revents != 0) {  // Did we find something?
-                    logger("Event found - ");
+                    logger(" - Event found - ");
                     if (fds[i].revents != POLLIN) {
                         //Error occured
                         slog << "ERROR: poll event returned " << fds[i].revents << endl;
