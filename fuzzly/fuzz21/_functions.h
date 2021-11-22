@@ -25,18 +25,18 @@ using namespace std;
  *	All open sockets are closed automatically.
  */
 
-void install_sigint_handler(void);
-
-
-/*
- *  install_sigquit_handler
- *
- *  Description:
- *  ------------
- *	Same as above but installs SIGQUIT handler.
- */
-
-void install_sigquit_handler(void);
+//void install_sigint_handler(void);
+//
+//
+///*
+// *  install_sigquit_handler
+// *
+// *  Description:
+// *  ------------
+// *	Same as above but installs SIGQUIT handler.
+// */
+//
+//void install_sigquit_handler(void);
 
 /* ------------------------------------------------------------------- */
 

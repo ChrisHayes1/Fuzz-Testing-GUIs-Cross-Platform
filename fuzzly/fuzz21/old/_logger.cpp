@@ -8,7 +8,7 @@
 
 using namespace std;
 
-stringstream slog;
+//stringstream slog;
 int DISPLAY_MSGS = 1;
 
 void logger(string msg_log, LogMode log_mode){

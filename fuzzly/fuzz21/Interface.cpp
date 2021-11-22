@@ -124,7 +124,7 @@ int Interface::client_authenticate(){
      *  Copy required data out.
      */
     //enum endianness *endian_ptr = (enum endianness) buffer[0];
-    this->endian = buffer[0];
+    this->endian = (enum endianness) buffer[0];
     memcpy(&this->major_protocol, buffer + 2, sizeof(this->major_protocol));
     memcpy(&this->minor_protocol, buffer + 4, sizeof(this->minor_protocol));
     memcpy(&auth_name_len, buffer + 6, sizeof(auth_name_len));
@@ -195,22 +195,25 @@ int Interface::connect_server(Interface * to_client)
     struct sockaddr_in	 server_sock_addr;
     int			 server_side_socket;
 
+    enum endianness endian;
+    unsigned short  major, minor;
+
     /*
      *  Handcraft the fixed part of the connection message.
      */
-    this->major_protocol = to_client->getMajor();
-    this->minor_protocol = to_client->getMinor();
-    this->endian = to_client->getEndianess();
+    major = this->major_protocol = to_client->getMajor();
+    minor = this->minor_protocol = to_client->getMinor();
+    endian = this->endian = to_client->getEndianess();
 
-    slog << "...protocol_major_version_ptr: " << this->major_protocol << endl
-         << "...protocol_minor_version_ptr: " << this->minor_protocol << endl
-         << "...endian_ptr: " <<  this->endian << endl;
+    slog << "...protocol_major_version_ptr: " << major << endl
+         << "...protocol_minor_version_ptr: " << minor << endl
+         << "...endian_ptr: " <<  endian << endl;
     logger(slog.str());
 
-    buffer[0] = this->endian;
+    buffer[0] = endian;
     buffer[1] = 0;		/* unused in the message */
-    memcpy(buffer + 2, &this->major_protocol, sizeof(this->major_protocol));
-    memcpy(buffer + 4, &this->minor_protocol, sizeof(this->minor_protocol));
+    memcpy(buffer + 2, &major, sizeof(major));
+    memcpy(buffer + 4, &minor, sizeof(minor));
 
 
 

@@ -4,7 +4,10 @@
 
 #ifndef FUZZ_LOGGER_H
 #define FUZZ_LOGGER_H
+
 #include <iostream>
+#include <sstream>
+
 using namespace std;
 
 enum LogMode {OUT, ERR, BOTH};

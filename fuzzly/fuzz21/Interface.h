@@ -6,14 +6,14 @@
 #define FUZZ_INTERFACE_H
 
 #include <unistd.h>
-
+#include "Logger.h"
 /*
  * Each interface represents a connection to one side of the X-system
  * The interface will either act as a server and connect to the client,
  * or act as a client and connect to the server.
  */
 
-const int X_PORT = 6001;
+const int X_PORT = 6000;
 const int X_LIMIT = 9;
 
 enum I_TYPE {CLIENT=0, XSERVER=1};
@@ -24,7 +24,7 @@ protected:
     int fd;
     int port;
     enum I_TYPE cxn_type;
-    char endian;
+    enum endianness endian;
     unsigned short  major_protocol, minor_protocol;
 public:
     // Constructors & Destructors
@@ -34,7 +34,7 @@ public:
     int getFD(){return fd;}
     unsigned short  getMajor(){return major_protocol;}
     unsigned short  getMinor(){return minor_protocol;}
-    char getEndianess(){return endian;}
+    enum endianness getEndianess(){return endian;}
     // Methods
     int connect_server(Interface * to_client);
     int connect_client();

@@ -3,7 +3,7 @@
 //
 
 #include "Logger.h"
-#include <sstream>
+
 
 
 #include <cstring>
@@ -12,8 +12,9 @@
 
 using namespace std;
 
-stringstream slog;
+
 int DISPLAY_MSGS = 1;
+stringstream slog;
 
 void logger(string msg_log, LogMode log_mode){
     if (DISPLAY_MSGS && (log_mode==ERR || log_mode==BOTH)) {
