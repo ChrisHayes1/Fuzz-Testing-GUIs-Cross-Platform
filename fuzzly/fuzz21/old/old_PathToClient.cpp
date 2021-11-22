@@ -12,10 +12,10 @@
 
 #include <strings.h>
 
-#include "../_const.h"
-#include "../_types.h"
+#include "_const.h"
+#include "_types.h"
 #include "../_globals.h"
-#include "../_functions.h"
+#include "_functions.h"
 #include "old_socket_to_client.h"
 
 PipeToClient::PipeToClient(){

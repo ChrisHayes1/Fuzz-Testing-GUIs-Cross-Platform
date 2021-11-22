@@ -30,11 +30,11 @@
  *  message.
  */
 
-enum endianness
-{
-	LITTLE_ENDIAN_NEW = 0154,
-	BIG_ENDIAN_NEW    = 0102
-};
+//enum endianness
+//{
+//	LITTLE_ENDIAN_NEW = 0154,
+//	BIG_ENDIAN_NEW    = 0102
+//};
 
 /* ---------------------------------------------------------------- */
 
@@ -44,14 +44,14 @@ enum endianness
  *  Specifies whether a (non) blocking recv should be done.
  */
 
-enum blockstatus
-{
-	NON_BLOCKING,
-	BLOCKING
-};
+//enum blockstatus
+//{
+//	NON_BLOCKING,
+//	BLOCKING
+//};
 
 /* ---------------------------------------------------------------- */
 
-enum LogMode {OUT, ERR, BOTH};
+//enum LogMode {OUT, ERR, BOTH};
 
 #endif  /* _TYPES_H */

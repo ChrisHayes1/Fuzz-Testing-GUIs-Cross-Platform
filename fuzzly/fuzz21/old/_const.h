@@ -15,7 +15,7 @@
  *  Port on which the X server listens.
  */
 
-#define	X_PORT		6000
+//#define	X_PORT		6000
 
 
 /*
@@ -24,7 +24,7 @@
  *  Limit of last port in which our server listens.
  */
 
-#define X_LIMIT		9
+//#define X_LIMIT		9
 
 /* ------------------------------------------------------------------ */
 
@@ -35,7 +35,7 @@
  *  Do NOT change.
  */
 
-#define MESSAGE_SIZE	32
+//#define MESSAGE_SIZE	32
 
 /* ------------------------------------------------------------------ */
 
@@ -47,10 +47,10 @@
  *  to the buffer before sending it out.  There is ample slack.
  */
 
-#define	BUFFER_SIZE	16384
+//#define	BUFFER_SIZE	16384
 
-#define CLIENT  0
-#define XSERVER  1
+//#define CLIENT  0
+//#define XSERVER  1
 
 /* ------------------------------------------------------------------ */
 

@@ -10,7 +10,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "../../fuzz21/_const.h"
+#include "../../fuzz21/old/_const.h"
 #include "globals.h"
 #include "functions.h"
 

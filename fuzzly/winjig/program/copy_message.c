@@ -14,7 +14,7 @@
 #include <errno.h>
 
 #include "testos.h"
-#include "../../fuzz21/_const.h"
+#include "../../fuzz21/old/_const.h"
 #include "types.h"
 #include "globals.h"
 #include "functions.h"

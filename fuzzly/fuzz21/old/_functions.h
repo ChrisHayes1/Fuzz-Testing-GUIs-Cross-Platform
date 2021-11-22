@@ -68,9 +68,9 @@ void install_sigquit_handler(void);
  *	The socket for communicating with the client on success, -1 on error.
  */
 
-int client_connect(int port, enum endianness *endian_ptr,
-		   unsigned short *protocol_major_version_ptr,
-		   unsigned short *protocol_minor_version_ptr);
+//int client_connect(int port, enum endianness *endian_ptr,
+//		   unsigned short *protocol_major_version_ptr,
+//		   unsigned short *protocol_minor_version_ptr);
 
 /* --------------------------------------------------------------------- */
 
@@ -99,9 +99,9 @@ int client_connect(int port, enum endianness *endian_ptr,
  *	Socket to communicate with the actual X server on success, -1 on error.
  */
 
-int server_connect(enum endianness endian,
-		   unsigned short protocol_major_version,
-		   unsigned short protocol_minor_version);
+//int server_connect(enum endianness endian,
+//		   unsigned short protocol_major_version,
+//		   unsigned short protocol_minor_version);
 
 /* ------------------------------------------------------------------- */
 
@@ -209,7 +209,7 @@ int converse(int client_socket, int server_socket);
 ///* --------------------------------------------------------------------- */
 //
 //
-
-void logger(string msg_log, LogMode log_mode=BOTH);
+//
+//void logger(string msg_log, LogMode log_mode=BOTH);
 
 #endif  /* _FUNCTIONS_H */

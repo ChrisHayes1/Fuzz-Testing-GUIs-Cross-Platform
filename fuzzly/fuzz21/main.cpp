@@ -3,12 +3,12 @@
 #include <string.h>
 #include <ctype.h>
 #include <unistd.h>
+#include <signal.h>
+#include <stdlib.h>
 
-#include "_const.h"
-#include "_types.h"
-#include "_functions.h"
-#include "_logger.cpp"
-
+#include "Interface.h"
+#include "Agent.h"
+#include "Logger.h"
 
 /* --------------------------------------------------------------------- */
 
@@ -108,18 +108,78 @@ int rate = 100;
 int mode = 0;
 
 /* -------------------------------------------------------------- */
+int parse_command_line(int argc, char *argv[ ]);
+void usage();
+void install_sigint_handler(void);
+void install_sigquit_handler(void);
+/* -------------------------------------------------------------- */
 
-/*
- * log
- *
- * output to stderr and stdout for terminal and file output
- * Should be used with program call that outputs stderr to file
- */
 
-void my_log(char* my_string){
-    fprintf(stderr, "%s", my_string);
-    fprintf(stdout, "%s", my_string);
+int main(int argc, char *argv[ ])
+{
+//    enum endianness endian;
+//    unsigned short  major, minor;
+
+
+    // Verify good args, otherwise exit
+    if (parse_command_line(argc, argv) == -1) {return 1;}
+
+    // Set interfaces to server and client
+    int		client_response, xserver_response;
+    Interface * to_client = new Interface(CLIENT, port);
+    Interface * to_xserver = new Interface(XSERVER, X_PORT);
+
+    // Additional setup
+    install_sigint_handler();
+    install_sigquit_handler();
+    srandom(1857);
+
+    /***
+     * Setup connections
+     ***/
+
+    //Connect to client
+    logger("Connecting with client\n");
+    client_response = to_client->connect_client();
+    //client_socket = client_connect(port, &endian, &major, &minor);
+    if (client_response == -1)
+    {
+        fprintf(stderr, "(main): Can't connect to client.\n");
+        return 2;
+    }
+
+    //Connect to server
+    logger("Connecting with server\n");
+    //server_socket = server_connect(endian, major, minor);
+    xserver_response = to_xserver->connect_server(to_client);
+    if (xserver_response == -1)
+    {
+        delete to_client;
+        fprintf(stderr, "%s (main): Can't connect to server.\n", progname);
+        return 3;
+    }
+
+    Agent * agent = new Agent(to_client, to_xserver);
+
+    /****
+     * Main loop
+     ***/
+    if(agent->converse() < 0){
+        logger("Got response from converse of < 0\n");
+    }
+
+
+    /***
+     * Clean up and return
+     ***/
+    delete agent;
+    delete to_client;
+    delete to_xserver;
+
+    return 0;
 }
+
+/* ---------------------------------------------------------------- */
 
 /*
  *  usage
@@ -127,7 +187,7 @@ void my_log(char* my_string){
  *  Output useful usage information on stderr.
  */
 
-void usage(void)
+void usage()
 {
     fprintf(stdout, "Usage: %s [-mode <mode>] [-rate <rate>] "
                     "[-startgap <startgap>]\n"
@@ -142,63 +202,6 @@ void usage(void)
     fprintf(stdout, "       <seed>      = seed for random number generator\n");
 }
 
-/* -------------------------------------------------------------- */
-
-
-int main(int argc, char *argv[ ])
-{
-    int parse_command_line(int argc, char *argv[ ]);
-
-    enum endianness endian;
-    unsigned short  major, minor;
-    int		client_socket, server_socket;
-    int		count = 0;
-
-
-    progname = argv[0];
-    if (parse_command_line(argc, argv) == -1)
-        return 1;
-
-    // Setup
-    install_sigint_handler();
-    install_sigquit_handler();
-    srandom(1857);
-
-    //Connect to client
-    logger("THB - Connecting with client\n");
-    client_socket = client_connect(port, &endian, &major, &minor);
-    if (client_socket == -1)
-    {
-        fprintf(stderr, "%s (main): Can't connect to client.\n", progname);
-        return 2;
-    }
-
-    //Connect to server
-    logger("THB - Connecting with server\n");
-    server_socket = server_connect(endian, major, minor);
-    if (server_socket == -1)
-    {
-        close(client_socket);
-        fprintf(stderr, "%s (main): Can't connect to server.\n", progname);
-        return 3;
-    }
-
-    /*
-     * Main loop
-     */
-
-    if(converse(client_socket, server_socket) < 0){
-        logger("Got response from convers of < 0\n");
-    }
-
-    close(client_socket);
-    close(server_socket);
-
-    return 0;
-}
-
-/* ---------------------------------------------------------------- */
-
 /*
  *  parse_command_line
  *
@@ -206,6 +209,7 @@ int main(int argc, char *argv[ ])
  *  Set the appropriate global variable.  Output error messages/usage
  *  information as appropriate.
  */
+
 
 int parse_command_line(int argc, char *argv[ ])
 {
@@ -389,4 +393,29 @@ int parse_command_line(int argc, char *argv[ ])
     }  /* while (i < argc) */
 
     return 0;
+}
+
+
+/* --------------------------------------------------------------- */
+
+void signal_handler_quit(int signum)
+{
+    exit(7);
+}
+
+void signal_handler_sigint(int signum)
+{
+    exit(8);
+}
+
+/* --------------------------------------------------------------- */
+
+void install_sigint_handler()
+{
+    signal(SIGINT, signal_handler_sigint);
+}
+
+void install_sigquit_handler()
+{
+    signal(SIGQUIT, signal_handler_quit);
 }

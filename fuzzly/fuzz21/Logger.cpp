@@ -1,10 +1,18 @@
 //
-// Created by devbox on 11/17/21.
+// Created by devbox on 11/22/21.
 //
-#include <sstream>
-#include <iostream>
 
-std::stringstream slog;
+#include "Logger.h"
+#include <sstream>
+
+
+#include <cstring>
+#include <errno.h>
+
+
+using namespace std;
+
+stringstream slog;
 int DISPLAY_MSGS = 1;
 
 void logger(string msg_log, LogMode log_mode){
@@ -16,5 +24,8 @@ void logger(string msg_log, LogMode log_mode){
     slog.clear();
 }
 
-
-
+void log_error(string p_msg){
+    if (DISPLAY_MSGS){
+        perror(p_msg.c_str());
+    }
+}
