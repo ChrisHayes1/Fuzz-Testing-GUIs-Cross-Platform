@@ -9,8 +9,8 @@
 #define _FUNCTIONS_H
 
 #include <string>
-#include "_types.h"
-
+#include "old/_types.h"
+#include "Interface.h"
 
 using namespace std;
 
@@ -68,9 +68,9 @@ void install_sigquit_handler(void);
  *	The socket for communicating with the client on success, -1 on error.
  */
 
-//int client_connect(int port, enum endianness *endian_ptr,
-//		   unsigned short *protocol_major_version_ptr,
-//		   unsigned short *protocol_minor_version_ptr);
+int client_connect(int port, enum endianness *endian_ptr,
+		   unsigned short *protocol_major_version_ptr,
+		   unsigned short *protocol_minor_version_ptr);
 
 /* --------------------------------------------------------------------- */
 
@@ -99,9 +99,9 @@ void install_sigquit_handler(void);
  *	Socket to communicate with the actual X server on success, -1 on error.
  */
 
-//int server_connect(enum endianness endian,
-//		   unsigned short protocol_major_version,
-//		   unsigned short protocol_minor_version);
+int server_connect(enum endianness endian,
+		   unsigned short protocol_major_version,
+		   unsigned short protocol_minor_version);
 
 /* ------------------------------------------------------------------- */
 

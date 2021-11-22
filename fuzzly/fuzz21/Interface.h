@@ -24,7 +24,7 @@ protected:
     int fd;
     int port;
     enum I_TYPE cxn_type;
-    enum endianness endian;
+    char endian;
     unsigned short  major_protocol, minor_protocol;
 public:
     // Constructors & Destructors
@@ -34,7 +34,7 @@ public:
     int getFD(){return fd;}
     unsigned short  getMajor(){return major_protocol;}
     unsigned short  getMinor(){return minor_protocol;}
-    enum endianness getEndianess(){return endian;}
+    char getEndianess(){return endian;}
     // Methods
     int connect_server(Interface * to_client);
     int connect_client();

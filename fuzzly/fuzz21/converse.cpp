@@ -16,10 +16,12 @@
 #include <stdio.h>		/* general */
 //#include <errno.h>
 #include <iostream>
-#include "_const.h"
-#include "_types.h"
-#include "../_globals.h"
+
+#include "_globals.h"
 #include "_functions.h"
+#include "Logger.h"
+#include "Message.h"
+#include "Interface.h"
 
 //Specific to verify, can remove when done with it.
 #include <fcntl.h>

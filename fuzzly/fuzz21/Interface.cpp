@@ -123,7 +123,8 @@ int Interface::client_authenticate(){
     /*
      *  Copy required data out.
      */
-    this->endian = (enum endianness) buffer[0];
+    //enum endianness *endian_ptr = (enum endianness) buffer[0];
+    this->endian = buffer[0];
     memcpy(&this->major_protocol, buffer + 2, sizeof(this->major_protocol));
     memcpy(&this->minor_protocol, buffer + 4, sizeof(this->minor_protocol));
     memcpy(&auth_name_len, buffer + 6, sizeof(auth_name_len));
@@ -197,17 +198,21 @@ int Interface::connect_server(Interface * to_client)
     /*
      *  Handcraft the fixed part of the connection message.
      */
-    unsigned short major, minor;
-    major = to_client->getMajor();
-    minor = to_client->getMinor();
+    this->major_protocol = to_client->getMajor();
+    this->minor_protocol = to_client->getMinor();
+    this->endian = to_client->getEndianess();
+
     slog << "...protocol_major_version_ptr: " << this->major_protocol << endl
-         << "...protocol_minor_version_ptr: " << this->minor_protocol << endl;
+         << "...protocol_minor_version_ptr: " << this->minor_protocol << endl
+         << "...endian_ptr: " <<  this->endian << endl;
     logger(slog.str());
 
-    buffer[0] = (char) endian;
+    buffer[0] = this->endian;
     buffer[1] = 0;		/* unused in the message */
-    memcpy(buffer + 2, &major, sizeof(major));
-    memcpy(buffer + 4, &minor, sizeof(minor));
+    memcpy(buffer + 2, &this->major_protocol, sizeof(this->major_protocol));
+    memcpy(buffer + 4, &this->minor_protocol, sizeof(this->minor_protocol));
+
+
 
     /*
      *  Get our host's IP address.
@@ -263,6 +268,8 @@ int Interface::connect_server(Interface * to_client)
         XauDisposeAuth(xauth_ptr);
         return -1;
     }
+    slog << "   Server total length = " << total_length << endl;
+    logger(slog.str());
 
     new_name_length = NEAREST_MULTIPLE_OF_4(xauth_ptr->name_length);
     new_data_length = NEAREST_MULTIPLE_OF_4(xauth_ptr->data_length);
@@ -293,7 +300,7 @@ int Interface::connect_server(Interface * to_client)
     if (connect(server_side_socket, (struct sockaddr *) &server_sock_addr,
                 sizeof(server_sock_addr)) == -1)
     {
-        slog << "server_connect): Can't connect to " << my_hostname
+        slog << "(server_connect): Can't connect to " << my_hostname
              << (unsigned char) hostent_ptr->h_addr_list[0][0] << "."
              << (unsigned char) hostent_ptr->h_addr_list[0][1] << "."
              << (unsigned char) hostent_ptr->h_addr_list[0][2] << "."

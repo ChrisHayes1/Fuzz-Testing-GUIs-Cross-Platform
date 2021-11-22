@@ -14,7 +14,7 @@ LIBS=	-lXau
 RM=	rm -f
 
 EXE=	fuzz21
-SRCS=	main.cpp Interface.cpp Agent.cpp Message.cpp Logger.cpp
+SRCS=	main.cpp Interface.cpp Agent.cpp Message.cpp Logger.cpp converse.cpp socket_setup.cpp
 OBJS=	$(SRCS:.cpp=.o)
 
 $(EXE):	$(OBJS)

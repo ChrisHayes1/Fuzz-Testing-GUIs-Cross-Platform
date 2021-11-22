@@ -9,6 +9,7 @@
 #include "Interface.h"
 #include "Agent.h"
 #include "Logger.h"
+#include "_functions.h"
 
 /* --------------------------------------------------------------------- */
 
@@ -117,8 +118,8 @@ void install_sigquit_handler(void);
 
 int main(int argc, char *argv[ ])
 {
-//    enum endianness endian;
-//    unsigned short  major, minor;
+    enum endianness endian;
+    unsigned short  major, minor;
 
 
     // Verify good args, otherwise exit
@@ -126,6 +127,7 @@ int main(int argc, char *argv[ ])
 
     // Set interfaces to server and client
     int		client_response, xserver_response;
+    int		client_socket, server_socket;
     Interface * to_client = new Interface(CLIENT, port);
     Interface * to_xserver = new Interface(XSERVER, X_PORT);
 
@@ -140,41 +142,47 @@ int main(int argc, char *argv[ ])
 
     //Connect to client
     logger("Connecting with client\n");
-    client_response = to_client->connect_client();
+    //client_response = to_client->connect_client();
     //client_socket = client_connect(port, &endian, &major, &minor);
-    if (client_response == -1)
+    client_socket = client_connect(port, &endian, &major, &minor);
+    if (client_socket == -1)
     {
         fprintf(stderr, "(main): Can't connect to client.\n");
         return 2;
     }
 
     //Connect to server
-    logger("Connecting with server\n");
-    //server_socket = server_connect(endian, major, minor);
-    xserver_response = to_xserver->connect_server(to_client);
-    if (xserver_response == -1)
+    //logger("Connecting with server\n");
+    server_socket = server_connect(endian, major, minor);
+    //xserver_response = to_xserver->connect_server(to_client);
+    if (server_socket == -1)
     {
-        delete to_client;
+        //delete to_client;
         fprintf(stderr, "%s (main): Can't connect to server.\n", progname);
         return 3;
     }
 
-    Agent * agent = new Agent(to_client, to_xserver);
+    //Agent * agent = new Agent(to_client, to_xserver);
 
     /****
      * Main loop
      ***/
-    if(agent->converse() < 0){
+//    if(agent->converse() < 0){
+//        logger("Got response from converse of < 0\n");
+//    }
+
+    if(converse(client_socket, server_socket) < 0){
         logger("Got response from converse of < 0\n");
     }
-
 
     /***
      * Clean up and return
      ***/
-    delete agent;
-    delete to_client;
-    delete to_xserver;
+     close(client_socket);
+     close(server_socket);
+    //delete agent;
+    //delete to_client;
+    //delete to_xserver;
 
     return 0;
 }
