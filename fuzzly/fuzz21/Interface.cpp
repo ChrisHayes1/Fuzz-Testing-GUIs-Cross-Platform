@@ -18,7 +18,6 @@
 #include <iostream>
 
 
-#include "_globals.h"
 #include "_macros.h"
 
 #include "Interface.h"
@@ -321,11 +320,8 @@ int Interface::connect_server(Interface * to_client)
      */
     if (send(server_side_socket, buffer, 12, 0) < 12)
     {
-        if (DISPLAY_MSGS) {
-            fprintf(stderr, "%s (server_connect): Can't send initial part "
-                            "of connection message.\n", progname);
-            perror("(server_connect)");
-        }
+        logger("(server_connect): Can't send initial part of connection message.\n", ERR);
+        log_error("(server_connect");
         close(server_side_socket);
         free(auth_buffer);
         return -1;
@@ -334,10 +330,7 @@ int Interface::connect_server(Interface * to_client)
 
     if (send(server_side_socket, auth_buffer, total_length, 0) < total_length)
     {
-        if (DISPLAY_MSGS) {
-            fprintf(stderr, "%s (server_connect): Can't send authorization part"
-                            " of connection data.\n", progname);
-        }
+        logger("(server_connect): Can't send authorization part of connection message.\n", ERR);
         close(server_side_socket);
         free(auth_buffer);
         return -1;

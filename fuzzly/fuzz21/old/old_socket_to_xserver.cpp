@@ -21,9 +21,9 @@
 
 #include "_const.h"
 #include "_types.h"
-#include "../_globals.h"
+#include "_globals.h"
 #include "macros.h"
-#include "../_functions.h"
+#include "_functions.h"
 
 /* ---------------------------------------------------------------- */
 

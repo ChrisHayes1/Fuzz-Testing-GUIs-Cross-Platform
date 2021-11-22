@@ -20,14 +20,14 @@
 #include <X11/Xauth.h>		/* authorization related functions */
 #include <iostream>
 
-#include "old/_const.h"
-#include "old/_types.h"
+#include "_const.h"
+#include "_types.h"
 #include "_globals.h"
-#include "_macros.h"
+#include "../_macros.h"
 #include "_functions.h"
-#include "Interface.h"
-#include "Logger.h"
-#include "Message.h"
+#include "../Interface.h"
+#include "../Logger.h"
+#include "../Message.h"
 /* ------------------------------------------------------------------ */
 
 /*

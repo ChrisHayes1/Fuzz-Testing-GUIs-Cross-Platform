@@ -2,15 +2,12 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
-#include <unistd.h>
 #include <signal.h>
-#include <stdlib.h>
 
 #include "Interface.h"
 #include "Agent.h"
 #include "Logger.h"
-#include "_functions.h"
-#include "_globals.h"
+
 /* --------------------------------------------------------------------- */
 
 /*
@@ -118,16 +115,12 @@ void install_sigquit_handler(void);
 
 int main(int argc, char *argv[ ])
 {
-    enum endianness endian;
-    unsigned short  major, minor;
-
-
     // Verify good args, otherwise exit
     if (parse_command_line(argc, argv) == -1) {return 1;}
 
     // Set interfaces to server and client
     int		client_response, xserver_response;
-    int		client_socket, server_socket;
+//    int		client_socket, server_socket;
     Interface * to_client = new Interface(CLIENT, port);
     Interface * to_xserver = new Interface(XSERVER, X_PORT);
 
@@ -167,27 +160,27 @@ int main(int argc, char *argv[ ])
         return 3;
     }
 
-    //Agent * agent = new Agent(to_client, to_xserver);
+    Agent * agent = new Agent(to_client, to_xserver);
 
     /****
      * Main loop
      ***/
-//    if(agent->converse() < 0){
-//        logger("Got response from converse of < 0\n");
-//    }
-
-    if(converse(to_client->getFD(), to_xserver->getFD()) < 0){
+    if(agent->converse() < 0){
         logger("Got response from converse of < 0\n");
     }
+
+//    if(converse(to_client->getFD(), to_xserver->getFD()) < 0){
+//        logger("Got response from converse of < 0\n");
+//    }
 
     /***
      * Clean up and return
      ***/
-     close(client_socket);
-     close(server_socket);
-    //delete agent;
-    //delete to_client;
-    //delete to_xserver;
+     //close(client_socket);
+     //close(server_socket);
+    delete agent;
+    delete to_client;
+    delete to_xserver;
 
     return 0;
 }

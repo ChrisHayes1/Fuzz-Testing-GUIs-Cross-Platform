@@ -15,10 +15,10 @@
  *  For description of variables, see main.c
  */
 
-extern char	*progname;
-extern int	 seed, direction, port, startgap, rate, mode;
-extern int DISPLAY_MSGS;
-extern std::stringstream slog;
+//extern char	*progname;
+//extern int	 seed, direction, port, startgap, rate, mode;
+//extern int DISPLAY_MSGS;
+//extern std::stringstream slog;
 
 /* -------------------------------------------------------------- */
 

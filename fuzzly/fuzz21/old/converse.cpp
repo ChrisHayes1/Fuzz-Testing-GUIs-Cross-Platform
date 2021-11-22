@@ -19,9 +19,9 @@
 
 #include "_globals.h"
 #include "_functions.h"
-#include "Logger.h"
-#include "Message.h"
-#include "Interface.h"
+#include "../Logger.h"
+#include "../Message.h"
+#include "../Interface.h"
 
 //Specific to verify, can remove when done with it.
 #include <fcntl.h>

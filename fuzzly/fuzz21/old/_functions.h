@@ -9,8 +9,8 @@
 #define _FUNCTIONS_H
 
 #include <string>
-#include "old/_types.h"
-#include "Interface.h"
+#include "_types.h"
+#include "../Interface.h"
 
 using namespace std;
 
@@ -68,9 +68,9 @@ using namespace std;
  *	The socket for communicating with the client on success, -1 on error.
  */
 
-int client_connect(int port, enum endianness *endian_ptr,
-		   unsigned short *protocol_major_version_ptr,
-		   unsigned short *protocol_minor_version_ptr);
+//int client_connect(int port, enum endianness *endian_ptr,
+//		   unsigned short *protocol_major_version_ptr,
+//		   unsigned short *protocol_minor_version_ptr);
 
 /* --------------------------------------------------------------------- */
 
@@ -99,9 +99,9 @@ int client_connect(int port, enum endianness *endian_ptr,
  *	Socket to communicate with the actual X server on success, -1 on error.
  */
 
-int server_connect(enum endianness endian,
-		   unsigned short protocol_major_version,
-		   unsigned short protocol_minor_version);
+//int server_connect(enum endianness endian,
+//		   unsigned short protocol_major_version,
+//		   unsigned short protocol_minor_version);
 
 /* ------------------------------------------------------------------- */
 
@@ -160,7 +160,7 @@ int server_connect(enum endianness endian,
  *	-5	garbler asked for an abort.
  */
 
-int converse(int client_socket, int server_socket);
+//int converse(int client_socket, int server_socket);
 //int copy_msgs(int source_socket,int dest_socket);
 //int copy_message(int dest_socket, int source_socket, enum blockstatus block,
 //		 int (*garbler)(int source_socket, char *buf, int *buflen_ptr,

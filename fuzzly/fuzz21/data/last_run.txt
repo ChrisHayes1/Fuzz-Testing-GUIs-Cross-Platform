@@ -1,0 +1,1455 @@
+Connecting with client
+...protocol_major_version_ptr: 11
+...protocol_minor_version_ptr: 0
+...endian_ptr: 108
+...auth_name_len: 18
+...auth_data_len: 16
+...total_len: 34
+   Auth Buffer received message of size 36
+...protocol_major_version_ptr: 11
+...protocol_minor_version_ptr: 0
+...endian_ptr: 108
+   Server total length = 36
+.Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 12308
+   Sending msg of size 12308-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 20
+   Sending msg of size 20-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 4
+   Sending msg of size 4-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 44
+   Sending msg of size 44-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 176
+   Sending msg of size 176-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 20
+   Sending msg of size 20-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 8
+   Sending msg of size 8-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 20
+   Sending msg of size 20-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 20
+   Sending msg of size 20-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 24
+   Sending msg of size 24-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 16
+   Sending msg of size 16-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 4916
+   Sending msg of size 4916-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 2704
+   Sending msg of size 2704-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 12
+   Sending msg of size 12-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 56
+   Sending msg of size 56-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 36
+   Sending msg of size 36-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 20
+   Sending msg of size 20-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 20
+   Sending msg of size 20-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 108
+   Sending msg of size 108-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 20
+   Sending msg of size 20-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 76
+   Sending msg of size 76-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 16
+   Sending msg of size 16-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 20
+   Sending msg of size 20-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 24
+   Sending msg of size 24-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 24
+   Sending msg of size 24-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 3308
+   Sending msg of size 3308-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 44
+   Sending msg of size 44-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 88
+   Sending msg of size 88-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 44
+   Sending msg of size 44-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 88
+   Sending msg of size 88-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 44
+   Sending msg of size 44-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 88
+   Sending msg of size 88-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 44
+   Sending msg of size 44-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 88
+   Sending msg of size 88-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 44
+   Sending msg of size 44-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 88
+   Sending msg of size 88-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 44
+   Sending msg of size 44-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 88
+   Sending msg of size 88-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 44
+   Sending msg of size 44-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 88
+   Sending msg of size 88-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 44
+   Sending msg of size 44-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 88
+   Sending msg of size 88-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 44
+   Sending msg of size 44-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 88
+   Sending msg of size 88-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 44
+   Sending msg of size 44-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 88
+   Sending msg of size 88-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 48
+   Sending msg of size 48-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 88
+   Sending msg of size 88-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 48
+   Sending msg of size 48-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 88
+   Sending msg of size 88-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 48
+   Sending msg of size 48-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 88
+   Sending msg of size 88-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 52
+   Sending msg of size 52-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 96
+   Sending msg of size 96-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 52
+   Sending msg of size 52-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 100
+   Sending msg of size 100-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 48
+   Sending msg of size 48-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 100
+   Sending msg of size 100-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 52
+   Sending msg of size 52-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 100
+   Sending msg of size 100-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 52
+   Sending msg of size 52-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 100
+   Sending msg of size 100-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 48
+   Sending msg of size 48-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 88
+   Sending msg of size 88-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 64
+   Sending msg of size 64-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 360
+   Sending msg of size 360-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 64
+   Sending msg of size 64-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 360
+   Sending msg of size 360-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 64
+   Sending msg of size 64-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 360
+   Sending msg of size 360-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 64
+   Sending msg of size 64-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 360
+   Sending msg of size 360-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 64
+   Sending msg of size 64-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 360
+   Sending msg of size 360-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 64
+   Sending msg of size 64-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 360
+   Sending msg of size 360-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 64
+   Sending msg of size 64-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 368
+   Sending msg of size 368-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 64
+   Sending msg of size 64-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 360
+   Sending msg of size 360-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 64
+   Sending msg of size 64-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 360
+   Sending msg of size 360-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 64
+   Sending msg of size 64-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 360
+   Sending msg of size 360-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 64
+   Sending msg of size 64-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 360
+   Sending msg of size 360-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 64
+   Sending msg of size 64-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 360
+   Sending msg of size 360-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 72
+   Sending msg of size 72-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 384
+   Sending msg of size 384-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 76
+   Sending msg of size 76-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 356
+   Sending msg of size 356-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 76
+   Sending msg of size 76-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 388
+   Sending msg of size 388-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 72
+   Sending msg of size 72-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 352
+   Sending msg of size 352-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 64
+   Sending msg of size 64-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 368
+   Sending msg of size 368-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 160
+   Sending msg of size 160-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 248
+   Sending msg of size 248-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 16
+   Sending msg of size 16-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 72
+   Sending msg of size 72-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 20
+   Sending msg of size 20-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 168
+   Sending msg of size 168-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 8
+   Sending msg of size 8-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 172
+   Sending msg of size 172-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 64
+   Sending msg of size 64-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 56
+   Sending msg of size 56-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 3316
+   Sending msg of size 3316-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 800
+   Sending msg of size 800-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 16
+   Sending msg of size 16-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 72
+   Sending msg of size 72-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 284
+   Sending msg of size 284-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 20
+   Sending msg of size 20-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 76
+   Sending msg of size 76-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 2044
+   Sending msg of size 2044-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 128
+   Sending msg of size 128-> 
+Message sent: 
+0Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 128
+   Sending msg of size 128-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 96
+   Sending msg of size 96-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 96
+   Sending msg of size 96-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 16376
+   Sending msg of size 16376-> 
+Message sent: 
+Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 10140
+   Sending msg of size 10140-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 64
+   Sending msg of size 64-> 
+Message sent: 
+0Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 20
+   Sending msg of size 20-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 196
+   Sending msg of size 196-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 64
+   Sending msg of size 64-> 
+Message sent: 
+0Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 64
+   Sending msg of size 64-> 
+Message sent: 
+0Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 64
+   Sending msg of size 64-> 
+Message sent: 
+0Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 96
+   Sending msg of size 96-> 
+Message sent: 
+0Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 128
+   Sending msg of size 128-> 
+Message sent: 
+0Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 288
+   Sending msg of size 288-> 
+Message sent: 
+0Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 108
+   Sending msg of size 108-> 
+Message sent: 
+Poll returned 2
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 576
+   Sending msg of size 576-> 
+Message sent: 
+0 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 24
+   Sending msg of size 24-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 288
+   Sending msg of size 288-> 
+Message sent: 
+0Poll returned 2
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 576
+   Sending msg of size 576-> 
+Message sent: 
+0 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 236
+   Sending msg of size 236-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 288
+   Sending msg of size 288-> 
+Message sent: 
+0Poll returned 2
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 576
+   Sending msg of size 576-> 
+Message sent: 
+0 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 224
+   Sending msg of size 224-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 576
+   Sending msg of size 576-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 152
+   Sending msg of size 152-> 
+Message sent: 
+Poll returned 2
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 576
+   Sending msg of size 576-> 
+Message sent: 
+0 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 152
+   Sending msg of size 152-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 576
+   Sending msg of size 576-> 
+Message sent: 
+0Poll returned 2
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 288
+   Sending msg of size 288-> 
+Message sent: 
+0 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 292
+   Sending msg of size 292-> 
+Message sent: 
+Poll returned 2
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 864
+   Sending msg of size 864-> 
+Message sent: 
+0 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 76
+   Sending msg of size 76-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 576
+   Sending msg of size 576-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 224
+   Sending msg of size 224-> 
+Message sent: 
+Poll returned 2
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 576
+   Sending msg of size 576-> 
+Message sent: 
+0 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 168
+   Sending msg of size 168-> 
+Message sent: 
+Poll returned 2
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 576
+   Sending msg of size 576-> 
+Message sent: 
+0 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 160
+   Sending msg of size 160-> 
+Message sent: 
+Poll returned 2
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 576
+   Sending msg of size 576-> 
+Message sent: 
+0 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 144
+   Sending msg of size 144-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 288
+   Sending msg of size 288-> 
+Message sent: 
+0Poll returned 2
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 576
+   Sending msg of size 576-> 
+Message sent: 
+0 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 224
+   Sending msg of size 224-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 576
+   Sending msg of size 576-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 144
+   Sending msg of size 144-> 
+Message sent: 
+Poll returned 2
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 576
+   Sending msg of size 576-> 
+Message sent: 
+0 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 152
+   Sending msg of size 152-> 
+Message sent: 
+Poll returned 2
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 864
+   Sending msg of size 864-> 
+Message sent: 
+0 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 144
+   Sending msg of size 144-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 576
+   Sending msg of size 576-> 
+Message sent: 
+0Poll returned 2
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 576
+   Sending msg of size 576-> 
+Message sent: 
+0 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 364
+   Sending msg of size 364-> 
+Message sent: 
+Poll returned 2
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 576
+   Sending msg of size 576-> 
+Message sent: 
+0 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 144
+   Sending msg of size 144-> 
+Message sent: 
+Poll returned 2
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 864
+   Sending msg of size 864-> 
+Message sent: 
+0 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 148
+   Sending msg of size 148-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 576
+   Sending msg of size 576-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 216
+   Sending msg of size 216-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 576
+   Sending msg of size 576-> 
+Message sent: 
+0Poll returned 2
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 288
+   Sending msg of size 288-> 
+Message sent: 
+0 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 292
+   Sending msg of size 292-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 576
+   Sending msg of size 576-> 
+Message sent: 
+0Poll returned 2
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 288
+   Sending msg of size 288-> 
+Message sent: 
+0 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 220
+   Sending msg of size 220-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 576
+   Sending msg of size 576-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 72
+   Sending msg of size 72-> 
+Message sent: 
+Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 148
+   Sending msg of size 148-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0.Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 64
+   Sending msg of size 64-> 
+Message sent: 
+0Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 64
+   Sending msg of size 64-> 
+Message sent: 
+0Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0.Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 64
+   Sending msg of size 64-> 
+Message sent: 
+0Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 72
+   Sending msg of size 72-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 64
+   Sending msg of size 64-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 148
+   Sending msg of size 148-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 64
+   Sending msg of size 64-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 148
+   Sending msg of size 148-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 64
+   Sending msg of size 64-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 72
+   Sending msg of size 72-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 64
+   Sending msg of size 64-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 72
+   Sending msg of size 72-> 
+Message sent: 
+.Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 64
+   Sending msg of size 64-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 72
+   Sending msg of size 72-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 64
+   Sending msg of size 64-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 76
+   Sending msg of size 76-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 64
+   Sending msg of size 64-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 76
+   Sending msg of size 76-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 64
+   Sending msg of size 64-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 72
+   Sending msg of size 72-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 64
+   Sending msg of size 64-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 144
+   Sending msg of size 144-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 64
+   Sending msg of size 64-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 144
+   Sending msg of size 144-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 64
+   Sending msg of size 64-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 148
+   Sending msg of size 148-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 64
+   Sending msg of size 64-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 76
+   Sending msg of size 76-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 64
+   Sending msg of size 64-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 76
+   Sending msg of size 76-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 64
+   Sending msg of size 64-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 148
+   Sending msg of size 148-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 64
+   Sending msg of size 64-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 72
+   Sending msg of size 72-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 64
+   Sending msg of size 64-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 72
+   Sending msg of size 72-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 64
+   Sending msg of size 64-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 72
+   Sending msg of size 72-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 64
+   Sending msg of size 64-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 72
+   Sending msg of size 72-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 64
+   Sending msg of size 64-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 72
+   Sending msg of size 72-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 64
+   Sending msg of size 64-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 76
+   Sending msg of size 76-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 64
+   Sending msg of size 64-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 152
+   Sending msg of size 152-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 64
+   Sending msg of size 64-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 76
+   Sending msg of size 76-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 64
+   Sending msg of size 64-> 
+Message sent: 
+0...Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 88
+   Sending msg of size 88-> 
+Message sent: 
+Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 96
+   Sending msg of size 96-> 
+Message sent: 
+0Poll returned 1
+1 - Event found - Server sent a message
+   Ready to recv -> Receive msg of size 32
+   Sending msg of size 32-> 
+Message sent: 
+0Poll returned 1
+10 - Event found - Client sent a message
+   Ready to recv -> Receive msg of size 0
+NOTE: Source socket gracefully failed
+Got response from converse of < 0

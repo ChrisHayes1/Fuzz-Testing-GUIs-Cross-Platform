@@ -10,6 +10,7 @@
 
 using namespace std;
 
+extern stringstream slog;
 enum LogMode {OUT, ERR, BOTH};
 
 void logger(string msg_log, LogMode log_mode = BOTH);
