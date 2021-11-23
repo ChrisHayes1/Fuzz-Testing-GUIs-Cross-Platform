@@ -376,10 +376,15 @@ Client sent a message
       OP Code: 49
    We are sending a message to server of msg of size 52
 Server sent a message
-   We received a message from server of msg of size 100
+   We received a message from server of msg of size 32
       OP Code: 1
       Seq #65
-   We are sending a message to client of msg of size 100
+   We are sending a message to client of msg of size 32
+Server sent a message
+   We received a message from server of msg of size 68
+      OP Code: 64
+      Seq #28531
+   We are sending a message to client of msg of size 68
 Client sent a message
    We received a message from client of msg of size 48
       OP Code: 49
@@ -436,28 +441,43 @@ Client sent a message
       OP Code: 50
    We are sending a message to server of msg of size 64
 Server sent a message
-   We received a message from server of msg of size 360
+   We received a message from server of msg of size 300
       OP Code: 1
       Seq #70
-   We are sending a message to client of msg of size 360
+   We are sending a message to client of msg of size 300
+Server sent a message
+   We received a message from server of msg of size 60
+      OP Code: 1
+      Seq #70
+   We are sending a message to client of msg of size 60
 Client sent a message
    We received a message from client of msg of size 64
       OP Code: 50
    We are sending a message to server of msg of size 64
 Server sent a message
-   We received a message from server of msg of size 360
+   We received a message from server of msg of size 300
       OP Code: 1
       Seq #71
-   We are sending a message to client of msg of size 360
+   We are sending a message to client of msg of size 300
+Server sent a message
+   We received a message from server of msg of size 60
+      OP Code: 1
+      Seq #71
+   We are sending a message to client of msg of size 60
 Client sent a message
    We received a message from client of msg of size 64
       OP Code: 50
    We are sending a message to server of msg of size 64
 Server sent a message
-   We received a message from server of msg of size 360
+   We received a message from server of msg of size 300
       OP Code: 1
       Seq #72
-   We are sending a message to client of msg of size 360
+   We are sending a message to client of msg of size 300
+Server sent a message
+   We received a message from server of msg of size 60
+      OP Code: 1
+      Seq #72
+   We are sending a message to client of msg of size 60
 Client sent a message
    We received a message from client of msg of size 64
       OP Code: 50
@@ -477,10 +497,15 @@ Client sent a message
       OP Code: 50
    We are sending a message to server of msg of size 64
 Server sent a message
-   We received a message from server of msg of size 360
+   We received a message from server of msg of size 244
       OP Code: 1
       Seq #74
-   We are sending a message to client of msg of size 360
+   We are sending a message to client of msg of size 244
+Server sent a message
+   We received a message from server of msg of size 116
+      OP Code: 45
+      Seq #29545
+   We are sending a message to client of msg of size 116
 Client sent a message
    We received a message from client of msg of size 64
       OP Code: 50
@@ -495,38 +520,38 @@ Client sent a message
       OP Code: 50
    We are sending a message to server of msg of size 64
 Server sent a message
-   We received a message from server of msg of size 300
-      OP Code: 1
-      Seq #76
-   We are sending a message to client of msg of size 300
-Server sent a message
-   We received a message from server of msg of size 60
-      OP Code: 1
-      Seq #76
-   We are sending a message to client of msg of size 60
-Client sent a message
-   We received a message from client of msg of size 64
-      OP Code: 50
-   We are sending a message to server of msg of size 64
-Server sent a message
    We received a message from server of msg of size 360
       OP Code: 1
-      Seq #77
+      Seq #76
    We are sending a message to client of msg of size 360
 Client sent a message
    We received a message from client of msg of size 64
       OP Code: 50
    We are sending a message to server of msg of size 64
 Server sent a message
-   We received a message from server of msg of size 300
+   We received a message from server of msg of size 244
       OP Code: 1
-      Seq #78
-   We are sending a message to client of msg of size 300
+      Seq #77
+   We are sending a message to client of msg of size 244
 Server sent a message
-   We received a message from server of msg of size 60
+   We received a message from server of msg of size 116
+      OP Code: 45
+      Seq #29545
+   We are sending a message to client of msg of size 116
+Client sent a message
+   We received a message from client of msg of size 64
+      OP Code: 50
+   We are sending a message to server of msg of size 64
+Server sent a message
+   We received a message from server of msg of size 244
       OP Code: 1
       Seq #78
-   We are sending a message to client of msg of size 60
+   We are sending a message to client of msg of size 244
+Server sent a message
+   We received a message from server of msg of size 116
+      OP Code: 45
+      Seq #29545
+   We are sending a message to client of msg of size 116
 Client sent a message
    We received a message from client of msg of size 72
       OP Code: 50
@@ -559,10 +584,15 @@ Client sent a message
       OP Code: 50
    We are sending a message to server of msg of size 72
 Server sent a message
-   We received a message from server of msg of size 352
+   We received a message from server of msg of size 292
       OP Code: 1
       Seq #82
-   We are sending a message to client of msg of size 352
+   We are sending a message to client of msg of size 292
+Server sent a message
+   We received a message from server of msg of size 60
+      OP Code: 1
+      Seq #82
+   We are sending a message to client of msg of size 60
 Client sent a message
    We received a message from client of msg of size 64
       OP Code: 50
@@ -721,15 +751,20 @@ Client sent a message
       OP Code: 55
    We are sending a message to server of msg of size 2044
 Server sent a message
-   We received a message from server of msg of size 96
+   We received a message from server of msg of size 64
       OP Code: 28
       Seq #264
-   We are sending a message to client of msg of size 96
+   We are sending a message to client of msg of size 64
 Server sent a message
    We received a message from server of msg of size 160
       OP Code: 28
-      Seq #267
+      Seq #266
    We are sending a message to client of msg of size 160
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 1
+      Seq #271
+   We are sending a message to client of msg of size 32
 Client sent a message
    We received a message from client of msg of size 96
       OP Code: 18
@@ -758,20 +793,10 @@ Client sent a message
       OP Code: 71
    We are sending a message to server of msg of size 10140
 Server sent a message
-   We received a message from server of msg of size 32
+   We received a message from server of msg of size 96
       OP Code: 19
       Seq #1178
-   We are sending a message to client of msg of size 32
-Server sent a message
-   We received a message from server of msg of size 32
-      OP Code: 19
-      Seq #1181
-   We are sending a message to client of msg of size 32
-Server sent a message
-   We received a message from server of msg of size 32
-      OP Code: 1
-      Seq #1183
-   We are sending a message to client of msg of size 32
+   We are sending a message to client of msg of size 96
 Client sent a message
    We received a message from client of msg of size 20
       OP Code: 16
@@ -781,15 +806,15 @@ Server sent a message
       OP Code: 1
       Seq #1184
    We are sending a message to client of msg of size 32
-Client sent a message
-   We received a message from client of msg of size 196
-      OP Code: 18
-   We are sending a message to server of msg of size 196
 Server sent a message
    We received a message from server of msg of size 32
       OP Code: 22
       Seq #1184
    We are sending a message to client of msg of size 32
+Client sent a message
+   We received a message from client of msg of size 196
+      OP Code: 18
+   We are sending a message to server of msg of size 196
 Server sent a message
    We received a message from server of msg of size 32
       OP Code: 28
@@ -841,15 +866,15 @@ Server sent a message
       Seq #1200
    We are sending a message to client of msg of size 64
 Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 28
+      Seq #1200
+   We are sending a message to client of msg of size 32
+Server sent a message
    We received a message from server of msg of size 64
       OP Code: 28
       Seq #1200
    We are sending a message to client of msg of size 64
-Server sent a message
-   We received a message from server of msg of size 32
-      OP Code: 19
-      Seq #1200
-   We are sending a message to client of msg of size 32
 Server sent a message
    We received a message from server of msg of size 32
       OP Code: 12
@@ -861,10 +886,10 @@ Server sent a message
       Seq #1200
    We are sending a message to client of msg of size 128
 Server sent a message
-   We received a message from server of msg of size 224
+   We received a message from server of msg of size 256
       OP Code: 12
       Seq #1200
-   We are sending a message to client of msg of size 224
+   We are sending a message to client of msg of size 256
 Server sent a message
    We received a message from server of msg of size 32
       OP Code: 12
@@ -875,89 +900,24 @@ Server sent a message
       OP Code: 12
       Seq #1200
    We are sending a message to client of msg of size 32
-Server sent a message
-   We received a message from server of msg of size 32
-      OP Code: 12
-      Seq #1200
-   We are sending a message to client of msg of size 32
-Server sent a message
-   We received a message from server of msg of size 288
-      OP Code: 12
-      Seq #1200
-   We are sending a message to client of msg of size 288
-Server sent a message
-   We received a message from server of msg of size 288
-      OP Code: 12
-      Seq #1200
-   We are sending a message to client of msg of size 288
 Client sent a message
-   We received a message from client of msg of size 224
+   We received a message from client of msg of size 108
       OP Code: 56
-   We are sending a message to server of msg of size 224
+   We are sending a message to server of msg of size 108
 Server sent a message
    We received a message from server of msg of size 288
       OP Code: 12
       Seq #1200
    We are sending a message to client of msg of size 288
 Client sent a message
-   We received a message from client of msg of size 72
-      OP Code: 66
-   We are sending a message to server of msg of size 72
+   We received a message from client of msg of size 24
+      OP Code: 74
+   We are sending a message to server of msg of size 24
 Server sent a message
    We received a message from server of msg of size 576
       OP Code: 12
       Seq #1200
    We are sending a message to client of msg of size 576
-Client sent a message
-   We received a message from client of msg of size 72
-      OP Code: 66
-   We are sending a message to server of msg of size 72
-Server sent a message
-   We received a message from server of msg of size 288
-      OP Code: 12
-      Seq #1200
-   We are sending a message to client of msg of size 288
-Server sent a message
-   We received a message from server of msg of size 288
-      OP Code: 12
-      Seq #1200
-   We are sending a message to client of msg of size 288
-Client sent a message
-   We received a message from client of msg of size 148
-      OP Code: 66
-   We are sending a message to server of msg of size 148
-Server sent a message
-   We received a message from server of msg of size 288
-      OP Code: 12
-      Seq #1200
-   We are sending a message to client of msg of size 288
-Client sent a message
-   We received a message from client of msg of size 152
-      OP Code: 66
-   We are sending a message to server of msg of size 152
-Server sent a message
-   We received a message from server of msg of size 288
-      OP Code: 12
-      Seq #1200
-   We are sending a message to client of msg of size 288
-Server sent a message
-   We received a message from server of msg of size 288
-      OP Code: 12
-      Seq #1200
-   We are sending a message to client of msg of size 288
-Client sent a message
-   We received a message from client of msg of size 152
-      OP Code: 66
-   We are sending a message to server of msg of size 152
-Client sent a message
-   We received a message from client of msg of size 76
-      OP Code: 66
-   We are sending a message to server of msg of size 76
-Server sent a message
-   We received a message from server of msg of size 288
-      OP Code: 12
-      Seq #1200
-   We are sending a message to client of msg of size 288
 Server sent a message
    We received a message from server of msg of size 288
       OP Code: 12
@@ -974,68 +934,9 @@ Server sent a message
       Seq #1200
    We are sending a message to client of msg of size 288
 Client sent a message
-   We received a message from client of msg of size 72
-      OP Code: 66
-   We are sending a message to server of msg of size 72
-Server sent a message
-   We received a message from server of msg of size 576
-      OP Code: 12
-      Seq #1200
-   We are sending a message to client of msg of size 576
-Client sent a message
-   We received a message from client of msg of size 148
-      OP Code: 66
-   We are sending a message to server of msg of size 148
-Server sent a message
-   We received a message from server of msg of size 288
-      OP Code: 12
-      Seq #1200
-   We are sending a message to client of msg of size 288
-Client sent a message
-   We received a message from client of msg of size 72
-      OP Code: 66
-   We are sending a message to server of msg of size 72
-Server sent a message
-   We received a message from server of msg of size 288
-      OP Code: 12
-      Seq #1200
-   We are sending a message to client of msg of size 288
-Server sent a message
-   We received a message from server of msg of size 288
-      OP Code: 12
-      Seq #1200
-   We are sending a message to client of msg of size 288
-Client sent a message
-   We received a message from client of msg of size 228
-      OP Code: 66
-   We are sending a message to server of msg of size 228
-Server sent a message
-   We received a message from server of msg of size 576
-      OP Code: 12
-      Seq #1200
-   We are sending a message to client of msg of size 576
-Client sent a message
-   We received a message from client of msg of size 72
-      OP Code: 66
-   We are sending a message to server of msg of size 72
-Server sent a message
-   We received a message from server of msg of size 288
-      OP Code: 12
-      Seq #1200
-   We are sending a message to client of msg of size 288
-Client sent a message
-   We received a message from client of msg of size 76
-      OP Code: 66
-   We are sending a message to server of msg of size 76
-Server sent a message
-   We received a message from server of msg of size 576
-      OP Code: 12
-      Seq #1200
-   We are sending a message to client of msg of size 576
-Client sent a message
-   We received a message from client of msg of size 252
+   We received a message from client of msg of size 312
       OP Code: 56
-   We are sending a message to server of msg of size 252
+   We are sending a message to server of msg of size 312
 Server sent a message
    We received a message from server of msg of size 288
       OP Code: 12
@@ -1047,14 +948,14 @@ Server sent a message
       Seq #1200
    We are sending a message to client of msg of size 288
 Client sent a message
-   We received a message from client of msg of size 144
+   We received a message from client of msg of size 148
       OP Code: 66
-   We are sending a message to server of msg of size 144
+   We are sending a message to server of msg of size 148
 Server sent a message
-   We received a message from server of msg of size 576
+   We received a message from server of msg of size 288
       OP Code: 12
       Seq #1200
-   We are sending a message to client of msg of size 576
+   We are sending a message to client of msg of size 288
 Client sent a message
    We received a message from client of msg of size 152
       OP Code: 66
@@ -1064,43 +965,24 @@ Server sent a message
       OP Code: 12
       Seq #1200
    We are sending a message to client of msg of size 288
-Server sent a message
-   We received a message from server of msg of size 288
-      OP Code: 12
-      Seq #1200
-   We are sending a message to client of msg of size 288
-Client sent a message
-   We received a message from client of msg of size 216
-      OP Code: 66
-   We are sending a message to server of msg of size 216
-Server sent a message
-   We received a message from server of msg of size 576
-      OP Code: 12
-      Seq #1200
-   We are sending a message to client of msg of size 576
 Client sent a message
    We received a message from client of msg of size 76
       OP Code: 66
    We are sending a message to server of msg of size 76
 Server sent a message
-   We received a message from server of msg of size 576
-      OP Code: 12
-      Seq #1200
-   We are sending a message to client of msg of size 576
-Server sent a message
    We received a message from server of msg of size 288
       OP Code: 12
       Seq #1200
    We are sending a message to client of msg of size 288
 Client sent a message
-   We received a message from client of msg of size 292
+   We received a message from client of msg of size 76
       OP Code: 66
-   We are sending a message to server of msg of size 292
+   We are sending a message to server of msg of size 76
 Server sent a message
-   We received a message from server of msg of size 576
+   We received a message from server of msg of size 288
       OP Code: 12
       Seq #1200
-   We are sending a message to client of msg of size 576
+   We are sending a message to client of msg of size 288
 Client sent a message
    We received a message from client of msg of size 72
       OP Code: 66
@@ -1116,18 +998,110 @@ Server sent a message
       Seq #1200
    We are sending a message to client of msg of size 288
 Client sent a message
-   We received a message from client of msg of size 220
+   We received a message from client of msg of size 72
       OP Code: 66
-   We are sending a message to server of msg of size 220
+   We are sending a message to server of msg of size 72
+Server sent a message
+   We received a message from server of msg of size 288
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 288
+Server sent a message
+   We received a message from server of msg of size 288
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 288
+Client sent a message
+   We received a message from client of msg of size 148
+      OP Code: 66
+   We are sending a message to server of msg of size 148
+Server sent a message
+   We received a message from server of msg of size 288
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 288
+Client sent a message
+   We received a message from client of msg of size 152
+      OP Code: 66
+   We are sending a message to server of msg of size 152
+Server sent a message
+   We received a message from server of msg of size 288
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 288
+Client sent a message
+   We received a message from client of msg of size 76
+      OP Code: 66
+   We are sending a message to server of msg of size 76
+Client sent a message
+   We received a message from client of msg of size 72
+      OP Code: 66
+   We are sending a message to server of msg of size 72
+Server sent a message
+   We received a message from server of msg of size 288
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 288
+Server sent a message
+   We received a message from server of msg of size 288
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 288
+Server sent a message
+   We received a message from server of msg of size 288
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 288
+Server sent a message
+   We received a message from server of msg of size 288
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 288
+Client sent a message
+   We received a message from client of msg of size 240
+      OP Code: 66
+   We are sending a message to server of msg of size 240
 Server sent a message
    We received a message from server of msg of size 576
       OP Code: 12
       Seq #1200
    We are sending a message to client of msg of size 576
 Client sent a message
-   We received a message from client of msg of size 72
+   We received a message from client of msg of size 88
+      OP Code: 56
+   We are sending a message to server of msg of size 88
+Server sent a message
+   We received a message from server of msg of size 576
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 576
+Client sent a message
+   We received a message from client of msg of size 144
       OP Code: 66
-   We are sending a message to server of msg of size 72
+   We are sending a message to server of msg of size 144
+Server sent a message
+   We received a message from server of msg of size 576
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 576
+Server sent a message
+   We received a message from server of msg of size 288
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 288
+Client sent a message
+   We received a message from client of msg of size 152
+      OP Code: 66
+   We are sending a message to server of msg of size 152
+Server sent a message
+   We received a message from server of msg of size 288
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 288
+Client sent a message
+   We received a message from client of msg of size 144
+      OP Code: 66
+   We are sending a message to server of msg of size 144
 Server sent a message
    We received a message from server of msg of size 288
       OP Code: 12
@@ -1143,143 +1117,196 @@ Server sent a message
       Seq #1200
    We are sending a message to client of msg of size 576
 Client sent a message
-   We received a message from client of msg of size 72
+   We received a message from client of msg of size 76
       OP Code: 66
-   We are sending a message to server of msg of size 72
+   We are sending a message to server of msg of size 76
 Server sent a message
    We received a message from server of msg of size 576
       OP Code: 12
       Seq #1200
    We are sending a message to client of msg of size 576
-Client sent a message
-   We received a message from client of msg of size 144
-      OP Code: 66
-   We are sending a message to server of msg of size 144
-Server sent a message
-   We received a message from server of msg of size 288
-      OP Code: 12
-      Seq #1200
-   We are sending a message to client of msg of size 288
 Server sent a message
    We received a message from server of msg of size 288
       OP Code: 12
       Seq #1200
    We are sending a message to client of msg of size 288
 Client sent a message
-   We received a message from client of msg of size 220
+   We received a message from client of msg of size 288
       OP Code: 66
-   We are sending a message to server of msg of size 220
+   We are sending a message to server of msg of size 288
 Server sent a message
    We received a message from server of msg of size 576
       OP Code: 12
       Seq #1200
    We are sending a message to client of msg of size 576
-Client sent a message
-   We received a message from client of msg of size 72
-      OP Code: 66
-   We are sending a message to server of msg of size 72
-Server sent a message
-   We received a message from server of msg of size 576
-      OP Code: 12
-      Seq #1200
-   We are sending a message to client of msg of size 576
-Client sent a message
-   We received a message from client of msg of size 144
-      OP Code: 66
-   We are sending a message to server of msg of size 144
-Server sent a message
-   We received a message from server of msg of size 288
-      OP Code: 12
-      Seq #1200
-   We are sending a message to client of msg of size 288
-Server sent a message
-   We received a message from server of msg of size 288
-      OP Code: 12
-      Seq #1200
-   We are sending a message to client of msg of size 288
-Client sent a message
-   We received a message from client of msg of size 220
-      OP Code: 66
-   We are sending a message to server of msg of size 220
-Server sent a message
-   We received a message from server of msg of size 288
-      OP Code: 12
-      Seq #1200
-   We are sending a message to client of msg of size 288
 Client sent a message
    We received a message from client of msg of size 76
       OP Code: 66
    We are sending a message to server of msg of size 76
+Server sent a message
+   We received a message from server of msg of size 288
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 288
+Client sent a message
+   We received a message from client of msg of size 144
+      OP Code: 66
+   We are sending a message to server of msg of size 144
+Server sent a message
+   We received a message from server of msg of size 576
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 576
 Client sent a message
    We received a message from client of msg of size 72
       OP Code: 66
    We are sending a message to server of msg of size 72
+Server sent a message
+   We received a message from server of msg of size 576
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 576
+Client sent a message
+   We received a message from client of msg of size 148
+      OP Code: 66
+   We are sending a message to server of msg of size 148
+Server sent a message
+   We received a message from server of msg of size 288
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 288
+Client sent a message
+   We received a message from client of msg of size 144
+      OP Code: 66
+   We are sending a message to server of msg of size 144
+Client sent a message
+   We received a message from client of msg of size 72
+      OP Code: 66
+   We are sending a message to server of msg of size 72
+Server sent a message
+   We received a message from server of msg of size 864
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 864
+Server sent a message
+   We received a message from server of msg of size 576
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 576
+Server sent a message
+   We received a message from server of msg of size 576
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 576
+Server sent a message
+   We received a message from server of msg of size 1152
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 1152
+Client sent a message
+   We received a message from client of msg of size 220
+      OP Code: 66
+   We are sending a message to server of msg of size 220
 Server sent a message
    We received a message from server of msg of size 32
       OP Code: 9
       Seq #1200
    We are sending a message to client of msg of size 32
+Client sent a message
+   We received a message from client of msg of size 584
+      OP Code: 66
+   We are sending a message to server of msg of size 584
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 28
+      Seq #1374
+   We are sending a message to client of msg of size 32
+Server sent a message
+   We received a message from server of msg of size 64
+      OP Code: 28
+      Seq #1374
+   We are sending a message to client of msg of size 64
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 28
+      Seq #1374
+   We are sending a message to client of msg of size 32
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 28
+      Seq #1374
+   We are sending a message to client of msg of size 32
+Server sent a message
+   We received a message from server of msg of size 64
+      OP Code: 7
+      Seq #1374
+   We are sending a message to client of msg of size 64
+Server sent a message
+   We received a message from server of msg of size 64
+      OP Code: 8
+      Seq #1374
+   We are sending a message to client of msg of size 64
+Client sent a message
+   We received a message from client of msg of size 76
+      OP Code: 66
+   We are sending a message to server of msg of size 76
+Server sent a message
+   We received a message from server of msg of size 64
+      OP Code: 8
+      Seq #1377
+   We are sending a message to client of msg of size 64
+Client sent a message
+   We received a message from client of msg of size 76
+      OP Code: 66
+   We are sending a message to server of msg of size 76
+Client sent a message
+   We received a message from client of msg of size 76
+      OP Code: 66
+   We are sending a message to server of msg of size 76
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 8
+      Seq #1380
+   We are sending a message to client of msg of size 32
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 7
+      Seq #1380
+   We are sending a message to client of msg of size 32
+Client sent a message
+   We received a message from client of msg of size 152
+      OP Code: 66
+   We are sending a message to server of msg of size 152
 Server sent a message
    We received a message from server of msg of size 96
-      OP Code: 28
-      Seq #1374
+      OP Code: 8
+      Seq #1389
    We are sending a message to client of msg of size 96
-Server sent a message
-   We received a message from server of msg of size 32
-      OP Code: 28
-      Seq #1374
-   We are sending a message to client of msg of size 32
-Server sent a message
-   We received a message from server of msg of size 32
-      OP Code: 28
-      Seq #1374
-   We are sending a message to client of msg of size 32
-Server sent a message
-   We received a message from server of msg of size 64
-      OP Code: 7
-      Seq #1374
-   We are sending a message to client of msg of size 64
-Server sent a message
-   We received a message from server of msg of size 32
-      OP Code: 8
-      Seq #1374
-   We are sending a message to client of msg of size 32
-Server sent a message
-   We received a message from server of msg of size 32
-      OP Code: 7
-      Seq #1374
-   We are sending a message to client of msg of size 32
-Server sent a message
-   We received a message from server of msg of size 64
-      OP Code: 8
-      Seq #1374
-   We are sending a message to client of msg of size 64
+Client sent a message
+   We received a message from client of msg of size 76
+      OP Code: 66
+   We are sending a message to server of msg of size 76
 Server sent a message
    We received a message from server of msg of size 32
       OP Code: -95
-      Seq #1374
+      Seq #1392
    We are sending a message to client of msg of size 32
 Client sent a message
    We received a message from client of msg of size 88
       OP Code: 16
    We are sending a message to server of msg of size 88
 Server sent a message
-   We received a message from server of msg of size 32
+   We received a message from server of msg of size 64
       OP Code: 1
-      Seq #1375
-   We are sending a message to client of msg of size 32
+      Seq #1393
+   We are sending a message to client of msg of size 64
 Server sent a message
    We received a message from server of msg of size 64
       OP Code: 1
-      Seq #1376
+      Seq #1395
    We are sending a message to client of msg of size 64
-Server sent a message
-   We received a message from server of msg of size 32
-      OP Code: 1
-      Seq #1378
-   We are sending a message to client of msg of size 32
 Client sent a message
    We received a message from client of msg of size 0
-      OP Code: 16
+      OP Code: 1
 NOTE: Source socket gracefully failed
 Got response from converse of < 0

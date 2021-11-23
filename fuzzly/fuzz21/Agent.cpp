@@ -66,11 +66,11 @@ int Agent::converse(){
                         } else { // found a message
                             if (i == XSERVER) {
                                 logger("Server sent a message\n");
-                                mreturn = pass_msg(this->to_xserver, this->to_client);
+                                mreturn = transfer_msg(this->to_xserver, this->to_client);
                                 if (mreturn < 0) { return mreturn; }
                             } else if (i == CLIENT) {
                                 logger("Client sent a message\n");
-                                mreturn = pass_msg(this->to_client, this->to_xserver);
+                                mreturn = transfer_msg(this->to_client, this->to_xserver);
                                 if (mreturn < 0) { return mreturn; }
                             }
                         }
@@ -81,9 +81,14 @@ int Agent::converse(){
     return 1;
 }
 
-int Agent::pass_msg(Interface * source, Interface * dest){
+int Agent::transfer_msg(Interface * source, Interface * dest){
     int recv_length, send_length;
-    recv_length = source->recv_msg();
+//    recv_length = source->recv_msg();
+    recv_length = recv(source->getFD(), this->message, BUFFER_SIZE, 0);
+    slog << "   We received a message from " << source->getName() << " of msg of size " << recv_length << endl;
+    dump_msg(source);
+    logger(slog.str());
+
     if (recv_length < 0){
         logger("ERROR: Receive from source failed\n");
         return -2;
@@ -92,10 +97,42 @@ int Agent::pass_msg(Interface * source, Interface * dest){
         logger("NOTE: Source socket gracefully failed\n", ERR);
         return -1;
     } else {
-        send_length = dest->send_msg(source->getMessage(), recv_length);
+        // send_length = dest->send_msg(source->getMessage(), recv_length);
+        //this->garble_msg();
+        send_length = send(dest->getFD(), this->message, recv_length, 0);
+        slog << "   We are sending a message to " << dest->getName() << " of msg of size " << send_length << endl;
+        logger(slog.str());
         if (send_length < recv_length){
             logger("ERROR: Entire message not sent\n");
         }
     }
     return 0;
+}
+
+
+void Agent::garble_msg() {
+
+}
+
+
+/***
+ * We know that errors have opcode 0,
+ *  replies have opcode 1, and events have opcode 2-34.  We also know that
+ *  events and errors have lengths of 32 bytes each.  Replies have a
+ *  length field which allows for a length of more than 32 bytes.  Each of
+ *  these messages except the KeymapNotify event has a sequence number.
+ *  We record this sequence number so that we can put it in our own random
+ *  events.  We wait for a message boundary (message boundaries can be
+ *  detected because we know the message formats and lengths).  We then decide
+ *  whether to insert a random event.
+ */
+void Agent::dump_msg(Interface * source) {
+    unsigned short seq_num = 0;
+    int opcode = this->message[0];
+    slog << "      OP Code: " << opcode << endl;
+    if (source->getType()== XSERVER){
+        memcpy(&seq_num, this->message + 2, sizeof(unsigned short));
+        slog << "      Seq #" << seq_num << endl;
+    }
+    logger(slog.str());
 }

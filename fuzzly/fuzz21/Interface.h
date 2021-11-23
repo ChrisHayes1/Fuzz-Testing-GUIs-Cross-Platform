@@ -27,7 +27,7 @@ protected:
     enum I_TYPE cxn_type;
     enum endianness endian;
     unsigned short  major_protocol, minor_protocol;
-    char message[BUFFER_SIZE];
+//    char message[BUFFER_SIZE];
     string name;
 public:
     // Constructors & Destructors
@@ -39,15 +39,19 @@ public:
     unsigned short  getMajor(){return major_protocol;}
     unsigned short  getMinor(){return minor_protocol;}
     enum endianness getEndianess(){return endian;}
-    char * getMessage(){return message;}
+    string getName(){return name;}
+    enum I_TYPE getType(){return cxn_type;}
+//    char * getMessage(){return message;}
     // Methods
     int connect_server(Interface * to_client);
     int connect_client();
-    int send_msg(char * buffer, int msg_length);
-    int recv_msg();
+//    int send_msg(char * buffer, int msg_length);
+//    int recv_msg();
+//    int garble_msg();
+//    int inject_message();
 private:
     int client_authenticate();
-    void dump_msg();
+//    void dump_msg();
 };
 
 
