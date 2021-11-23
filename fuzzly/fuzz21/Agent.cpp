@@ -37,11 +37,11 @@ int Agent::converse(){
     fds[XSERVER].events = POLLIN;
 
     while(true){
-        if (count++%disp_movement == 0) {logger(".");}
-        if (count%(disp_movement*10) == 0) {
-            logger("\n");
-            //verify_empty(fds, nfds);
-        }
+//        if (count++%disp_movement == 0) {logger(".");}
+//        if (count%(disp_movement*10) == 0) {
+//            logger("\n");
+//            //verify_empty(fds, nfds);
+//        }
         // Check if there is a message, and deal with potential errors
         fd_available = poll(fds, nfds, 0);
         switch (fd_available) {
@@ -55,13 +55,9 @@ int Agent::converse(){
                 // logger("Pull returned 0\n");
                 break;
             default:
-                slog << "Poll returned " << fd_available << endl;
-                logger(slog.str(), ERR);
                 int mreturn = 0;
                 for (int i = nfds-1; i >=0; i--) { // backwards to check server first
-                    logger(to_string(i));
                     if (fds[i].revents != 0) {  // Did we find something?
-                        logger(" - Event found - ");
                         if (fds[i].revents != POLLIN) {
                             //Error occured
                             slog << "ERROR: poll event returned " << fds[i].revents << endl;
@@ -86,13 +82,8 @@ int Agent::converse(){
 }
 
 int Agent::pass_msg(Interface * source, Interface * dest){
-    char buffer[BUFFER_SIZE];
     int recv_length, send_length;
-    logger("   Ready to recv -> ");
-//    recv_length = recv(source->getFD(), buffer, BUFFER_SIZE, 0);
     recv_length = source->recv_msg();
-    slog << "Receive msg of size " << recv_length << endl;
-    logger(slog.str());
     if (recv_length < 0){
         logger("ERROR: Receive from source failed\n");
         return -2;
@@ -101,16 +92,10 @@ int Agent::pass_msg(Interface * source, Interface * dest){
         logger("NOTE: Source socket gracefully failed\n", ERR);
         return -1;
     } else {
-        slog << "   Sending msg of size " << recv_length << "-> " << endl;
-        logger(slog.str());
-        //dump(buffer, recv_length);
-//        send_length = send(dest->getFD(), buffer, recv_length, 0);
         send_length = dest->send_msg(source->getMessage(), recv_length);
         if (send_length < recv_length){
             logger("ERROR: Entire message not sent\n");
         }
-        logger("Message sent: \n");
-        logger(slog.str());
     }
     return 0;
 }

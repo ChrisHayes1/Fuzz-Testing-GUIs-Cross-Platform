@@ -1,1331 +1,1285 @@
 Connecting with client
-...protocol_major_version_ptr: 11
-...protocol_minor_version_ptr: 0
-...endian_ptr: 108
-...auth_name_len: 18
-...auth_data_len: 16
-...total_len: 34
-   Auth Buffer received message of size 36
-...protocol_major_version_ptr: 11
-...protocol_minor_version_ptr: 0
-...endian_ptr: 108
-   Server total length = 36
-.Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 12308
-   Sending msg of size 12308-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 20
-   Sending msg of size 20-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 4
-   Sending msg of size 4-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 44
-   Sending msg of size 44-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 176
-   Sending msg of size 176-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 20
-   Sending msg of size 20-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 8
-   Sending msg of size 8-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 20
-   Sending msg of size 20-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 20
-   Sending msg of size 20-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 24
-   Sending msg of size 24-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 16
-   Sending msg of size 16-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 4916
-   Sending msg of size 4916-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 2704
-   Sending msg of size 2704-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 12
-   Sending msg of size 12-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 56
-   Sending msg of size 56-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 36
-   Sending msg of size 36-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 20
-   Sending msg of size 20-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 20
-   Sending msg of size 20-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 108
-   Sending msg of size 108-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 20
-   Sending msg of size 20-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 76
-   Sending msg of size 76-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 16
-   Sending msg of size 16-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 20
-   Sending msg of size 20-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 24
-   Sending msg of size 24-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 24
-   Sending msg of size 24-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 3308
-   Sending msg of size 3308-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 44
-   Sending msg of size 44-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 88
-   Sending msg of size 88-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 44
-   Sending msg of size 44-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 88
-   Sending msg of size 88-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 44
-   Sending msg of size 44-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 88
-   Sending msg of size 88-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 44
-   Sending msg of size 44-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 88
-   Sending msg of size 88-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 44
-   Sending msg of size 44-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 88
-   Sending msg of size 88-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 44
-   Sending msg of size 44-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 88
-   Sending msg of size 88-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 44
-   Sending msg of size 44-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 88
-   Sending msg of size 88-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 44
-   Sending msg of size 44-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 88
-   Sending msg of size 88-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 44
-   Sending msg of size 44-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 88
-   Sending msg of size 88-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 44
-   Sending msg of size 44-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 88
-   Sending msg of size 88-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 48
-   Sending msg of size 48-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 88
-   Sending msg of size 88-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 48
-   Sending msg of size 48-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 88
-   Sending msg of size 88-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 48
-   Sending msg of size 48-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 88
-   Sending msg of size 88-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 52
-   Sending msg of size 52-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 96
-   Sending msg of size 96-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 52
-   Sending msg of size 52-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 100
-   Sending msg of size 100-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 48
-   Sending msg of size 48-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 100
-   Sending msg of size 100-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 52
-   Sending msg of size 52-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 100
-   Sending msg of size 100-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 52
-   Sending msg of size 52-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 100
-   Sending msg of size 100-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 48
-   Sending msg of size 48-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 88
-   Sending msg of size 88-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 64
-   Sending msg of size 64-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 360
-   Sending msg of size 360-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 64
-   Sending msg of size 64-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 360
-   Sending msg of size 360-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 64
-   Sending msg of size 64-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 360
-   Sending msg of size 360-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 64
-   Sending msg of size 64-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 360
-   Sending msg of size 360-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 64
-   Sending msg of size 64-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 360
-   Sending msg of size 360-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 64
-   Sending msg of size 64-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 360
-   Sending msg of size 360-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 64
-   Sending msg of size 64-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 368
-   Sending msg of size 368-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 64
-   Sending msg of size 64-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 360
-   Sending msg of size 360-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 64
-   Sending msg of size 64-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 360
-   Sending msg of size 360-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 64
-   Sending msg of size 64-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 360
-   Sending msg of size 360-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 64
-   Sending msg of size 64-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 360
-   Sending msg of size 360-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 64
-   Sending msg of size 64-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 360
-   Sending msg of size 360-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 72
-   Sending msg of size 72-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 384
-   Sending msg of size 384-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 76
-   Sending msg of size 76-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 356
-   Sending msg of size 356-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 76
-   Sending msg of size 76-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 388
-   Sending msg of size 388-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 72
-   Sending msg of size 72-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 352
-   Sending msg of size 352-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 64
-   Sending msg of size 64-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 368
-   Sending msg of size 368-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 160
-   Sending msg of size 160-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 248
-   Sending msg of size 248-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 16
-   Sending msg of size 16-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 72
-   Sending msg of size 72-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 20
-   Sending msg of size 20-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 168
-   Sending msg of size 168-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 8
-   Sending msg of size 8-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 172
-   Sending msg of size 172-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 64
-   Sending msg of size 64-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 56
-   Sending msg of size 56-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 3316
-   Sending msg of size 3316-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 800
-   Sending msg of size 800-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 16
-   Sending msg of size 16-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 72
-   Sending msg of size 72-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 284
-   Sending msg of size 284-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 20
-   Sending msg of size 20-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 76
-   Sending msg of size 76-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 2044
-   Sending msg of size 2044-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 192
-   Sending msg of size 192-> 
-Message sent: 
-0Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 64
-   Sending msg of size 64-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 96
-   Sending msg of size 96-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 64
-   Sending msg of size 64-> 
-Message sent: 
-0Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 16376
-   Sending msg of size 16376-> 
-Message sent: 
-Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 10140
-   Sending msg of size 10140-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 64
-   Sending msg of size 64-> 
-Message sent: 
-0Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 20
-   Sending msg of size 20-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 196
-   Sending msg of size 196-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 64
-   Sending msg of size 64-> 
-Message sent: 
-0Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 96
-   Sending msg of size 96-> 
-Message sent: 
-0Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 64
-   Sending msg of size 64-> 
-Message sent: 
-0Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 96
-   Sending msg of size 96-> 
-Message sent: 
-0Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 160
-   Sending msg of size 160-> 
-Message sent: 
-0Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 608
-   Sending msg of size 608-> 
-Message sent: 
-0Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 864
-   Sending msg of size 864-> 
-Message sent: 
-0Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 864
-   Sending msg of size 864-> 
-Message sent: 
-0Poll returned 2
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 864
-   Sending msg of size 864-> 
-Message sent: 
-0 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 668
-   Sending msg of size 668-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 1728
-   Sending msg of size 1728-> 
-Message sent: 
-0Poll returned 2
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 1152
-   Sending msg of size 1152-> 
-Message sent: 
-0 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 228
-   Sending msg of size 228-> 
-Message sent: 
-Poll returned 2
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 1728
-   Sending msg of size 1728-> 
-Message sent: 
-0 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 444
-   Sending msg of size 444-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 1440
-   Sending msg of size 1440-> 
-Message sent: 
-0Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 864
-   Sending msg of size 864-> 
-Message sent: 
-0Poll returned 2
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 864
-   Sending msg of size 864-> 
-Message sent: 
-0 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 772
-   Sending msg of size 772-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 1728
-   Sending msg of size 1728-> 
-Message sent: 
-0Poll returned 2
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 864
-   Sending msg of size 864-> 
-Message sent: 
-0 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 804
-   Sending msg of size 804-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 1440
-   Sending msg of size 1440-> 
-Message sent: 
-0Poll returned 2
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 1152
-   Sending msg of size 1152-> 
-Message sent: 
-0 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 436
-   Sending msg of size 436-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 876
-   Sending msg of size 876-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 128
-   Sending msg of size 128-> 
-Message sent: 
-0.Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0...Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 64
-   Sending msg of size 64-> 
-Message sent: 
-0Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 64
-   Sending msg of size 64-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 76
-   Sending msg of size 76-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 64
-   Sending msg of size 64-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 152
-   Sending msg of size 152-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 64
-   Sending msg of size 64-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 152
-   Sending msg of size 152-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 64
-   Sending msg of size 64-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 76
-   Sending msg of size 76-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 64
-   Sending msg of size 64-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 76
-   Sending msg of size 76-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 64
-   Sending msg of size 64-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 148
-   Sending msg of size 148-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 96
-   Sending msg of size 96-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 72
-   Sending msg of size 72-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 96
-   Sending msg of size 96-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 76
-   Sending msg of size 76-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 64
-   Sending msg of size 64-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 152
-   Sending msg of size 152-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 64
-   Sending msg of size 64-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 76
-   Sending msg of size 76-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 64
-   Sending msg of size 64-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 72
-   Sending msg of size 72-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 64
-   Sending msg of size 64-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 148
-   Sending msg of size 148-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 96
-   Sending msg of size 96-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 76
-   Sending msg of size 76-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 96
-   Sending msg of size 96-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 72
-   Sending msg of size 72-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 64
-   Sending msg of size 64-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 144
-   Sending msg of size 144-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 128
-   Sending msg of size 128-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 144
-   Sending msg of size 144-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 64
-   Sending msg of size 64-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 72
-   Sending msg of size 72-> 
-Message sent: 
-.Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 64
-   Sending msg of size 64-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 76
-   Sending msg of size 76-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 64
-   Sending msg of size 64-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 76
-   Sending msg of size 76-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 64
-   Sending msg of size 64-> 
-Message sent: 
-0Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 64
-   Sending msg of size 64-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 220
-   Sending msg of size 220-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 64
-   Sending msg of size 64-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 152
-   Sending msg of size 152-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 64
-   Sending msg of size 64-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 76
-   Sending msg of size 76-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 64
-   Sending msg of size 64-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 76
-   Sending msg of size 76-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 64
-   Sending msg of size 64-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 76
-   Sending msg of size 76-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 64
-   Sending msg of size 64-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 72
-   Sending msg of size 72-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 64
-   Sending msg of size 64-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 144
-   Sending msg of size 144-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 64
-   Sending msg of size 64-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 72
-   Sending msg of size 72-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 64
-   Sending msg of size 64-> 
-Message sent: 
-0...Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 32
-   Sending msg of size 32-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 88
-   Sending msg of size 88-> 
-Message sent: 
-Poll returned 1
-1 - Event found - Server sent a message
-   Ready to recv -> Receive msg of size 128
-   Sending msg of size 128-> 
-Message sent: 
-0Poll returned 1
-10 - Event found - Client sent a message
-   Ready to recv -> Receive msg of size 0
+Connecting with server
+Passing Messages
+Server sent a message
+   We received a message from server of msg of size 12308
+      OP Code: 1
+      Seq #11
+   We are sending a message to client of msg of size 12308
+Client sent a message
+   We received a message from client of msg of size 20
+      OP Code: 98
+   We are sending a message to server of msg of size 20
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 1
+      Seq #1
+   We are sending a message to client of msg of size 32
+Client sent a message
+   We received a message from client of msg of size 4
+      OP Code: -123
+   We are sending a message to server of msg of size 4
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 1
+      Seq #2
+   We are sending a message to client of msg of size 32
+Client sent a message
+   We received a message from client of msg of size 44
+      OP Code: 55
+   We are sending a message to server of msg of size 44
+Server sent a message
+   We received a message from server of msg of size 176
+      OP Code: 1
+      Seq #4
+   We are sending a message to client of msg of size 176
+Client sent a message
+   We received a message from client of msg of size 20
+      OP Code: 98
+   We are sending a message to server of msg of size 20
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 1
+      Seq #5
+   We are sending a message to client of msg of size 32
+Client sent a message
+   We received a message from client of msg of size 8
+      OP Code: -121
+   We are sending a message to server of msg of size 8
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 1
+      Seq #6
+   We are sending a message to client of msg of size 32
+Client sent a message
+   We received a message from client of msg of size 20
+      OP Code: 16
+   We are sending a message to server of msg of size 20
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 1
+      Seq #7
+   We are sending a message to client of msg of size 32
+Client sent a message
+   We received a message from client of msg of size 20
+      OP Code: 16
+   We are sending a message to server of msg of size 20
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 1
+      Seq #8
+   We are sending a message to client of msg of size 32
+Client sent a message
+   We received a message from client of msg of size 24
+      OP Code: 16
+   We are sending a message to server of msg of size 24
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 1
+      Seq #9
+   We are sending a message to client of msg of size 32
+Client sent a message
+   We received a message from client of msg of size 32
+      OP Code: 53
+   We are sending a message to server of msg of size 32
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 1
+      Seq #11
+   We are sending a message to client of msg of size 32
+Client sent a message
+   We received a message from client of msg of size 16
+      OP Code: -117
+   We are sending a message to server of msg of size 16
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 1
+      Seq #12
+   We are sending a message to client of msg of size 32
+Server sent a message
+   We received a message from server of msg of size 4916
+      OP Code: 1
+      Seq #13
+   We are sending a message to client of msg of size 4916
+Client sent a message
+   We received a message from client of msg of size 2704
+      OP Code: 55
+   We are sending a message to server of msg of size 2704
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 1
+      Seq #26
+   We are sending a message to client of msg of size 32
+Client sent a message
+   We received a message from client of msg of size 12
+      OP Code: -118
+   We are sending a message to server of msg of size 12
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 1
+      Seq #27
+   We are sending a message to client of msg of size 32
+Client sent a message
+   We received a message from client of msg of size 56
+      OP Code: -118
+   We are sending a message to server of msg of size 56
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 1
+      Seq #29
+   We are sending a message to client of msg of size 32
+Client sent a message
+   We received a message from client of msg of size 36
+      OP Code: 16
+   We are sending a message to server of msg of size 36
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 1
+      Seq #30
+   We are sending a message to client of msg of size 32
+Client sent a message
+   We received a message from client of msg of size 20
+      OP Code: 85
+   We are sending a message to server of msg of size 20
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 1
+      Seq #31
+   We are sending a message to client of msg of size 32
+Client sent a message
+   We received a message from client of msg of size 20
+      OP Code: 85
+   We are sending a message to server of msg of size 20
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 1
+      Seq #32
+   We are sending a message to client of msg of size 32
+Client sent a message
+   We received a message from client of msg of size 108
+      OP Code: 53
+   We are sending a message to server of msg of size 108
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 1
+      Seq #37
+   We are sending a message to client of msg of size 32
+Client sent a message
+   We received a message from client of msg of size 20
+      OP Code: 85
+   We are sending a message to server of msg of size 20
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 1
+      Seq #38
+   We are sending a message to client of msg of size 32
+Client sent a message
+   We received a message from client of msg of size 76
+      OP Code: 1
+   We are sending a message to server of msg of size 76
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 1
+      Seq #42
+   We are sending a message to client of msg of size 32
+Client sent a message
+   We received a message from client of msg of size 16
+      OP Code: 84
+   We are sending a message to server of msg of size 16
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 1
+      Seq #43
+   We are sending a message to client of msg of size 32
+Client sent a message
+   We received a message from client of msg of size 20
+      OP Code: 85
+   We are sending a message to server of msg of size 20
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 1
+      Seq #44
+   We are sending a message to client of msg of size 32
+Client sent a message
+   We received a message from client of msg of size 24
+      OP Code: 98
+   We are sending a message to server of msg of size 24
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 1
+      Seq #45
+   We are sending a message to client of msg of size 32
+Client sent a message
+   We received a message from client of msg of size 24
+      OP Code: 45
+   We are sending a message to server of msg of size 24
+Server sent a message
+   We received a message from server of msg of size 3308
+      OP Code: 1
+      Seq #47
+   We are sending a message to client of msg of size 3308
+Client sent a message
+   We received a message from client of msg of size 44
+      OP Code: 49
+   We are sending a message to server of msg of size 44
+Server sent a message
+   We received a message from server of msg of size 88
+      OP Code: 1
+      Seq #48
+   We are sending a message to client of msg of size 88
+Client sent a message
+   We received a message from client of msg of size 44
+      OP Code: 49
+   We are sending a message to server of msg of size 44
+Server sent a message
+   We received a message from server of msg of size 88
+      OP Code: 1
+      Seq #49
+   We are sending a message to client of msg of size 88
+Client sent a message
+   We received a message from client of msg of size 44
+      OP Code: 49
+   We are sending a message to server of msg of size 44
+Server sent a message
+   We received a message from server of msg of size 88
+      OP Code: 1
+      Seq #50
+   We are sending a message to client of msg of size 88
+Client sent a message
+   We received a message from client of msg of size 44
+      OP Code: 49
+   We are sending a message to server of msg of size 44
+Server sent a message
+   We received a message from server of msg of size 88
+      OP Code: 1
+      Seq #51
+   We are sending a message to client of msg of size 88
+Client sent a message
+   We received a message from client of msg of size 44
+      OP Code: 49
+   We are sending a message to server of msg of size 44
+Server sent a message
+   We received a message from server of msg of size 88
+      OP Code: 1
+      Seq #52
+   We are sending a message to client of msg of size 88
+Client sent a message
+   We received a message from client of msg of size 44
+      OP Code: 49
+   We are sending a message to server of msg of size 44
+Server sent a message
+   We received a message from server of msg of size 88
+      OP Code: 1
+      Seq #53
+   We are sending a message to client of msg of size 88
+Client sent a message
+   We received a message from client of msg of size 44
+      OP Code: 49
+   We are sending a message to server of msg of size 44
+Server sent a message
+   We received a message from server of msg of size 88
+      OP Code: 1
+      Seq #54
+   We are sending a message to client of msg of size 88
+Client sent a message
+   We received a message from client of msg of size 44
+      OP Code: 49
+   We are sending a message to server of msg of size 44
+Server sent a message
+   We received a message from server of msg of size 88
+      OP Code: 1
+      Seq #55
+   We are sending a message to client of msg of size 88
+Client sent a message
+   We received a message from client of msg of size 44
+      OP Code: 49
+   We are sending a message to server of msg of size 44
+Server sent a message
+   We received a message from server of msg of size 88
+      OP Code: 1
+      Seq #56
+   We are sending a message to client of msg of size 88
+Client sent a message
+   We received a message from client of msg of size 44
+      OP Code: 49
+   We are sending a message to server of msg of size 44
+Server sent a message
+   We received a message from server of msg of size 88
+      OP Code: 1
+      Seq #57
+   We are sending a message to client of msg of size 88
+Client sent a message
+   We received a message from client of msg of size 48
+      OP Code: 49
+   We are sending a message to server of msg of size 48
+Server sent a message
+   We received a message from server of msg of size 88
+      OP Code: 1
+      Seq #58
+   We are sending a message to client of msg of size 88
+Client sent a message
+   We received a message from client of msg of size 48
+      OP Code: 49
+   We are sending a message to server of msg of size 48
+Server sent a message
+   We received a message from server of msg of size 88
+      OP Code: 1
+      Seq #59
+   We are sending a message to client of msg of size 88
+Client sent a message
+   We received a message from client of msg of size 48
+      OP Code: 49
+   We are sending a message to server of msg of size 48
+Server sent a message
+   We received a message from server of msg of size 88
+      OP Code: 1
+      Seq #60
+   We are sending a message to client of msg of size 88
+Client sent a message
+   We received a message from client of msg of size 52
+      OP Code: 49
+   We are sending a message to server of msg of size 52
+Server sent a message
+   We received a message from server of msg of size 96
+      OP Code: 1
+      Seq #61
+   We are sending a message to client of msg of size 96
+Client sent a message
+   We received a message from client of msg of size 52
+      OP Code: 49
+   We are sending a message to server of msg of size 52
+Server sent a message
+   We received a message from server of msg of size 100
+      OP Code: 1
+      Seq #62
+   We are sending a message to client of msg of size 100
+Client sent a message
+   We received a message from client of msg of size 48
+      OP Code: 49
+   We are sending a message to server of msg of size 48
+Server sent a message
+   We received a message from server of msg of size 100
+      OP Code: 1
+      Seq #63
+   We are sending a message to client of msg of size 100
+Client sent a message
+   We received a message from client of msg of size 52
+      OP Code: 49
+   We are sending a message to server of msg of size 52
+Server sent a message
+   We received a message from server of msg of size 100
+      OP Code: 1
+      Seq #64
+   We are sending a message to client of msg of size 100
+Client sent a message
+   We received a message from client of msg of size 52
+      OP Code: 49
+   We are sending a message to server of msg of size 52
+Server sent a message
+   We received a message from server of msg of size 100
+      OP Code: 1
+      Seq #65
+   We are sending a message to client of msg of size 100
+Client sent a message
+   We received a message from client of msg of size 48
+      OP Code: 49
+   We are sending a message to server of msg of size 48
+Server sent a message
+   We received a message from server of msg of size 88
+      OP Code: 1
+      Seq #66
+   We are sending a message to client of msg of size 88
+Client sent a message
+   We received a message from client of msg of size 64
+      OP Code: 50
+   We are sending a message to server of msg of size 64
+Server sent a message
+   We received a message from server of msg of size 300
+      OP Code: 1
+      Seq #67
+   We are sending a message to client of msg of size 300
+Server sent a message
+   We received a message from server of msg of size 60
+      OP Code: 1
+      Seq #67
+   We are sending a message to client of msg of size 60
+Client sent a message
+   We received a message from client of msg of size 64
+      OP Code: 50
+   We are sending a message to server of msg of size 64
+Server sent a message
+   We received a message from server of msg of size 300
+      OP Code: 1
+      Seq #68
+   We are sending a message to client of msg of size 300
+Server sent a message
+   We received a message from server of msg of size 60
+      OP Code: 1
+      Seq #68
+   We are sending a message to client of msg of size 60
+Client sent a message
+   We received a message from client of msg of size 64
+      OP Code: 50
+   We are sending a message to server of msg of size 64
+Server sent a message
+   We received a message from server of msg of size 300
+      OP Code: 1
+      Seq #69
+   We are sending a message to client of msg of size 300
+Server sent a message
+   We received a message from server of msg of size 60
+      OP Code: 1
+      Seq #69
+   We are sending a message to client of msg of size 60
+Client sent a message
+   We received a message from client of msg of size 64
+      OP Code: 50
+   We are sending a message to server of msg of size 64
+Server sent a message
+   We received a message from server of msg of size 360
+      OP Code: 1
+      Seq #70
+   We are sending a message to client of msg of size 360
+Client sent a message
+   We received a message from client of msg of size 64
+      OP Code: 50
+   We are sending a message to server of msg of size 64
+Server sent a message
+   We received a message from server of msg of size 360
+      OP Code: 1
+      Seq #71
+   We are sending a message to client of msg of size 360
+Client sent a message
+   We received a message from client of msg of size 64
+      OP Code: 50
+   We are sending a message to server of msg of size 64
+Server sent a message
+   We received a message from server of msg of size 360
+      OP Code: 1
+      Seq #72
+   We are sending a message to client of msg of size 360
+Client sent a message
+   We received a message from client of msg of size 64
+      OP Code: 50
+   We are sending a message to server of msg of size 64
+Server sent a message
+   We received a message from server of msg of size 308
+      OP Code: 1
+      Seq #73
+   We are sending a message to client of msg of size 308
+Server sent a message
+   We received a message from server of msg of size 60
+      OP Code: 1
+      Seq #73
+   We are sending a message to client of msg of size 60
+Client sent a message
+   We received a message from client of msg of size 64
+      OP Code: 50
+   We are sending a message to server of msg of size 64
+Server sent a message
+   We received a message from server of msg of size 360
+      OP Code: 1
+      Seq #74
+   We are sending a message to client of msg of size 360
+Client sent a message
+   We received a message from client of msg of size 64
+      OP Code: 50
+   We are sending a message to server of msg of size 64
+Server sent a message
+   We received a message from server of msg of size 360
+      OP Code: 1
+      Seq #75
+   We are sending a message to client of msg of size 360
+Client sent a message
+   We received a message from client of msg of size 64
+      OP Code: 50
+   We are sending a message to server of msg of size 64
+Server sent a message
+   We received a message from server of msg of size 300
+      OP Code: 1
+      Seq #76
+   We are sending a message to client of msg of size 300
+Server sent a message
+   We received a message from server of msg of size 60
+      OP Code: 1
+      Seq #76
+   We are sending a message to client of msg of size 60
+Client sent a message
+   We received a message from client of msg of size 64
+      OP Code: 50
+   We are sending a message to server of msg of size 64
+Server sent a message
+   We received a message from server of msg of size 360
+      OP Code: 1
+      Seq #77
+   We are sending a message to client of msg of size 360
+Client sent a message
+   We received a message from client of msg of size 64
+      OP Code: 50
+   We are sending a message to server of msg of size 64
+Server sent a message
+   We received a message from server of msg of size 300
+      OP Code: 1
+      Seq #78
+   We are sending a message to client of msg of size 300
+Server sent a message
+   We received a message from server of msg of size 60
+      OP Code: 1
+      Seq #78
+   We are sending a message to client of msg of size 60
+Client sent a message
+   We received a message from client of msg of size 72
+      OP Code: 50
+   We are sending a message to server of msg of size 72
+Server sent a message
+   We received a message from server of msg of size 384
+      OP Code: 1
+      Seq #79
+   We are sending a message to client of msg of size 384
+Client sent a message
+   We received a message from client of msg of size 76
+      OP Code: 50
+   We are sending a message to server of msg of size 76
+Server sent a message
+   We received a message from server of msg of size 356
+      OP Code: 1
+      Seq #80
+   We are sending a message to client of msg of size 356
+Client sent a message
+   We received a message from client of msg of size 76
+      OP Code: 50
+   We are sending a message to server of msg of size 76
+Server sent a message
+   We received a message from server of msg of size 388
+      OP Code: 1
+      Seq #81
+   We are sending a message to client of msg of size 388
+Client sent a message
+   We received a message from client of msg of size 72
+      OP Code: 50
+   We are sending a message to server of msg of size 72
+Server sent a message
+   We received a message from server of msg of size 352
+      OP Code: 1
+      Seq #82
+   We are sending a message to client of msg of size 352
+Client sent a message
+   We received a message from client of msg of size 64
+      OP Code: 50
+   We are sending a message to server of msg of size 64
+Server sent a message
+   We received a message from server of msg of size 368
+      OP Code: 1
+      Seq #83
+   We are sending a message to client of msg of size 368
+Client sent a message
+   We received a message from client of msg of size 160
+      OP Code: 55
+   We are sending a message to server of msg of size 160
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 1
+      Seq #90
+   We are sending a message to client of msg of size 32
+Client sent a message
+   We received a message from client of msg of size 248
+      OP Code: 55
+   We are sending a message to server of msg of size 248
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 1
+      Seq #100
+   We are sending a message to client of msg of size 32
+Client sent a message
+   We received a message from client of msg of size 16
+      OP Code: 84
+   We are sending a message to server of msg of size 16
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 1
+      Seq #101
+   We are sending a message to client of msg of size 32
+Client sent a message
+   We received a message from client of msg of size 72
+      OP Code: 1
+   We are sending a message to server of msg of size 72
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 1
+      Seq #105
+   We are sending a message to client of msg of size 32
+Client sent a message
+   We received a message from client of msg of size 20
+      OP Code: 85
+   We are sending a message to server of msg of size 20
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 1
+      Seq #106
+   We are sending a message to client of msg of size 32
+Client sent a message
+   We received a message from client of msg of size 168
+      OP Code: 55
+   We are sending a message to server of msg of size 168
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 1
+      Seq #113
+   We are sending a message to client of msg of size 32
+Client sent a message
+   We received a message from client of msg of size 32
+      OP Code: 98
+   We are sending a message to server of msg of size 32
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 1
+      Seq #114
+   We are sending a message to client of msg of size 32
+Client sent a message
+   We received a message from client of msg of size 8
+      OP Code: -128
+   We are sending a message to server of msg of size 8
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 1
+      Seq #115
+   We are sending a message to client of msg of size 32
+Client sent a message
+   We received a message from client of msg of size 172
+      OP Code: 55
+   We are sending a message to server of msg of size 172
+Server sent a message
+   We received a message from server of msg of size 64
+      OP Code: 0
+      Seq #121
+   We are sending a message to client of msg of size 64
+Client sent a message
+   We received a message from client of msg of size 56
+      OP Code: 45
+   We are sending a message to server of msg of size 56
+Server sent a message
+   We received a message from server of msg of size 3316
+      OP Code: 1
+      Seq #124
+   We are sending a message to client of msg of size 3316
+Client sent a message
+   We received a message from client of msg of size 800
+      OP Code: 55
+   We are sending a message to server of msg of size 800
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 1
+      Seq #162
+   We are sending a message to client of msg of size 32
+Client sent a message
+   We received a message from client of msg of size 16
+      OP Code: 84
+   We are sending a message to server of msg of size 16
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 1
+      Seq #163
+   We are sending a message to client of msg of size 32
+Client sent a message
+   We received a message from client of msg of size 72
+      OP Code: 1
+   We are sending a message to server of msg of size 72
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 1
+      Seq #167
+   We are sending a message to client of msg of size 32
+Client sent a message
+   We received a message from client of msg of size 284
+      OP Code: 55
+   We are sending a message to server of msg of size 284
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 1
+      Seq #179
+   We are sending a message to client of msg of size 32
+Client sent a message
+   We received a message from client of msg of size 20
+      OP Code: 85
+   We are sending a message to server of msg of size 20
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 1
+      Seq #180
+   We are sending a message to client of msg of size 32
+Client sent a message
+   We received a message from client of msg of size 76
+      OP Code: 1
+   We are sending a message to server of msg of size 76
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 1
+      Seq #184
+   We are sending a message to client of msg of size 32
+Client sent a message
+   We received a message from client of msg of size 2044
+      OP Code: 55
+   We are sending a message to server of msg of size 2044
+Server sent a message
+   We received a message from server of msg of size 96
+      OP Code: 28
+      Seq #264
+   We are sending a message to client of msg of size 96
+Server sent a message
+   We received a message from server of msg of size 160
+      OP Code: 28
+      Seq #267
+   We are sending a message to client of msg of size 160
+Client sent a message
+   We received a message from client of msg of size 96
+      OP Code: 18
+   We are sending a message to server of msg of size 96
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 28
+      Seq #272
+   We are sending a message to client of msg of size 32
+Server sent a message
+   We received a message from server of msg of size 64
+      OP Code: 28
+      Seq #273
+   We are sending a message to client of msg of size 64
+Client sent a message
+   We received a message from client of msg of size 16376
+      OP Code: 18
+   We are sending a message to server of msg of size 16376
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 28
+      Seq #275
+   We are sending a message to client of msg of size 32
+Client sent a message
+   We received a message from client of msg of size 10140
+      OP Code: 71
+   We are sending a message to server of msg of size 10140
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 19
+      Seq #1178
+   We are sending a message to client of msg of size 32
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 19
+      Seq #1181
+   We are sending a message to client of msg of size 32
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 1
+      Seq #1183
+   We are sending a message to client of msg of size 32
+Client sent a message
+   We received a message from client of msg of size 20
+      OP Code: 16
+   We are sending a message to server of msg of size 20
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 1
+      Seq #1184
+   We are sending a message to client of msg of size 32
+Client sent a message
+   We received a message from client of msg of size 196
+      OP Code: 18
+   We are sending a message to server of msg of size 196
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 22
+      Seq #1184
+   We are sending a message to client of msg of size 32
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 28
+      Seq #1185
+   We are sending a message to client of msg of size 32
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 28
+      Seq #1200
+   We are sending a message to client of msg of size 32
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 21
+      Seq #1200
+   We are sending a message to client of msg of size 32
+Server sent a message
+   We received a message from server of msg of size 64
+      OP Code: 28
+      Seq #1200
+   We are sending a message to client of msg of size 64
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 28
+      Seq #1200
+   We are sending a message to client of msg of size 32
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 28
+      Seq #1200
+   We are sending a message to client of msg of size 32
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 28
+      Seq #1200
+   We are sending a message to client of msg of size 32
+Server sent a message
+   We received a message from server of msg of size 64
+      OP Code: 28
+      Seq #1200
+   We are sending a message to client of msg of size 64
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 28
+      Seq #1200
+   We are sending a message to client of msg of size 32
+Server sent a message
+   We received a message from server of msg of size 64
+      OP Code: -106
+      Seq #1200
+   We are sending a message to client of msg of size 64
+Server sent a message
+   We received a message from server of msg of size 64
+      OP Code: 28
+      Seq #1200
+   We are sending a message to client of msg of size 64
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 19
+      Seq #1200
+   We are sending a message to client of msg of size 32
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 32
+Server sent a message
+   We received a message from server of msg of size 128
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 128
+Server sent a message
+   We received a message from server of msg of size 224
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 224
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 32
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 32
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 32
+Server sent a message
+   We received a message from server of msg of size 288
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 288
+Server sent a message
+   We received a message from server of msg of size 288
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 288
+Client sent a message
+   We received a message from client of msg of size 224
+      OP Code: 56
+   We are sending a message to server of msg of size 224
+Server sent a message
+   We received a message from server of msg of size 288
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 288
+Client sent a message
+   We received a message from client of msg of size 72
+      OP Code: 66
+   We are sending a message to server of msg of size 72
+Server sent a message
+   We received a message from server of msg of size 576
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 576
+Client sent a message
+   We received a message from client of msg of size 72
+      OP Code: 66
+   We are sending a message to server of msg of size 72
+Server sent a message
+   We received a message from server of msg of size 288
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 288
+Server sent a message
+   We received a message from server of msg of size 288
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 288
+Client sent a message
+   We received a message from client of msg of size 148
+      OP Code: 66
+   We are sending a message to server of msg of size 148
+Server sent a message
+   We received a message from server of msg of size 288
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 288
+Client sent a message
+   We received a message from client of msg of size 152
+      OP Code: 66
+   We are sending a message to server of msg of size 152
+Server sent a message
+   We received a message from server of msg of size 288
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 288
+Server sent a message
+   We received a message from server of msg of size 288
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 288
+Client sent a message
+   We received a message from client of msg of size 152
+      OP Code: 66
+   We are sending a message to server of msg of size 152
+Client sent a message
+   We received a message from client of msg of size 76
+      OP Code: 66
+   We are sending a message to server of msg of size 76
+Server sent a message
+   We received a message from server of msg of size 288
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 288
+Server sent a message
+   We received a message from server of msg of size 288
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 288
+Server sent a message
+   We received a message from server of msg of size 288
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 288
+Server sent a message
+   We received a message from server of msg of size 288
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 288
+Client sent a message
+   We received a message from client of msg of size 72
+      OP Code: 66
+   We are sending a message to server of msg of size 72
+Server sent a message
+   We received a message from server of msg of size 576
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 576
+Client sent a message
+   We received a message from client of msg of size 148
+      OP Code: 66
+   We are sending a message to server of msg of size 148
+Server sent a message
+   We received a message from server of msg of size 288
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 288
+Client sent a message
+   We received a message from client of msg of size 72
+      OP Code: 66
+   We are sending a message to server of msg of size 72
+Server sent a message
+   We received a message from server of msg of size 288
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 288
+Server sent a message
+   We received a message from server of msg of size 288
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 288
+Client sent a message
+   We received a message from client of msg of size 228
+      OP Code: 66
+   We are sending a message to server of msg of size 228
+Server sent a message
+   We received a message from server of msg of size 576
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 576
+Client sent a message
+   We received a message from client of msg of size 72
+      OP Code: 66
+   We are sending a message to server of msg of size 72
+Server sent a message
+   We received a message from server of msg of size 288
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 288
+Client sent a message
+   We received a message from client of msg of size 76
+      OP Code: 66
+   We are sending a message to server of msg of size 76
+Server sent a message
+   We received a message from server of msg of size 576
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 576
+Client sent a message
+   We received a message from client of msg of size 252
+      OP Code: 56
+   We are sending a message to server of msg of size 252
+Server sent a message
+   We received a message from server of msg of size 288
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 288
+Server sent a message
+   We received a message from server of msg of size 288
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 288
+Client sent a message
+   We received a message from client of msg of size 144
+      OP Code: 66
+   We are sending a message to server of msg of size 144
+Server sent a message
+   We received a message from server of msg of size 576
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 576
+Client sent a message
+   We received a message from client of msg of size 152
+      OP Code: 66
+   We are sending a message to server of msg of size 152
+Server sent a message
+   We received a message from server of msg of size 288
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 288
+Server sent a message
+   We received a message from server of msg of size 288
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 288
+Client sent a message
+   We received a message from client of msg of size 216
+      OP Code: 66
+   We are sending a message to server of msg of size 216
+Server sent a message
+   We received a message from server of msg of size 576
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 576
+Client sent a message
+   We received a message from client of msg of size 76
+      OP Code: 66
+   We are sending a message to server of msg of size 76
+Server sent a message
+   We received a message from server of msg of size 576
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 576
+Server sent a message
+   We received a message from server of msg of size 288
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 288
+Client sent a message
+   We received a message from client of msg of size 292
+      OP Code: 66
+   We are sending a message to server of msg of size 292
+Server sent a message
+   We received a message from server of msg of size 576
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 576
+Client sent a message
+   We received a message from client of msg of size 72
+      OP Code: 66
+   We are sending a message to server of msg of size 72
+Server sent a message
+   We received a message from server of msg of size 288
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 288
+Server sent a message
+   We received a message from server of msg of size 288
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 288
+Client sent a message
+   We received a message from client of msg of size 220
+      OP Code: 66
+   We are sending a message to server of msg of size 220
+Server sent a message
+   We received a message from server of msg of size 576
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 576
+Client sent a message
+   We received a message from client of msg of size 72
+      OP Code: 66
+   We are sending a message to server of msg of size 72
+Server sent a message
+   We received a message from server of msg of size 288
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 288
+Client sent a message
+   We received a message from client of msg of size 148
+      OP Code: 66
+   We are sending a message to server of msg of size 148
+Server sent a message
+   We received a message from server of msg of size 576
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 576
+Client sent a message
+   We received a message from client of msg of size 72
+      OP Code: 66
+   We are sending a message to server of msg of size 72
+Server sent a message
+   We received a message from server of msg of size 576
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 576
+Client sent a message
+   We received a message from client of msg of size 144
+      OP Code: 66
+   We are sending a message to server of msg of size 144
+Server sent a message
+   We received a message from server of msg of size 288
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 288
+Server sent a message
+   We received a message from server of msg of size 288
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 288
+Client sent a message
+   We received a message from client of msg of size 220
+      OP Code: 66
+   We are sending a message to server of msg of size 220
+Server sent a message
+   We received a message from server of msg of size 576
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 576
+Client sent a message
+   We received a message from client of msg of size 72
+      OP Code: 66
+   We are sending a message to server of msg of size 72
+Server sent a message
+   We received a message from server of msg of size 576
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 576
+Client sent a message
+   We received a message from client of msg of size 144
+      OP Code: 66
+   We are sending a message to server of msg of size 144
+Server sent a message
+   We received a message from server of msg of size 288
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 288
+Server sent a message
+   We received a message from server of msg of size 288
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 288
+Client sent a message
+   We received a message from client of msg of size 220
+      OP Code: 66
+   We are sending a message to server of msg of size 220
+Server sent a message
+   We received a message from server of msg of size 288
+      OP Code: 12
+      Seq #1200
+   We are sending a message to client of msg of size 288
+Client sent a message
+   We received a message from client of msg of size 76
+      OP Code: 66
+   We are sending a message to server of msg of size 76
+Client sent a message
+   We received a message from client of msg of size 72
+      OP Code: 66
+   We are sending a message to server of msg of size 72
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 9
+      Seq #1200
+   We are sending a message to client of msg of size 32
+Server sent a message
+   We received a message from server of msg of size 96
+      OP Code: 28
+      Seq #1374
+   We are sending a message to client of msg of size 96
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 28
+      Seq #1374
+   We are sending a message to client of msg of size 32
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 28
+      Seq #1374
+   We are sending a message to client of msg of size 32
+Server sent a message
+   We received a message from server of msg of size 64
+      OP Code: 7
+      Seq #1374
+   We are sending a message to client of msg of size 64
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 8
+      Seq #1374
+   We are sending a message to client of msg of size 32
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 7
+      Seq #1374
+   We are sending a message to client of msg of size 32
+Server sent a message
+   We received a message from server of msg of size 64
+      OP Code: 8
+      Seq #1374
+   We are sending a message to client of msg of size 64
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: -95
+      Seq #1374
+   We are sending a message to client of msg of size 32
+Client sent a message
+   We received a message from client of msg of size 88
+      OP Code: 16
+   We are sending a message to server of msg of size 88
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 1
+      Seq #1375
+   We are sending a message to client of msg of size 32
+Server sent a message
+   We received a message from server of msg of size 64
+      OP Code: 1
+      Seq #1376
+   We are sending a message to client of msg of size 64
+Server sent a message
+   We received a message from server of msg of size 32
+      OP Code: 1
+      Seq #1378
+   We are sending a message to client of msg of size 32
+Client sent a message
+   We received a message from client of msg of size 0
+      OP Code: 16
 NOTE: Source socket gracefully failed
 Got response from converse of < 0

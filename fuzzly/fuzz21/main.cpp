@@ -115,12 +115,10 @@ void install_sigquit_handler(void);
 
 int main(int argc, char *argv[ ])
 {
-    // Verify good args, otherwise exit
+    // Verify good args and parse, otherwise exit
     if (parse_command_line(argc, argv) == -1) {return 1;}
 
-    // Set interfaces to server and client
-    int		client_response, xserver_response;
-//    int		client_socket, server_socket;
+    // int		client_response, xserver_response;
     Interface * to_client = new Interface(CLIENT, port);
     Interface * to_xserver = new Interface(XSERVER, X_PORT);
 
@@ -135,16 +133,17 @@ int main(int argc, char *argv[ ])
 
     //Connect to client
     logger("Connecting with client\n");
-    client_response = to_client->connect_client();
-    if (client_response == -1)
+//    client_response = to_client->connect_client();
+    if (to_client->connect_client() == -1)
     {
         fprintf(stderr, "(main): Can't connect to client.\n");
         return 2;
     }
 
     //Connect to server
-    xserver_response = to_xserver->connect_server(to_client);
-    if (xserver_response == -1)
+    logger("Connecting with server\n");
+//    xserver_response = to_xserver->connect_server(to_client);
+    if (to_xserver->connect_server(to_client) == -1)
     {
         //delete to_client;
         fprintf(stderr, "%s (main): Can't connect to server.\n", progname);
@@ -155,6 +154,7 @@ int main(int argc, char *argv[ ])
     /****
      * Main loop - Converse passes messages until error or exit
      ***/
+    logger("Passing Messages\n");
     Agent * agent = new Agent(to_client, to_xserver);
     if(agent->converse() < 0){
         logger("Got response from converse of < 0\n");

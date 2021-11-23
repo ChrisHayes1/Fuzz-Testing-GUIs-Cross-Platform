@@ -28,6 +28,7 @@ protected:
     enum endianness endian;
     unsigned short  major_protocol, minor_protocol;
     char message[BUFFER_SIZE];
+    string name;
 public:
     // Constructors & Destructors
     Interface();
@@ -46,6 +47,7 @@ public:
     int recv_msg();
 private:
     int client_authenticate();
+    void dump_msg();
 };
 
 
