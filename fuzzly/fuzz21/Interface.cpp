@@ -29,6 +29,9 @@
  * Public methods
  */
 
+Interface::Interface(){
+
+}
 Interface::Interface(I_TYPE _cxn_type, int _port) : cxn_type(_cxn_type), port(_port) {}
 
 int Interface::connect_client()
@@ -346,3 +349,10 @@ int Interface::connect_server(Interface * to_client)
 
 
 
+int Interface::send_msg(char * buffer, int msg_length){
+    return send(this->fd, buffer, msg_length, 0);
+}
+
+int Interface::recv_msg() {
+    return recv(this->fd, this->message, BUFFER_SIZE, 0);
+}

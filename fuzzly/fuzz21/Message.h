@@ -14,9 +14,6 @@ protected:
 public:
     Message();
     ~Message();
-    //send();
-    //receive();
-
 };
 
 

@@ -136,22 +136,13 @@ int main(int argc, char *argv[ ])
     //Connect to client
     logger("Connecting with client\n");
     client_response = to_client->connect_client();
-    //client_socket = client_connect(port, &endian, &major, &minor);
-    //client_socket = client_connect(port, &endian, &major, &minor);
     if (client_response == -1)
     {
         fprintf(stderr, "(main): Can't connect to client.\n");
         return 2;
     }
 
-//    endian = to_client->getEndianess();
-//    major = to_client->getMajor();
-//    minor = to_client->getMinor();
-
-
     //Connect to server
-    //logger("Connecting with server\n");
-    //server_socket = server_connect(endian, major, minor);
     xserver_response = to_xserver->connect_server(to_client);
     if (xserver_response == -1)
     {
@@ -160,18 +151,15 @@ int main(int argc, char *argv[ ])
         return 3;
     }
 
-    Agent * agent = new Agent(to_client, to_xserver);
 
     /****
-     * Main loop
+     * Main loop - Converse passes messages until error or exit
      ***/
+    Agent * agent = new Agent(to_client, to_xserver);
     if(agent->converse() < 0){
         logger("Got response from converse of < 0\n");
     }
 
-//    if(converse(to_client->getFD(), to_xserver->getFD()) < 0){
-//        logger("Got response from converse of < 0\n");
-//    }
 
     /***
      * Clean up and return

@@ -89,7 +89,8 @@ int Agent::pass_msg(Interface * source, Interface * dest){
     char buffer[BUFFER_SIZE];
     int recv_length, send_length;
     logger("   Ready to recv -> ");
-    recv_length = recv(source->getFD(), buffer, BUFFER_SIZE, 0);
+//    recv_length = recv(source->getFD(), buffer, BUFFER_SIZE, 0);
+    recv_length = source->recv_msg();
     slog << "Receive msg of size " << recv_length << endl;
     logger(slog.str());
     if (recv_length < 0){
@@ -103,7 +104,8 @@ int Agent::pass_msg(Interface * source, Interface * dest){
         slog << "   Sending msg of size " << recv_length << "-> " << endl;
         logger(slog.str());
         //dump(buffer, recv_length);
-        send_length = send(dest->getFD(), buffer, recv_length, 0);
+//        send_length = send(dest->getFD(), buffer, recv_length, 0);
+        send_length = dest->send_msg(source->getMessage(), recv_length);
         if (send_length < recv_length){
             logger("ERROR: Entire message not sent\n");
         }

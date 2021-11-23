@@ -7,6 +7,7 @@
 
 #include <unistd.h>
 #include "Logger.h"
+#include "Message.h"
 /*
  * Each interface represents a connection to one side of the X-system
  * The interface will either act as a server and connect to the client,
@@ -26,8 +27,10 @@ protected:
     enum I_TYPE cxn_type;
     enum endianness endian;
     unsigned short  major_protocol, minor_protocol;
+    char message[BUFFER_SIZE];
 public:
     // Constructors & Destructors
+    Interface();
     Interface(I_TYPE _cxn_type, int _port);
     ~Interface(){close(fd);}
     // Getters and setters
@@ -35,10 +38,12 @@ public:
     unsigned short  getMajor(){return major_protocol;}
     unsigned short  getMinor(){return minor_protocol;}
     enum endianness getEndianess(){return endian;}
+    char * getMessage(){return message;}
     // Methods
     int connect_server(Interface * to_client);
     int connect_client();
-
+    int send_msg(char * buffer, int msg_length);
+    int recv_msg();
 private:
     int client_authenticate();
 };
