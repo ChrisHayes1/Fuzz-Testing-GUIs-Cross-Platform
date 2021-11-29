@@ -7,7 +7,6 @@
 
 #include <unistd.h>
 #include "Logger.h"
-#include "Message.h"
 /*
  * Each interface represents a connection to one side of the X-system
  * The interface will either act as a server and connect to the client,

@@ -27,7 +27,7 @@
 #include "_functions.h"
 #include "../Interface.h"
 #include "../Logger.h"
-#include "../Message.h"
+#include "Message.h"
 /* ------------------------------------------------------------------ */
 
 /*
