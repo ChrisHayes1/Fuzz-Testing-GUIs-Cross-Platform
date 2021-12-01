@@ -31,6 +31,7 @@ protected:
     unsigned short  major_protocol, minor_protocol;
     char message[BUFFER_SIZE];
     int msg_count;
+    uint16_t msg_size=0;
     string name;
 public:
     // Constructors & Destructors

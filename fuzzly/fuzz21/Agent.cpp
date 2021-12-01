@@ -47,15 +47,15 @@ int Agent::converse(){
         case 0:
             // No messages, might be good point to insert
             // Injects messages at set intervals.
-            if (this->inj_mode > 0 && this->valid_seq && this->msg_count > this->startgap){
-                clock_gettime(CLOCK_MONOTONIC, &this->current_time);
-                elapsedTime = ((this->current_time.tv_nsec - this->last_injection.tv_nsec)/1000000)
-                        + (this->current_time.tv_sec - this->last_injection.tv_sec) * 1000;
-                if (elapsedTime >= this->inj_rate){
-                    clock_gettime(CLOCK_MONOTONIC, &this->last_injection);
-                    inject_message(this->to_client);
-                }
-            }
+//            if (this->inj_mode > 0 && this->valid_seq && this->msg_count > this->startgap){
+//                clock_gettime(CLOCK_MONOTONIC, &this->current_time);
+//                elapsedTime = ((this->current_time.tv_nsec - this->last_injection.tv_nsec)/1000000)
+//                        + (this->current_time.tv_sec - this->last_injection.tv_sec) * 1000;
+//                if (elapsedTime >= this->inj_rate){
+//                    clock_gettime(CLOCK_MONOTONIC, &this->last_injection);
+                    inject_message(this->to_client, this->to_xserver);
+//                }
+//            }
             break;
         default:
             int mreturn = 0;
@@ -153,10 +153,41 @@ int Agent::Recv(Interface * source){
     // This is also where I should actually be parsing sequence #
     int recv_length;
     recv_length = recv(source->getFD(), source->message, BUFFER_SIZE, 0);
+
+    //Adding in message boundaries for client
+//    if (source->getType() == CLIENT){
+//        // Get header
+//        recv_length = recv(source->getFD(), source->message, 4, 0);
+//        switch (source->message[0]) {
+//            default: {
+//                // parse message size from header
+//                memcpy(&source->msg_size, source->message + 2, sizeof(source->msg_size));
+//                slog << "      v msg_size is " << source->msg_size << endl;
+//                logger(slog.str());
+//
+//                if (source->msg_size > 1) { // More to msg than header
+//                    recv_length += recv(source->getFD(), source->message+4, (source->msg_size*4)-4, 0);
+//                }
+////                this->seq_num = source->msg_count;
+////                this->seq_num++;
+//                // What happens if recv_length is < msg_size (i.e full message not received)??
+//                // Maybe wont be an issue?
+////                memcpy(this->seq_num, source->msg_count, sizeof(this->seq_num));
+////                this->seq_num++;
+//
+//            }
+//        }
+//    } else {
+//        // Dont really care about server
+//        recv_length = recv(source->getFD(), source->message, BUFFER_SIZE, 0);
+//    }
+
     source->msg_count++; // track message on each side, for client msg count should = seq #
-    this->msg_count++; // track total number of message sent across agent
-    slog << "(" << source->msg_count << ") received a message from " << source->getName() << " of msg of size " << recv_length << endl;
+    slog << source->getName() << " (" << source->msg_count << ") sent a message of msg of size " << recv_length << endl;
     logger(slog.str());
+
+    // Should really just get rid of this->msg_count
+    this->msg_count++; // track total number of message sent across agent
     if (recv_length > 0) dump_msg(source, source->message);
 
     return recv_length;
@@ -212,18 +243,19 @@ void Agent::dump_msg(Interface * source, char * msg) {
     // If source is client, must be a request
     if (source->getType()== CLIENT) {
         switch (msg[0]){
-            case 'l':
-            case 'B':
-                logger("\nAUTHENTICATION\n");
             default:
                 uint16_t length;
                 memcpy(&length, msg+2, sizeof(length));
 
-                slog << "      Request (" <<  source->msg_count << ")" <<  endl
+                slog << "      Request (" <<  source->msg_count << ")"  <<  endl
                      << "      Request Length: " << length << endl;
                 logger(slog.str());
         }
     } else { // Source is server, could be reply, error, or event
+        if (source->msg_count <= 2){
+            logger("      Server authentication response\n");
+            return;
+        }
         uint32_t length;
         uint16_t found_seq_num;
         bool is_event;
@@ -378,10 +410,12 @@ void Agent::kill_seq(int &recv_length, char * msg)
  * interaction to build up a message base.  Ideally injected messages would
  * be garbled as well.
  */
-void Agent::inject_message(Interface * dest){
-    if (this->inj_mode = 0 || !this->valid_seq || dest->msg_count <= this->startgap){
+void Agent::inject_message(Interface * dest, Interface * source){
+//    if (this->inj_mode = 0 || !this->valid_seq || dest->msg_count <= this->startgap){
+    if (this->inj_mode == 0 || dest->msg_count <= this->startgap){
         return;
     }
+
 
     // Figure out if enough time has passed
     clock_gettime(CLOCK_MONOTONIC, &this->current_time);
@@ -395,11 +429,11 @@ void Agent::inject_message(Interface * dest){
     int send_length = 0;
 
     clock_gettime(CLOCK_MONOTONIC, &this->last_injection);
-
     slog << "(" << dest->msg_count << ") #### Injecting a message\n";
 
 
     int switch_mode = this->inj_mode;
+
     if (switch_mode == 5) {switch_mode=rand()%2 + 3;}
     switch(switch_mode){
         case 1: // inject randomly generated messages
@@ -426,12 +460,12 @@ void Agent::inject_message(Interface * dest){
     // Need to send injected messages
     if (send_length > 0){
         logger(slog.str());
-        dest->msg_count++;
+//        dest->msg_count++;
         this->msg_count++;
         send_length = send(dest->getFD(), msg, send_length, 0);
         slog << "      --> Sent injected Message to " << dest->getName() << " of msg of size " << send_length << endl;
         logger(slog.str());
-        dump_msg(dest, msg);
+        dump_msg(source, msg);
         logger("        DUMP complete\n");
     } else {
         logger("      --> injection aborted\n");

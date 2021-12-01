@@ -51,7 +51,7 @@ private:
     void kill_seq(int &recv_length, char * msg);
     void kill_length(int &recv_length);
     // Calls Injectors
-    void inject_message(Interface * dest);
+    void inject_message(Interface * dest, Interface * source);
     // Injectors
     int generate_noise(char * buffer);
     int generate_events(char * buffer);

@@ -30,23 +30,24 @@
 #         sequence number when large packets are sent.  So keep inj_rate
 #         a little higher or alter code to only inject after 32 byte msgs
 
+echo Running fuzz21
 
 ####################
 # Passthrough
 ####################
- ./fuzz21 -port 6002 2> ./data/last_run.txt
+# ./fuzz21 -port 6002 2> ./data/last_run.txt
 
 ####################
 # Standard
 ####################
 
-echo Running fuzz21
+
 # Garble mode
 # ./fuzz21 -mod_mode garble -mod_rate 20 -startgap 350 -port 6002 2> ./data/last_run.txt
 # Injection mode - events
-#./fuzz21 -inj_mode events -inj_rate 100 -startgap 350 -port 6002 2> ./data/last_run.txt
+#./fuzz21 -inj_mode kmevents -inj_rate 500 -startgap 2000 -port 6002 2> ./data/last_run.txt
 # Injection mode - replay (legal events)
-#./fuzz21 -inj_mode replay -inj_rate 100 -startgap 350 -port 6002 2> ./data/last_run.txt
+./fuzz21 -inj_mode replay -inj_rate 100 -startgap 350 -port 6002 2> ./data/last_run.txt
 
 
 ####################
