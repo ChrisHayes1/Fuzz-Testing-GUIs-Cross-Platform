@@ -38,51 +38,6 @@ Interface::Interface(I_TYPE _cxn_type, int _port) : cxn_type(_cxn_type), port(_p
         name = "SERVER";
     }
 }
-//
-//int Interface::send_msg(char * buffer, int msg_length){
-//    int send_length;
-//    this->garble_msg();
-//    send_length = send(this->fd, buffer, msg_length, 0);
-//    slog << "   We are sending a message to " << this->name << " of msg of size " << send_length << endl;
-//    logger(slog.str());
-//    return send_length;
-//}
-//
-//int Interface::recv_msg() {
-//    int recv_length;
-//    recv_length = recv(this->fd, this->message, BUFFER_SIZE, 0);
-//    slog << "   We received a message from " << this->name << " of msg of size " << recv_length << endl;
-//    dump_msg();
-//    logger(slog.str());
-//    return recv_length;
-//}
-//
-//int Interface::garble_msg() {
-//
-//}
-
-/***
- * We know that errors have opcode 0,
- *  replies have opcode 1, and events have opcode 2-34.  We also know that
- *  events and errors have lengths of 32 bytes each.  Replies have a
- *  length field which allows for a length of more than 32 bytes.  Each of
- *  these messages except the KeymapNotify event has a sequence number.
- *  We record this sequence number so that we can put it in our own random
- *  events.  We wait for a message boundary (message boundaries can be
- *  detected because we know the message formats and lengths).  We then decide
- *  whether to insert a random event.
- */
-//void Interface::dump_msg() {
-//
-//    unsigned short seq_num = 0;
-//    int opcode = this->message[0];
-//    slog << "      OP Code: " << opcode << endl;
-//    if (this->cxn_type == XSERVER){
-//        memcpy(&seq_num, this->message + 2, sizeof(unsigned short));
-//        slog << "      Seq #" << seq_num << endl;
-//    }
-//    logger(slog.str());
-//}
 
 int Interface::connect_client()
 {

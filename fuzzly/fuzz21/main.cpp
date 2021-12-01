@@ -160,7 +160,7 @@ int main(int argc, char *argv[ ])
      * Main loop - Converse passes messages until error or exit
      ***/
     logger("Passing Messages\n");
-    Agent * agent = new Agent(to_client, to_xserver, seed);
+    Agent * agent = new Agent(to_client, to_xserver);
     agent->set_inj_mode(inj_mode);
     agent->set_inj_rate(inj_rate);
     agent->set_mod_mode(mod_mode);

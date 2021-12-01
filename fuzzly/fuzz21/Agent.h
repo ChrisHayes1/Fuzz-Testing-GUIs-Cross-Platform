@@ -8,31 +8,28 @@
 #include "Interface.h"
 #include <time.h>
 
-const int MESSAGE_SIZE = 1024;
-const int BUFFER_SIZE = 16384;
 const int EVENT_MESSAGE_SIZE = 32;
 const int TRACKED_MSGS = 32;
 class Agent {
     Interface * to_client;
     Interface * to_xserver;
-    char message[TRACKED_MSGS][BUFFER_SIZE];
+    char tracked_message[TRACKED_MSGS][BUFFER_SIZE];
     size_t message_length[TRACKED_MSGS];
-    int current_msg = 0;
+    int track_index = 0;
     int startgap;
     int mod_mode;
     int mod_rate;
     int inj_mode;
     int inj_rate;
     int msg_count = 0;
-    timespec last_injection;
-    timespec current_time;
-    long elapsedTime;
+    timespec last_injection; // Used to track last injection time
+    timespec current_time; // Current time
+    long elapsedTime; // If elapsed time (ms) > inj_rate then good to go
     unsigned short seq_num=0;
-    unsigned short req_num=0;
     int have_buffered = 0; // count of # of buffered msgs, caps at TRACKED_MSGS
     bool valid_seq = false;
 public:
-    Agent(Interface * _to_client, Interface * _to_xserver, int seed);
+    Agent(Interface * _to_client, Interface * _to_xserver);
     ~Agent();
     int converse();
     // Getters and Setters
@@ -44,7 +41,7 @@ public:
 private:
     int transfer_msg(Interface * source, Interface * dest);
     int Recv(Interface * source);
-    int Send(Interface * dest, int msg_length);
+    int Send(Interface * dest, Interface * source, int msg_length);
     void dump_msg(Interface * source, char * msg);
     void incr_msg(Interface * dest, int msg_length);
     // Calls garblers
@@ -56,9 +53,9 @@ private:
     // Calls Injectors
     void inject_message(Interface * dest);
     // Injectors
-    int generate_noise( char * buffer);
-    int generate_events( char * buffer);
-    int replay_events( char * buffer);
+    int generate_noise(char * buffer);
+    int generate_events(char * buffer);
+    int replay_events(char * buffer);
 
 };
 
