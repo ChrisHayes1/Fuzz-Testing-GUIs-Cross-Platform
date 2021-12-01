@@ -21,7 +21,7 @@
 #include "_macros.h"
 
 #include "Interface.h"
-#include "old/Message.h"
+//#include "old/Message.h"
 #include "Logger.h"
 
 
@@ -33,9 +33,9 @@ Interface::Interface(){}
 
 Interface::Interface(I_TYPE _cxn_type, int _port) : cxn_type(_cxn_type), port(_port) {
     if (_cxn_type == CLIENT){
-        name = "client";
+        name = "CLIENT";
     } else {
-        name = "server";
+        name = "SERVER";
     }
 }
 //
@@ -198,6 +198,7 @@ int Interface::client_authenticate(){
      */
     if (total_len > 0)
     {
+        total_len = NEAREST_MULTIPLE_OF_4(total_len);
         auth_buffer = (char*)malloc(total_len);
         if (auth_buffer == NULL)
         {
@@ -206,7 +207,7 @@ int Interface::client_authenticate(){
             return -1;
         }
 
-        int auth_buffer_length = recv(this->fd, auth_buffer, BUFFER_SIZE, 0);
+        int auth_buffer_length = recv(this->fd, auth_buffer, total_len, 0);
 //        slog << "   Auth Buffer received message of size " << auth_buffer_length << endl;
 //        logger(slog.str());
 

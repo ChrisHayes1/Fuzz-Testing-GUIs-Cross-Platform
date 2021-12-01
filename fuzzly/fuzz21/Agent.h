@@ -24,12 +24,13 @@ class Agent {
     int inj_mode;
     int inj_rate;
     int msg_count = 0;
-    int garbled = 0;
     timespec last_injection;
     timespec current_time;
     long elapsedTime;
     unsigned short seq_num=0;
+    unsigned short req_num=0;
     int have_buffered = 0; // count of # of buffered msgs, caps at TRACKED_MSGS
+    bool valid_seq = false;
 public:
     Agent(Interface * _to_client, Interface * _to_xserver, int seed);
     ~Agent();
@@ -42,10 +43,12 @@ public:
     void set_startgap(int _startgap){startgap=_startgap;}
 private:
     int transfer_msg(Interface * source, Interface * dest);
-    void dump_msg(Interface * source, char * msg,  int show_seq = 0);
+    int Recv(Interface * source);
+    int Send(Interface * dest, int msg_length);
+    void dump_msg(Interface * source, char * msg);
     void incr_msg(Interface * dest, int msg_length);
     // Calls garblers
-    void alter_msg(Interface * dest, int &recv_length, char * msg);
+    void alter_msg(Interface * source, int &recv_length, char * msg);
     // Garblers
     void garbler(int &recv_length, char * msg);
     void kill_seq(int &recv_length, char * msg);
