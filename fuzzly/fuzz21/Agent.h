@@ -21,13 +21,14 @@ class Agent {
     int mod_rate;
     int inj_mode;
     int inj_rate;
-    int msg_count = 0;
+    int inj_count=1;
+    int msg_count=0;
     timespec last_injection; // Used to track last injection time
     timespec current_time; // Current time
     long elapsedTime; // If elapsed time (ms) > inj_rate then good to go
     unsigned short seq_num=0;
     int have_buffered = 0; // count of # of buffered msgs, caps at TRACKED_MSGS
-    bool valid_seq = false;
+    bool good_sequence = false;
 public:
     Agent(Interface * _to_client, Interface * _to_xserver);
     ~Agent();
