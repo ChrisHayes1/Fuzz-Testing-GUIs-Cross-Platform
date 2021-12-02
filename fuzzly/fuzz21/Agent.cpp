@@ -184,45 +184,46 @@ int Agent::Recv(Interface * source){
         // is currently processing.  This matters more than the request count (which is where
         // the sequence comes from.  If you send client message with invalid seq # XCB
         // terminates the process.
-        int current = 0, prev;
-        uint32_t msg_size=0;
-        do{
-            logger(".");
-            prev = current;
-            this->good_sequence = false;
-            switch (source->message[current]) {
-                case GenericEvent:
-                case 1:  // Reply. GE, variable length msg
-                    //Parse length, advance current
-                    memcpy(&msg_size, source->message + current + 4, sizeof(msg_size));
-                    current += msg_size*4 + 32;
-                    this->good_sequence = true;
-                    break;
-                default:
-                    if (source->message[current] == 0 ||
-                        (source->message[current] >= 2 && source->message[current] <= 34))
-                    {  // X-Reply
-                        current += 32; // Always 32
-                        this->good_sequence = true;
-                    } else {
-                        // Unexpected, pause manipulations
-                        current = recv_length; // stop parsing, set seq as bad
-                    }
-            }
-            // Parse sequence
-            if (this->good_sequence && source->message[prev] != KeymapNotify) {
-                // Copy message sequence - always at same spot sans KN
-                memcpy(&this->seq_num, source->message + prev + 2, sizeof(unsigned short));
-            }
-            source->msg_count++;
-        } while (current < recv_length);
+//        int current = 0, prev;
+//        uint32_t msg_size=0;
+//        do{
+//            logger(".");
+//            prev = current;
+//            this->good_sequence = false;
+//            switch (source->message[current]) {
+//                case GenericEvent:
+//                case 1:  // Reply. GE, variable length msg
+//                    //Parse length, advance current
+//                    memcpy(&msg_size, source->message + current + 4, sizeof(msg_size));
+//                    current += msg_size*4 + 32;
+//                    this->good_sequence = true;
+//                    break;
+//                default:
+//                    if (source->message[current] == 0 ||
+//                        (source->message[current] >= 2 && source->message[current] <= 34))
+//                    {  // X-Reply
+//                        current += 32; // Always 32
+//                        this->good_sequence = true;
+//                    } else {
+//                        // Unexpected, pause manipulations
+//                        current = recv_length; // stop parsing, set seq as bad
+//                    }
+//            }
+//            // Parse sequence
+//            if (this->good_sequence && source->message[prev] != KeymapNotify) {
+//                // Copy message sequence - always at same spot sans KN
+//                memcpy(&this->seq_num, source->message + prev + 2, sizeof(unsigned short));
+//            }
+//            source->msg_count++;
+//        } while (current < recv_length);
 
-//        if (recv_length <= 0) {return recv_length;}
-//        // set sequence number for items coming from server
-//        if ( source->message[0] != KeymapNotify) {
-//            memcpy(&this->seq_num, source->message + 2, sizeof(unsigned short));
-//            this->good_sequence = (recv_length == EVENT_MESSAGE_SIZE);
-//        }
+        if (recv_length <= 0) {return recv_length;}
+        // set sequence number for items coming from server
+        if ( source->message[0] != KeymapNotify) {
+            memcpy(&this->seq_num, source->message + 2, sizeof(unsigned short));
+            this->good_sequence = (recv_length == EVENT_MESSAGE_SIZE);
+        }
+        source->msg_count++;
     }
 
      // track message on each side, for client msg count should = seq #
@@ -628,6 +629,7 @@ int Agent::replay_events(char * buffer){
     slog << "      --> index = " << index << endl;
     memcpy(buffer, this->tracked_message[index], this->message_length[index]);
     memcpy(&buffer[2], &this->seq_num, sizeof(unsigned short));
+//    memcpy(&buffer[2], &to_client->msg_count, sizeof(unsigned short));
     return this->message_length[index];
 }
 
