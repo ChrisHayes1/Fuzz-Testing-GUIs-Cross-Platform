@@ -138,14 +138,15 @@ int Interface::client_authenticate(){
     memcpy(&auth_data_len, buffer + 8, sizeof(auth_data_len));
     total_len = (auth_name_len + auth_data_len);
 
-    //dump authentication details
-//    slog << "...protocol_major_version_ptr: " << this->major_protocol << endl
-//         << "...protocol_minor_version_ptr: " << this->minor_protocol << endl
-//         << "...endian_ptr: " <<  this->endian << endl
-//         << "...auth_name_len: " << auth_name_len << endl
-//         << "...auth_data_len: " << auth_data_len << endl
-//         << "...total_len: " << total_len << endl;
-//    logger(slog.str(), ERR);
+    // dump authentication details
+    slog << "...protocol_major_version_ptr: " << this->major_protocol << endl
+         << "...protocol_minor_version_ptr: " << this->minor_protocol << endl
+         << "...endian_ptr: " <<  this->endian << endl
+         << "......msg[0] = " << buffer[0] << endl
+         << "...auth_name_len: " << auth_name_len << endl
+         << "...auth_data_len: " << auth_data_len << endl
+         << "...total_len: " << total_len << endl;
+    logger(slog.str(), ERR);
 
     /*
      *  Discard the authorization part of the opening message.

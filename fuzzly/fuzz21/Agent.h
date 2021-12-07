@@ -22,7 +22,6 @@ class Agent {
     int inj_mode;
     int inj_rate;
     int inj_count=1;
-    int msg_count=0;
     timespec last_injection; // Used to track last injection time
     timespec current_time; // Current time
     long elapsedTime; // If elapsed time (ms) > inj_rate then good to go
@@ -44,7 +43,7 @@ private:
     int Recv(Interface * source);
     int Send(Interface * dest, Interface * source, int msg_length);
     void dump_msg(Interface * source, char * msg);
-    void incr_msg(Interface * dest, int msg_length);
+    void incr_msg(Interface * source, int msg_length);
     // Calls garblers
     void alter_msg(Interface * source, int &recv_length, char * msg);
     // Garblers

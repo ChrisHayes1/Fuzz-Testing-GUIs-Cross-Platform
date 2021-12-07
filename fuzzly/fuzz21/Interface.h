@@ -30,6 +30,7 @@ protected:
     enum endianness endian;
     unsigned short  major_protocol, minor_protocol;
     char message[BUFFER_SIZE];
+    unsigned short msg_size;
     int msg_count;
     string name;
 public:

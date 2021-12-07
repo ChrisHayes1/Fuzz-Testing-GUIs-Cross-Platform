@@ -35,7 +35,7 @@ echo Running fuzz21
 ####################
 # Passthrough
 ####################
-# ./fuzz21 -port 6002 2> ./data/last_run.txt
+ ./fuzz21 -port 6002 2> ./data/last_run.txt
 
 ####################
 # Standard
@@ -47,7 +47,7 @@ echo Running fuzz21
 # Injection mode - events
 #./fuzz21 -inj_mode kmevents -inj_rate 500 -startgap 200 -port 6002 2> ./data/last_run.txt
 # Injection mode - replay (legal events)
-./fuzz21 -inj_mode replay -inj_rate 500 -startgap 200 -port 6002 2> ./data/last_run.txt
+#./fuzz21 -inj_mode replay -inj_rate 500 -startgap 200 -port 6002 2> ./data/last_run.txt
 
 
 ####################

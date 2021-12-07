@@ -41,7 +41,7 @@ int random_events(int sock, char *buf, int *len_ptr, int max_len,
  *  Seed for the random number generator.
  */
 
-int seed = 1857;
+int seed = -1;
 
 
 /*
@@ -122,6 +122,17 @@ int main(int argc, char *argv[ ])
 {
     // Verify good args and parse, otherwise exit
     if (parse_command_line(argc, argv) == -1) {return 1;}
+    // Randomize
+
+    if (seed != -1){
+        srand(seed);
+        logger("Randomized via seed\n");
+    } else {
+        time_t t;
+        srand((unsigned) time(&t));
+        logger("Randomized via time\n");
+    }
+
 
     // int		client_response, xserver_response;
     Interface * to_client = new Interface(CLIENT, port);
@@ -219,7 +230,7 @@ void usage()
 {
     fprintf(stdout, "Usage: %s [-mode <mode>] [-rate <rate>] "
                     "[-startgap <startgap>]\n"
-                    "       [-port <port>] [-direction <dir> [-seed <seed>]\n",
+                    "       [-port <port>] [-seed <seed>]\n",
             progname);
     fprintf(stdout, "       %s -h[elp]\n", progname);
     fprintf(stdout, "       <mod_mode> = garble, kill_seq, kill_length, passthrough\n");
@@ -229,7 +240,7 @@ void usage()
     fprintf(stdout, "       <startgap>  = # unaltered messages before first operation\n");
     fprintf(stdout, "       <port>      = port on which Winjig listens\n");
 //    fprintf(stdout, "       <direction> = s2c, c2s, both\n");
-//    fprintf(stdout, "       <seed>      = seed for random number generator\n");
+    fprintf(stdout, "       <seed>      = seed for random number generator\n");
 }
 
 /*

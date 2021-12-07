@@ -136,7 +136,7 @@ int Agent::transfer_msg(Interface * source, Interface * dest){
         // If we can respect message boundries we could update this to include all messages
         // not just events.  Was asked just to replay events though so other msgs probably
         // not necessary.
-        this->incr_msg(dest, send_length);
+        this->incr_msg(source, send_length);
     }
     return 0;
 }
@@ -150,22 +150,23 @@ int Agent::Recv(Interface * source){
 
     //Adding in message boundaries for client
     if (source->getType() == CLIENT){
-        uint16_t msg_size=0;
-        recv_length = recv(source->getFD(), source->message, BUFFER_SIZE, 0);
-        // parse message size from header - parses multiple messages if present
-        // Only used for logging.  Not necessary for functionality.
-        int current = 0;
-        do {
-            // Get length of message
-            memcpy(&msg_size, source->message + current + 2, sizeof(msg_size));
-            // Advance length of message
-            current += (msg_size*4);
-            source->msg_count++;
-        } while (current < recv_length);
+//        uint16_t msg_size=0;
+//        recv_length = recv(source->getFD(), source->message, BUFFER_SIZE, 0);
+//        // parse message size from header - parses multiple messages if present
+//        // Only used for logging.  Not necessary for functionality, but provides you with correct
+//        // request count, which corresponds to the seq # returned by server
+//        int current = 0;
+//        do {
+//            // Get length of message
+//            memcpy(&msg_size, source->message + current + 2, sizeof(msg_size));
+//            // Advance length of message
+//            current += (msg_size*4);
+//            source->msg_count++;
+//        } while (current < recv_length);
 
-        /**
-         *  Below allows you to parse message one at a time
-         * 
+//        /**
+//         *  Below allows you to parse message one at a time.  Can be useful for trouble shooting
+//         *
             // Get header
             recv_length = recv(source->getFD(), source->message, 4, 0);
             if (recv_length <= 0) {return recv_length;}
@@ -177,63 +178,61 @@ int Agent::Recv(Interface * source){
                 recv_length += recv(source->getFD(), source->message+4, (source->msg_size*4)-4, 0);
                 if (recv_length <= 0) {return recv_length;}
             }
-        */
+        source->msg_count++;
+//        */
     } else {  // XServer messages
         recv_length = recv(source->getFD(), source->message, BUFFER_SIZE, 0);
         // Walk through message, or messages to keep track of the seq number the server
         // is currently processing.  This matters more than the request count (which is where
         // the sequence comes from.  If you send client message with invalid seq # XCB
         // terminates the process.
-//        int current = 0, prev;
-//        uint32_t msg_size=0;
-//        do{
-//            logger(".");
-//            prev = current;
-//            this->good_sequence = false;
-//            switch (source->message[current]) {
-//                case GenericEvent:
-//                case 1:  // Reply. GE, variable length msg
-//                    //Parse length, advance current
-//                    memcpy(&msg_size, source->message + current + 4, sizeof(msg_size));
-//                    current += msg_size*4 + 32;
-//                    this->good_sequence = true;
-//                    break;
-//                default:
-//                    if (source->message[current] == 0 ||
-//                        (source->message[current] >= 2 && source->message[current] <= 34))
-//                    {  // X-Reply
-//                        current += 32; // Always 32
-//                        this->good_sequence = true;
-//                    } else {
-//                        // Unexpected, pause manipulations
-//                        current = recv_length; // stop parsing, set seq as bad
-//                    }
-//            }
-//            // Parse sequence
-//            if (this->good_sequence && source->message[prev] != KeymapNotify) {
-//                // Copy message sequence - always at same spot sans KN
-//                memcpy(&this->seq_num, source->message + prev + 2, sizeof(unsigned short));
-//            }
-//            source->msg_count++;
-//        } while (current < recv_length);
+        int current = 0, prev;
+        uint32_t msg_size=0;
+        do{
+            logger(".");
+            prev = current;
+            this->good_sequence = false;
+            switch (source->message[current]) {
+                case GenericEvent:
+                case 1:  // Reply. GE, variable length msg
+                    //Parse length, advance current
+                    memcpy(&msg_size, source->message + current + 4, sizeof(msg_size));
+                    current += msg_size*4 + 32;
+                    this->good_sequence = true;
+                    break;
+                default:
+                    if (source->message[current] == 0 ||
+                        (source->message[current] >= 2 && source->message[current] <= 34))
+                    {  // Event (2-34) or error (==0)
+                        current += 32; // Always 32
+                        this->good_sequence = true;
+                    } else {
+                        // Unexpected, pause manipulations
+                        current = recv_length; // stop parsing, set seq as bad
+                    }
+            }
+            // Parse sequence
+            if (this->good_sequence && source->message[prev] != KeymapNotify) {
+                // Copy message sequence - always at same spot sans KN
+                memcpy(&this->seq_num, source->message + prev + 2, sizeof(unsigned short));
+            }
+            source->msg_count++;
+        } while (current < recv_length);
 
-        if (recv_length <= 0) {return recv_length;}
-        // set sequence number for items coming from server
-        if ( source->message[0] != KeymapNotify) {
-            memcpy(&this->seq_num, source->message + 2, sizeof(unsigned short));
-            this->good_sequence = (recv_length == EVENT_MESSAGE_SIZE);
-        }
-        source->msg_count++;
+//        if (recv_length <= 0) {return recv_length;}
+//        // set sequence number for items coming from server
+//        if ( source->message[0] != KeymapNotify) {
+//            memcpy(&this->seq_num, source->message + 2, sizeof(unsigned short));
+//            this->good_sequence = (recv_length == EVENT_MESSAGE_SIZE);
+//        }
+//        source->msg_count++;
     }
 
      // track message on each side, for client msg count should = seq #
     slog << source->getName() << " (" << source->msg_count << ") sent a message of msg of size " << recv_length << endl;
     logger(slog.str());
 
-    // Should really just get rid of this->msg_count
-    this->msg_count++; // track total number of message sent across agent
     if (recv_length > 0) dump_msg(source, source->message);
-
     return recv_length;
 }
 
@@ -255,13 +254,13 @@ int Agent::Send(Interface * dest, Interface * source, int msg_length){
  * If we respect message boundries we dont need to track size.  We could also
  * go ahead and just copy first 32 bytes into msg[x].
  */
-void Agent::incr_msg(Interface * dest, int msg_length){
+void Agent::incr_msg(Interface * source, int msg_length){
     this->message_length[this->track_index] = msg_length;
-    if(dest->getType() == CLIENT && dest->message[0] >=2 && dest->message[0] <= 34
+    if(source->getType() == XSERVER && source->message[0] >=2 && source->message[0] <= 34
         && msg_length == EVENT_MESSAGE_SIZE){
 
         //Copy message to this->message
-
+        memcpy(this->tracked_message[this->track_index], source->message, msg_length);
         // increment number of items buffered
         if (this->have_buffered < TRACKED_MSGS) {have_buffered++;}
         // Update message index
@@ -292,7 +291,10 @@ void Agent::dump_msg(Interface * source, char * msg) {
                 memcpy(&length, msg+2, sizeof(length));
 
                 slog << "      Request (" <<  source->msg_count << ")"  <<  endl
-                     << "      Request Length: " << length << endl;
+                     << "      Request Length: " << length << endl
+                     << "      Opcode = " << msg[0] << endl;
+
+                if (msg[0] == 108 || msg[0] == 66) slog << "!!! AUTH !!!" << endl;
                 logger(slog.str());
         }
     } else { // Source is server, could be reply, error, or event
@@ -376,8 +378,6 @@ void Agent::alter_msg(Interface * source, int &recv_length, char * msg) {
  */
 void Agent::garbler(int &recv_length, char * msg)
 {
-    time_t t;
-    srand((unsigned) time(&t) + this->msg_count);
     logger("      -->Garbling Message\n");
     // Change around 8 bytes.
 
@@ -418,15 +418,11 @@ void Agent::kill_length(int &recv_length)
 
 /**
  * Kills sequence number located at bytes 2,3
+ * So far this kills everything
  */
 void Agent::kill_seq(int &recv_length, char * msg)
 {
     if (recv_length < 5) return;
-    /*
-     * Killing sequence caused xcb to crash
-    */
-    time_t t;
-    srand((unsigned) time(&t) + this->msg_count);
 
     logger("      -->Kill Sequence\n");
     for (int i = 2; i < 4; ++i){
@@ -455,45 +451,36 @@ void Agent::kill_seq(int &recv_length, char * msg)
  * be garbled as well.
  */
 void Agent::inject_message(Interface * dest, Interface * source){
-//    if (this->inj_mode = 0 || !this->good_sequence || dest->msg_count <= this->startgap){
+    // Verify we are good to are ready to inject
     if (this->inj_mode == 0 || !(this->good_sequence) || dest->msg_count <= this->startgap){
         return;
     }
-
 
     // Figure out if enough time has passed
     clock_gettime(CLOCK_MONOTONIC, &this->current_time);
     elapsedTime = ((this->current_time.tv_nsec - this->last_injection.tv_nsec)/1000000)
                   + (this->current_time.tv_sec - this->last_injection.tv_sec) * 1000;
-
     if (elapsedTime < this->inj_rate){return;}
-
-    // Should be good to inject message
-    char msg[EVENT_MESSAGE_SIZE];
-    int send_length = 0;
-
     clock_gettime(CLOCK_MONOTONIC, &this->last_injection);
     slog << "(" << this->inj_count << ") #### Injecting a message\n";
 
-
+    // Should be good to inject message, get message
+    char msg[EVENT_MESSAGE_SIZE];
+    int send_length = 0;
     int switch_mode = this->inj_mode;
-
     if (switch_mode == 5) {switch_mode=rand()%2 + 3;}
     switch(switch_mode){
         case 1: // inject randomly generated messages
             send_length = generate_noise(msg);
             break;
         case 2: // inject random events
-        case 3: // inject random KM events
+        case 3: // inject random KM events - same fxn, fxn checks mode
             slog << "      --> Generate Events\n";
             send_length = generate_events(msg);
             break;
         case 4: // replay legal events
             slog << "      --> Replay\n";
             send_length = replay_events(msg);
-            //logger(slog.str());
-            // alter_msg(dest, send_length, msg); // Thought I could garble replay
-            // Above occasionally caused stack smashing errors unclear why.
             break;
         case 5:
             break;
@@ -501,11 +488,9 @@ void Agent::inject_message(Interface * dest, Interface * source){
             return;
     }
 
-    // Need to send injected messages
+    // Send injected messages
     if (send_length > 0){
         logger(slog.str());
-//        dest->msg_count++;
-        this->msg_count++;
         this->inj_count++;
         send_length = send(dest->getFD(), msg, send_length, 0);
         slog << "      --> Sent injected Message to " << dest->getName() << " of msg of size " << send_length << endl;
@@ -532,8 +517,6 @@ void Agent::inject_message(Interface * dest, Interface * source){
 int Agent::generate_noise(char * buffer)
 {
     int msg_len;
-    time_t t;
-    srand((unsigned) time(&t) + this->msg_count);
 
     msg_len = (int) (rand() % EVENT_MESSAGE_SIZE);
     for (int i = 0; i < msg_len; ++i)
@@ -542,7 +525,7 @@ int Agent::generate_noise(char * buffer)
     return msg_len;
 }
 
-/*
+/***
  *  $Id: insert.c,v 1.4 1995/05/01 04:54:34 ajitk Exp $
  *
  *  generate_events()
@@ -566,9 +549,7 @@ int Agent::generate_noise(char * buffer)
  */
 
 int Agent::generate_events(char * b){
-    time_t timeval, t;
-    srand((unsigned) time(&t) + this->msg_count);
-    
+    time_t timeval;
     /* byte 0 is opcode. */
     if (this->inj_mode == 3) // keyboard & mouse events have opcodes in range 2-5
         b[0] = (char) (rand() % 4 + 2);
@@ -615,21 +596,16 @@ int Agent::generate_events(char * b){
  * @return
  */
 int Agent::replay_events(char * buffer){
-
     if (this->have_buffered==0) {
         logger(".....no buffered events\n");
         return 0;
     }
-    time_t t;
-    srand((unsigned) time(&t) + this->msg_count);
 
     int index;
     while((index = rand()%this->have_buffered) == this->track_index);
-
     slog << "      --> index = " << index << endl;
     memcpy(buffer, this->tracked_message[index], this->message_length[index]);
     memcpy(&buffer[2], &this->seq_num, sizeof(unsigned short));
-//    memcpy(&buffer[2], &to_client->msg_count, sizeof(unsigned short));
     return this->message_length[index];
 }
 
