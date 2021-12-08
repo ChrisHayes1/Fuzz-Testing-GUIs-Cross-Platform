@@ -168,7 +168,10 @@ int Agent::Recv(Interface * source){
 //         *  Below allows you to parse message one at a time.  Can be useful for trouble shooting
 //         *
             // Get header
+//            slog << "Client is sending msg" << endl;
             recv_length = recv(source->getFD(), source->message, 4, 0);
+//            slog << "recv_length = " << recv_length << endl;
+//            logger(slog.str());
             if (recv_length <= 0) {return recv_length;}
             // parse message size from header
             memcpy(&source->msg_size, source->message + 2, sizeof(source->msg_size));
@@ -181,7 +184,10 @@ int Agent::Recv(Interface * source){
         source->msg_count++;
 //        */
     } else {  // XServer messages
+//        slog << "Server is sending msg" << endl;
         recv_length = recv(source->getFD(), source->message, BUFFER_SIZE, 0);
+//        slog << "recv_length = " << recv_length << endl;
+//        logger(slog.str());
         // Walk through message, or messages to keep track of the seq number the server
         // is currently processing.  This matters more than the request count (which is where
         // the sequence comes from.  If you send client message with invalid seq # XCB
@@ -189,7 +195,6 @@ int Agent::Recv(Interface * source){
         int current = 0, prev;
         uint32_t msg_size=0;
         do{
-            logger(".");
             prev = current;
             this->good_sequence = false;
             switch (source->message[current]) {
@@ -284,63 +289,63 @@ void Agent::incr_msg(Interface * source, int msg_length){
  */
 void Agent::dump_msg(Interface * source, char * msg) {
     // If source is client, must be a request
-    if (source->getType()== CLIENT) {
-        switch (msg[0]){
-            default:
-                uint16_t length;
-                memcpy(&length, msg+2, sizeof(length));
-
-                slog << "      Request (" <<  source->msg_count << ")"  <<  endl
-                     << "      Request Length: " << length << endl
-                     << "      Opcode = " << msg[0] << endl;
-
-                if (msg[0] == 108 || msg[0] == 66) slog << "!!! AUTH !!!" << endl;
-                logger(slog.str());
-        }
-    } else { // Source is server, could be reply, error, or event
-        if (source->msg_count <= 2){
-            logger("      Server authentication response\n");
-            return;
-        }
-        uint32_t length;
-        uint16_t found_seq_num;
-        bool is_event;
-        // Get opcode
-        int opcode = msg[0];
-        // Pull out seq number
-        if (opcode != KeymapNotify){
-            memcpy(&found_seq_num, msg+2, sizeof(found_seq_num));
-        }
-        string op_type;
-        switch (opcode){
-            case 0:
-                op_type = "Error";
-                length = 32;
-                break;
-            case 1:
-                op_type = "Reply";
-                memcpy(&length, msg+4, sizeof(length));
-                break;
-            case 35:
-                op_type = "GenericEvent";
-                memcpy(&length, msg+4, sizeof(length));
-                break;
-            case 36:
-                op_type = "LastEvent"; // Might be for verification, not actual event
-                break;
-            default:
-                op_type = "Event";
-                length = 32;
-                is_event = true;
-                break;
-        }
-        slog << "      OP Code: " << opcode << endl
-             << "      Type: " << op_type << endl
-             << "      Length: " << length << endl;
-        if (opcode != KeymapNotify){slog << "      Seq #: " << found_seq_num << " (trckd: " << this->seq_num << ")" << endl;}
-        if (is_event) { slog << "      index:" << this->track_index << "]" << endl;}
-        logger(slog.str());
-    }
+//    if (source->getType()== CLIENT) {
+//        switch (msg[0]){
+//            default:
+//                uint16_t length;
+//                memcpy(&length, msg+2, sizeof(length));
+//
+//                slog << "      Request (" <<  source->msg_count << ")"  <<  endl
+//                     << "      Request Length: " << length << endl
+//                     << "      Opcode = " << (int) msg[0] << endl;
+//
+//                if (msg[0] == 108 || msg[0] == 66) slog << "!!! AUTH !!!" << endl;
+//                logger(slog.str(), ERR);
+//        }
+//    } else { // Source is server, could be reply, error, or event
+//        if (source->msg_count <= 2){
+//            logger("      Server authentication response\n", ERR);
+//            return;
+//        }
+//        uint32_t length;
+//        uint16_t found_seq_num;
+//        bool is_event;
+//        // Get opcode
+//        int opcode = msg[0];
+//        // Pull out seq number
+//        if (opcode != KeymapNotify){
+//            memcpy(&found_seq_num, msg+2, sizeof(found_seq_num));
+//        }
+//        string op_type;
+//        switch (opcode){
+//            case 0:
+//                op_type = "Error";
+//                length = 32;
+//                break;
+//            case 1:
+//                op_type = "Reply";
+//                memcpy(&length, msg+4, sizeof(length));
+//                break;
+//            case 35:
+//                op_type = "GenericEvent";
+//                memcpy(&length, msg+4, sizeof(length));
+//                break;
+//            case 36:
+//                op_type = "LastEvent"; // Might be for verification, not actual event
+//                break;
+//            default:
+//                op_type = "Event";
+//                length = 32;
+//                is_event = true;
+//                break;
+//        }
+//        slog << "      OP Code: " << opcode << endl
+//             << "      Type: " << op_type << endl
+//             << "      Length: " << length << endl;
+//        if (opcode != KeymapNotify){slog << "      Seq #: " << found_seq_num << " (trckd: " << this->seq_num << ")" << endl;}
+//        if (is_event) { slog << "      index:" << this->track_index << "]" << endl;}
+//        logger(slog.str(), ERR);
+//    }
 }
 
 

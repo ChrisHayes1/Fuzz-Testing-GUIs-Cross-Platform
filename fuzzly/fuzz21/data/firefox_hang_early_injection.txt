@@ -1,0 +1,566 @@
+Randomized via time
+Connecting with client
+...protocol_major_version_ptr: 11
+...protocol_minor_version_ptr: 0
+...endian_ptr: 108
+......msg[0] = l
+...auth_name_len: 18
+...auth_data_len: 16
+...total_len: 34
+Connecting with server
+Passing Messages
+.SERVER (1) sent a message of msg of size 8
+      Server authentication response
+.SERVER (2) sent a message of msg of size 12300
+      Server authentication response
+CLIENT (1) sent a message of msg of size 20
+      Request (1)
+      Request Length: 5
+      Opcode = 98
+.SERVER (3) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 1 (trckd: 1)
+      index:0]
+CLIENT (2) sent a message of msg of size 4
+      Request (2)
+      Request Length: 1
+      Opcode = 65413
+.SERVER (4) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 2 (trckd: 2)
+      index:0]
+CLIENT (3) sent a message of msg of size 20
+      Request (3)
+      Request Length: 5
+      Opcode = 55
+CLIENT (4) sent a message of msg of size 24
+      Request (4)
+      Request Length: 6
+      Opcode = 20
+.SERVER (5) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 36
+      Seq #: 4 (trckd: 4)
+      index:0]
+.SERVER (6) sent a message of msg of size 144
+      OP Code: 42
+      Type: Event
+      Length: 32
+      Seq #: 29557 (trckd: 4)
+      index:0]
+CLIENT (5) sent a message of msg of size 20
+      Request (5)
+      Request Length: 5
+      Opcode = 98
+.SERVER (7) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 5 (trckd: 5)
+      index:0]
+CLIENT (6) sent a message of msg of size 8
+      Request (6)
+      Request Length: 2
+      Opcode = 65415
+.SERVER (8) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 6 (trckd: 6)
+      index:0]
+CLIENT (7) sent a message of msg of size 20
+      Request (7)
+      Request Length: 5
+      Opcode = 16
+CLIENT (8) sent a message of msg of size 24
+      Request (8)
+      Request Length: 6
+      Opcode = 16
+CLIENT (9) sent a message of msg of size 24
+      Request (9)
+      Request Length: 6
+      Opcode = 16
+..SERVER (10) sent a message of msg of size 64
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 7 (trckd: 8)
+      index:0]
+CLIENT (10) sent a message of msg of size 24
+      Request (10)
+      Request Length: 6
+      Opcode = 16
+.SERVER (11) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 9 (trckd: 9)
+      index:0]
+CLIENT (11) sent a message of msg of size 20
+      Request (11)
+      Request Length: 5
+      Opcode = 16
+.SERVER (12) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 10 (trckd: 10)
+      index:0]
+CLIENT (12) sent a message of msg of size 24
+      Request (12)
+      Request Length: 6
+      Opcode = 16
+.SERVER (13) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 11 (trckd: 11)
+      index:0]
+CLIENT (13) sent a message of msg of size 24
+      Request (13)
+      Request Length: 6
+      Opcode = 16
+.SERVER (14) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 12 (trckd: 12)
+      index:0]
+CLIENT (14) sent a message of msg of size 28
+      Request (14)
+      Request Length: 7
+      Opcode = 16
+.SERVER (15) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 13 (trckd: 13)
+      index:0]
+CLIENT (15) sent a message of msg of size 28
+      Request (15)
+      Request Length: 7
+      Opcode = 16
+.SERVER (16) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 14 (trckd: 14)
+      index:0]
+CLIENT (16) sent a message of msg of size 28
+      Request (16)
+      Request Length: 7
+      Opcode = 16
+.SERVER (17) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 15 (trckd: 15)
+      index:0]
+CLIENT (17) sent a message of msg of size 24
+      Request (17)
+      Request Length: 6
+      Opcode = 16
+.SERVER (18) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 16 (trckd: 16)
+      index:0]
+CLIENT (18) sent a message of msg of size 24
+      Request (18)
+      Request Length: 6
+      Opcode = 16
+.SERVER (19) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 17 (trckd: 17)
+      index:0]
+CLIENT (19) sent a message of msg of size 24
+      Request (19)
+      Request Length: 6
+      Opcode = 16
+.SERVER (20) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 18 (trckd: 18)
+      index:0]
+      -->Garbling Message
+         garbler msg[29]
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 18 (trckd: 18)
+      index:0]
+CLIENT (20) sent a message of msg of size 20
+      Request (20)
+      Request Length: 5
+      Opcode = 16
+.SERVER (21) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 19 (trckd: 19)
+      index:0]
+CLIENT (21) sent a message of msg of size 28
+      Request (21)
+      Request Length: 7
+      Opcode = 16
+.SERVER (22) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 20 (trckd: 20)
+      index:0]
+CLIENT (22) sent a message of msg of size 20
+      Request (22)
+      Request Length: 5
+      Opcode = 16
+.SERVER (23) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 21 (trckd: 21)
+      index:0]
+CLIENT (23) sent a message of msg of size 20
+      Request (23)
+      Request Length: 5
+      Opcode = 16
+.SERVER (24) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 22 (trckd: 22)
+      index:0]
+CLIENT (24) sent a message of msg of size 20
+      Request (24)
+      Request Length: 5
+      Opcode = 16
+.SERVER (25) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 23 (trckd: 23)
+      index:0]
+CLIENT (25) sent a message of msg of size 24
+      Request (25)
+      Request Length: 6
+      Opcode = 16
+.SERVER (26) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 24 (trckd: 24)
+      index:0]
+CLIENT (26) sent a message of msg of size 28
+      Request (26)
+      Request Length: 7
+      Opcode = 16
+.SERVER (27) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 25 (trckd: 25)
+      index:0]
+CLIENT (27) sent a message of msg of size 28
+      Request (27)
+      Request Length: 7
+      Opcode = 16
+.SERVER (28) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 26 (trckd: 26)
+      index:0]
+CLIENT (28) sent a message of msg of size 32
+      Request (28)
+      Request Length: 8
+      Opcode = 16
+.SERVER (29) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 27 (trckd: 27)
+      index:0]
+CLIENT (29) sent a message of msg of size 28
+      Request (29)
+      Request Length: 7
+      Opcode = 16
+.SERVER (30) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 28 (trckd: 28)
+      index:0]
+CLIENT (30) sent a message of msg of size 28
+      Request (30)
+      Request Length: 7
+      Opcode = 16
+.SERVER (31) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 29 (trckd: 29)
+      index:0]
+CLIENT (31) sent a message of msg of size 36
+      Request (31)
+      Request Length: 9
+      Opcode = 16
+.SERVER (32) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 30 (trckd: 30)
+      index:0]
+CLIENT (32) sent a message of msg of size 36
+      Request (32)
+      Request Length: 9
+      Opcode = 16
+.SERVER (33) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 31 (trckd: 31)
+      index:0]
+CLIENT (33) sent a message of msg of size 36
+      Request (33)
+      Request Length: 9
+      Opcode = 16
+.SERVER (34) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 32 (trckd: 32)
+      index:0]
+CLIENT (34) sent a message of msg of size 32
+      Request (34)
+      Request Length: 8
+      Opcode = 16
+.SERVER (35) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 33 (trckd: 33)
+      index:0]
+CLIENT (35) sent a message of msg of size 28
+      Request (35)
+      Request Length: 7
+      Opcode = 16
+.SERVER (36) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 34 (trckd: 34)
+      index:0]
+CLIENT (36) sent a message of msg of size 28
+      Request (36)
+      Request Length: 7
+      Opcode = 16
+.SERVER (37) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 35 (trckd: 35)
+      index:0]
+CLIENT (37) sent a message of msg of size 36
+      Request (37)
+      Request Length: 9
+      Opcode = 16
+.SERVER (38) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 36 (trckd: 36)
+      index:0]
+CLIENT (38) sent a message of msg of size 28
+      Request (38)
+      Request Length: 7
+      Opcode = 16
+.SERVER (39) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 37 (trckd: 37)
+      index:0]
+CLIENT (39) sent a message of msg of size 36
+      Request (39)
+      Request Length: 9
+      Opcode = 16
+.SERVER (40) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 38 (trckd: 38)
+      index:0]
+      -->Garbling Message
+         garbler msg[5]
+         garbler msg[7]
+      OP Code: 1
+      Type: Reply
+      Length: 3573580544
+      Seq #: 38 (trckd: 38)
+      index:0]
+CLIENT (40) sent a message of msg of size 36
+      Request (40)
+      Request Length: 9
+      Opcode = 16
+.SERVER (41) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 39 (trckd: 39)
+      index:0]
+CLIENT (41) sent a message of msg of size 32
+      Request (41)
+      Request Length: 8
+      Opcode = 16
+.SERVER (42) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 40 (trckd: 40)
+      index:0]
+CLIENT (42) sent a message of msg of size 44
+      Request (42)
+      Request Length: 11
+      Opcode = 16
+.SERVER (43) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 41 (trckd: 41)
+      index:0]
+CLIENT (43) sent a message of msg of size 32
+      Request (43)
+      Request Length: 8
+      Opcode = 16
+.SERVER (44) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 42 (trckd: 42)
+      index:0]
+CLIENT (44) sent a message of msg of size 36
+      Request (44)
+      Request Length: 9
+      Opcode = 16
+.SERVER (45) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 43 (trckd: 43)
+      index:0]
+CLIENT (45) sent a message of msg of size 40
+      Request (45)
+      Request Length: 10
+      Opcode = 16
+.SERVER (46) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 44 (trckd: 44)
+      index:0]
+CLIENT (46) sent a message of msg of size 36
+      Request (46)
+      Request Length: 9
+      Opcode = 16
+.SERVER (47) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 45 (trckd: 45)
+      index:0]
+CLIENT (47) sent a message of msg of size 36
+      Request (47)
+      Request Length: 9
+      Opcode = 16
+.SERVER (48) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 46 (trckd: 46)
+      index:0]
+CLIENT (48) sent a message of msg of size 28
+      Request (48)
+      Request Length: 7
+      Opcode = 16
+.SERVER (49) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 47 (trckd: 47)
+      index:0]
+CLIENT (49) sent a message of msg of size 32
+      Request (49)
+      Request Length: 8
+      Opcode = 16
+.SERVER (50) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 48 (trckd: 48)
+      index:0]
+CLIENT (50) sent a message of msg of size 28
+      Request (50)
+      Request Length: 7
+      Opcode = 16
+.SERVER (51) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 49 (trckd: 49)
+      index:0]
+CLIENT (51) sent a message of msg of size 24
+      Request (51)
+      Request Length: 6
+      Opcode = 16
+.SERVER (52) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 50 (trckd: 50)
+      index:0]
+CLIENT (52) sent a message of msg of size 32
+      Request (52)
+      Request Length: 8
+      Opcode = 16
+.SERVER (53) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 51 (trckd: 51)
+      index:0]
+CLIENT (53) sent a message of msg of size 20
+      Request (53)
+      Request Length: 5
+      Opcode = 16
+.SERVER (54) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 52 (trckd: 52)
+      index:0]
+.SERVER (55) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 53 (trckd: 53)
+      index:0]
+CLIENT socket gracefully failed
+Converse() reported that the client exited gracefully
+-----------------------------------------
+# ./fuzz21 -mod_mode garble -mod_rate 20 -startgap 5 -port 6002 2> ./data/last_run.txt
+-----------------------------------------
+bash ./sh_env_setup.sh
+:0
+export DISPLAY=jmadrek:2
+jmadrek:2
+firefox
+-----------------------------------------
+used ctrl-c to exit client after it hung

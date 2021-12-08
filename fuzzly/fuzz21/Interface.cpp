@@ -77,7 +77,7 @@ int Interface::connect_client()
     if (bind(client_side_socket, (struct sockaddr *) &my_ip_address, sizeof(my_ip_address)) == -1)
     {
         logger("(client_connect): Can't bind socket.\n", ERR);
-        log_error("client_connect)");
+        log_error("(client_connect)");
         close(client_side_socket);
         return -1;
     }
@@ -89,7 +89,7 @@ int Interface::connect_client()
     if (listen(client_side_socket, 5) == -1)
     {
         logger("(client_connect): Can't set backlog on socket.\n", ERR);
-        log_error("client_connect");
+        log_error("(client_connect");
         close(client_side_socket);
         return -1;
     }
@@ -232,7 +232,7 @@ int Interface::connect_server(Interface * to_client)
     if (gethostname(my_hostname, MAXHOSTNAMELEN) == -1)
     {
         logger("(server_connect): Can't get hostname.\n", ERR);
-        log_error("server_connect");
+        log_error("(server_connect");
         return -1;
     }
 
@@ -259,7 +259,7 @@ int Interface::connect_server(Interface * to_client)
                                       strlen("MIT-MAGIC-COOKIE-1"),
                                       "MIT-MAGIC-COOKIE-1")) == NULL)
     {
-        slog << "server_connect): Can't get authorization data for " << my_hostname
+        slog << "(server_connect): Can't get authorization data for " << my_hostname
              << (unsigned char) hostent_ptr->h_addr_list[0][0] << "."
              << (unsigned char) hostent_ptr->h_addr_list[0][1] << "."
              << (unsigned char) hostent_ptr->h_addr_list[0][2] << "."

@@ -1,0 +1,162 @@
+ ./fuzz21 -port 6002 2> ./data/last_run.txt
+-------------------------
+:0
+export DISPLAY=jmadrek:2
+jmadrek:2
+xpaint
+Error: Can't open display: jmadrek:2
+-------------------------
+Randomized via time
+Connecting with client
+...protocol_major_version_ptr: 11
+...protocol_minor_version_ptr: 0
+...endian_ptr: 108
+......msg[0] = l
+...auth_name_len: 18
+...auth_data_len: 16
+...total_len: 34
+Connecting with server
+Passing Messages
+.SERVER (1) sent a message of msg of size 12308
+      Server authentication response
+CLIENT (1) sent a message of msg of size 20
+      Request (1)
+      Request Length: 5
+      Opcode = 98
+      msg[0] = b
+.SERVER (2) sent a message of msg of size 32
+      Server authentication response
+CLIENT (2) sent a message of msg of size 4
+      Request (2)
+      Request Length: 1
+      Opcode = 65413
+      msg[0] = �
+.SERVER (3) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 2 (trckd: 2)
+      index:0]
+CLIENT (3) sent a message of msg of size 20
+      Request (3)
+      Request Length: 5
+      Opcode = 55
+      msg[0] = 7
+CLIENT (4) sent a message of msg of size 24
+      Request (4)
+      Request Length: 6
+      Opcode = 20
+      msg[0] = 
+.SERVER (4) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 36
+      Seq #: 4 (trckd: 4)
+      index:0]
+.SERVER (5) sent a message of msg of size 144
+      OP Code: 42
+      Type: Event
+      Length: 32
+      Seq #: 29557 (trckd: 4)
+      index:0]
+CLIENT (5) sent a message of msg of size 20
+      Request (5)
+      Request Length: 5
+      Opcode = 98
+      msg[0] = b
+.SERVER (6) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 5 (trckd: 5)
+      index:0]
+CLIENT (6) sent a message of msg of size 8
+      Request (6)
+      Request Length: 2
+      Opcode = 65415
+      msg[0] = �
+.SERVER (7) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 6 (trckd: 6)
+      index:0]
+CLIENT (7) sent a message of msg of size 20
+      Request (7)
+      Request Length: 5
+      Opcode = 16
+      msg[0] = 
+.SERVER (8) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 7 (trckd: 7)
+      index:0]
+CLIENT (8) sent a message of msg of size 20
+      Request (8)
+      Request Length: 5
+      Opcode = 16
+      msg[0] = 
+.SERVER (9) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 8 (trckd: 8)
+      index:0]
+CLIENT (9) sent a message of msg of size 24
+      Request (9)
+      Request Length: 6
+      Opcode = 16
+      msg[0] = 
+.SERVER (10) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 9 (trckd: 9)
+      index:0]
+CLIENT (10) sent a message of msg of size 36
+      Request (10)
+      Request Length: 9
+      Opcode = 16
+      msg[0] = 
+.SERVER (11) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 10 (trckd: 10)
+      index:0]
+CLIENT (11) sent a message of msg of size 36
+      Request (11)
+      Request Length: 9
+      Opcode = 16
+      msg[0] = 
+.SERVER (12) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 11 (trckd: 11)
+      index:0]
+CLIENT (12) sent a message of msg of size 16
+      Request (12)
+      Request Length: 4
+      Opcode = 84
+      msg[0] = T
+.SERVER (13) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 12 (trckd: 12)
+      index:0]
+CLIENT (13) sent a message of msg of size 20
+      Request (13)
+      Request Length: 5
+      Opcode = 85
+      msg[0] = U
+.SERVER (14) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 13 (trckd: 13)
+      index:0]
+CLIENT socket gracefully failed
+Converse() reported that the client exited gracefully
