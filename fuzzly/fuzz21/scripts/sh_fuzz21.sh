@@ -35,24 +35,30 @@ echo Running fuzz21
 ####################
 # Passthrough
 ####################
- ./fuzz21 -port 6002 2> ./data/last_run.txt
+# ./fuzz21 -port 6002 2> ./data/last_run.txt
+
+####################
+# Kill\QuickKill
+####################
+#./fuzz21 -mod_mode kill_seq -mod_rate 20 -startgap 300 -port 6002 2> ./data/last_run.txt
+#./fuzz21 -mod_mode kill_seq -mod_rate 20 -startgap 2000 -port 6002 2> ./data/last_run.txt
+#./fuzz21 -mod_mode kill_seq -mod_rate 1 -startgap 0 -port 6002 2> ./data/last_run.txt
+
+#./fuzz21 -inj_mode noise -inj_rate 20 -startgap 300 -port 6002 2> ./data/last_run.txt
+
 ####################
 # Standard
 ####################
 
-
 # Garble mode
-# ./fuzz21 -mod_mode garble -mod_rate 20 -startgap 5 -port 6002 2> ./data/xpaint_exits_passthrough.txt
+# ./fuzz21 -mod_mode garble -mod_rate 100 -startgap 300 -port 6002 2> ./data/last_run.txt
+
 # Injection mode - events
-#./fuzz21 -inj_mode kmevents -inj_rate 20 -startgap 10 -port 6002 2> ./data/xpaint_exits_passthrough.txt
+#./fuzz21 -inj_mode events -inj_rate 10 -startgap 1 -port 6002 2> ./data/last_run.txt
+
 # Injection mode - replay (legal events)
-#./fuzz21 -inj_mode replay -inj_rate 20 -startgap 20 -port 6002 2> ./data/xpaint_exits_passthrough.txt
+./fuzz21 -inj_mode replay -inj_rate 100 -startgap 500 -port 6002 2> ./data/last_run.txt
 
-
-####################
-# QuickKill
-####################
-#./fuzz21 -mod_mode kill_seq -mod_rate 20 -startgap 300 -port 6002 2> ./data/xpaint_exits_passthrough.txt
 
 
 ####################
@@ -61,4 +67,4 @@ echo Running fuzz21
 #injcetion mode - kmevents
 
 # Full attack mode
-#./fuzz21 -inj_mode replay -inj_rate 250 -mod_mode garble -mod_rate 5 -startgap 350 -port 6002 2> ./data/xpaint_exits_passthrough.txt
+#./fuzz21 -inj_mode replay -inj_rate 250 -mod_mode garble -mod_rate 5 -startgap 350 -port 6002 2> ./data/last_run.txt

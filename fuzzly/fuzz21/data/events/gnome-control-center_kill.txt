@@ -1,3 +1,23 @@
+######################
+./fuzz21 -inj_mode events -inj_rate 100 -startgap 750 -port 6002 2> ./data/last_run.txt
+######################
+bash ./sh_env_setup.sh
+:0
+export DISPLAY=jmadrek:2
+jmadrek:2
+gnome-control-center
+
+(gnome-control-center:75827): dbind-WARNING **: 19:08:50.279: Could not open X display
+Unable to init server: Could not connect: Connection refused
+
+(gnome-control-center-print-renderer:75853): Gtk-WARNING **: 19:08:51.326: cannot open display: jmadrek:2
+
+(gnome-control-center:75827): Gdk-WARNING **: 19:08:58.332: ../../../../../gdk/x11/gdkproperty-x11.c:224 invalid X atom: 2529769552
+
+(gnome-control-center:75827): Gdk-WARNING **: 19:08:59.447: ../../../../../gdk/x11/gdkproperty-x11.c:224 invalid X atom: 155393361
+cc-applications-panel-Message: 19:09:00.122: No permissions store proxy yet, come back later
+Gdk-Message: 19:09:02.667: gnome-control-center: Fatal IO error 11 (Resource temporarily unavailable) on X server jmadrek:2.
+######################
 Randomized via time
 Connecting with client
 ...protocol_major_version_ptr: 11

@@ -1,3 +1,24 @@
+###################
+./fuzz21 -inj_mode events -inj_rate 100 -startgap 750 -port 6002 2> ./data/last_run.txt
+###################
+bash ./sh_env_setup.sh
+:0
+export DISPLAY=jmadrek:2
+jmadrek:2
+clamtk
+
+(clamtk:75589): dbind-WARNING **: 19:05:13.727: Could not open X display
+
+(clamtk:75589): Gdk-WARNING **: 19:05:33.046: ../../../../../gdk/x11/gdkproperty-x11.c:224 invalid X atom: 4145450727
+
+(clamtk:75589): Gdk-WARNING **: 19:05:35.574: ../../../../../gdk/x11/gdkproperty-x11.c:224 invalid X atom: 1592707695
+[xcb] Unknown sequence number while processing queue
+[xcb] Most likely this is a multi-threaded client and XInitThreads has not been called
+[xcb] Aborting, sorry about that.
+perl: ../../src/xcb_io.c:260: poll_for_event: Assertion `!xcb_xlib_threads_sequence_lost' failed.
+./sh_env_setup.sh: line 50: 75589 Aborted                 (core dumped) clamtk
+
+###################
 Randomized via time
 Connecting with client
 ...protocol_major_version_ptr: 11

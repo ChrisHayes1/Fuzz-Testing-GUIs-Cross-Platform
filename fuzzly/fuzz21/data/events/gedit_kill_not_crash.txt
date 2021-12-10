@@ -1,3 +1,22 @@
+##################
+./fuzz21 -inj_mode events -inj_rate 100 -startgap 300 -port 6002 2> ./data/last_run.txt
+##################
+bash ./sh_env_setup.sh
+:0
+export DISPLAY=jmadrek:2
+jmadrek:2
+gedit
+
+(gedit:74788): dbind-WARNING **: 18:56:43.418: Could not open X display
+
+(gedit:74788): Gdk-WARNING **: 18:56:55.165: ../../../../../gdk/x11/gdkproperty-x11.c:224 invalid X atom: 1656714793
+
+(gedit:74788): Gdk-WARNING **: 18:56:59.041: ../../../../../gdk/x11/gdkproperty-x11.c:224 invalid X atom: 1930725157
+
+(gedit:74788): Gdk-WARNING **: 18:56:59.937: ../../../../../gdk/x11/gdkproperty-x11.c:224 invalid X atom: 1168436549
+Gdk-Message: 18:57:00.225: gedit: Fatal IO error 11 (Resource temporarily unavailable) on X server jmadrek:2.
+##################
+
 Randomized via time
 Connecting with client
 ...protocol_major_version_ptr: 11

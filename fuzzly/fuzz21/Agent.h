@@ -28,6 +28,7 @@ class Agent {
     unsigned short seq_num=0;
     int have_buffered = 0; // count of # of buffered msgs, caps at TRACKED_MSGS
     bool good_sequence = false;
+    bool parse_client = false;
 public:
     Agent(Interface * _to_client, Interface * _to_xserver);
     ~Agent();

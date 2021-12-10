@@ -309,7 +309,6 @@ int parse_command_line(int argc, char *argv[ ])
                 inj_mode = 0;
             else if (strcmp(argv[i + 1], "noise") == 0)
                 inj_mode = 1;
-
             else if (strcmp(argv[i + 1], "events") == 0)
                 inj_mode = 2;
             else if (strcmp(argv[i + 1], "kmevents") == 0)

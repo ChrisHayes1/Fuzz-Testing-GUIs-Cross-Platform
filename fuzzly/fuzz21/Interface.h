@@ -20,7 +20,7 @@ const int X_LIMIT = 9;
 enum I_TYPE {CLIENT=0, XSERVER=1};
 enum endianness {LITTLE_ENDIAN_NEW = 0154, BIG_ENDIAN_NEW    = 0102};
 
-const int BUFFER_SIZE = 16384;
+const int BUFFER_SIZE = 65536;
 
 class Interface {
 protected:
