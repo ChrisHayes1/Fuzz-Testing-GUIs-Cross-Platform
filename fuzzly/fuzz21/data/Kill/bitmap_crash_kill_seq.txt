@@ -1,0 +1,1039 @@
+Randomized via time
+Connecting with client
+...protocol_major_version_ptr: 11
+...protocol_minor_version_ptr: 0
+...endian_ptr: 108
+......msg[0] = l
+...auth_name_len: 18
+...auth_data_len: 16
+...total_len: 34
+Connecting with server
+Passing Messages
+SERVER (1) sent a message of msg of size 8
+      Server authentication response
+SERVER (2) sent a message of msg of size 12300
+      Server authentication response
+CLIENT (1) sent a message of msg of size 20
+      Request (1)
+      Request Length: 5
+      Opcode = 98
+SERVER (3) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 1 (trckd: 1)
+      index:0]
+CLIENT (2) sent a message of msg of size 4
+      Request (2)
+      Request Length: 1
+      Opcode = -123
+SERVER (4) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 2 (trckd: 2)
+      index:0]
+CLIENT (3) sent a message of msg of size 44
+      Request (3)
+      Request Length: 5
+      Opcode = 55
+SERVER (5) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 36
+      Seq #: 4 (trckd: 4)
+      index:0]
+SERVER (6) sent a message of msg of size 144
+      OP Code: 42
+      Type: Event
+      Length: 32
+      Seq #: 29557 (trckd: 4)
+      index:0]
+CLIENT (4) sent a message of msg of size 20
+      Request (4)
+      Request Length: 5
+      Opcode = 98
+SERVER (7) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 5 (trckd: 5)
+      index:0]
+CLIENT (5) sent a message of msg of size 8
+      Request (5)
+      Request Length: 2
+      Opcode = -121
+SERVER (8) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 6 (trckd: 6)
+      index:0]
+CLIENT (6) sent a message of msg of size 20
+      Request (6)
+      Request Length: 5
+      Opcode = 16
+SERVER (9) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 7 (trckd: 7)
+      index:0]
+CLIENT (7) sent a message of msg of size 20
+      Request (7)
+      Request Length: 5
+      Opcode = 16
+SERVER (10) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 8 (trckd: 8)
+      index:0]
+CLIENT (8) sent a message of msg of size 24
+      Request (8)
+      Request Length: 6
+      Opcode = 16
+SERVER (11) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 9 (trckd: 9)
+      index:0]
+CLIENT (9) sent a message of msg of size 36
+      Request (9)
+      Request Length: 9
+      Opcode = 16
+SERVER (12) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 10 (trckd: 10)
+      index:0]
+CLIENT (10) sent a message of msg of size 36
+      Request (10)
+      Request Length: 9
+      Opcode = 16
+SERVER (13) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 11 (trckd: 11)
+      index:0]
+CLIENT (11) sent a message of msg of size 24
+      Request (11)
+      Request Length: 6
+      Opcode = 85
+SERVER (14) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 12 (trckd: 12)
+      index:0]
+CLIENT (12) sent a message of msg of size 16
+      Request (12)
+      Request Length: 4
+      Opcode = 85
+SERVER (15) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 13 (trckd: 13)
+      index:0]
+CLIENT (13) sent a message of msg of size 32
+      Request (13)
+      Request Length: 4
+      Opcode = 53
+SERVER (16) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 15 (trckd: 15)
+      index:0]
+CLIENT (14) sent a message of msg of size 16
+      Request (14)
+      Request Length: 3
+      Opcode = -117
+SERVER (17) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 16 (trckd: 16)
+      index:0]
+SERVER (18) sent a message of msg of size 4916
+      OP Code: 1
+      Type: Reply
+      Length: 1221
+      Seq #: 17 (trckd: 17)
+      index:0]
+CLIENT (15) sent a message of msg of size 2568
+      Request (15)
+      Request Length: 4
+      Opcode = 55
+SERVER (19) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 30 (trckd: 30)
+      index:0]
+CLIENT (16) sent a message of msg of size 12
+      Request (16)
+      Request Length: 3
+      Opcode = -118
+SERVER (20) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 31 (trckd: 31)
+      index:0]
+CLIENT (17) sent a message of msg of size 14792
+      Request (17)
+      Request Length: 5
+      Opcode = -118
+SERVER (21) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 90 (trckd: 90)
+      index:0]
+CLIENT (18) sent a message of msg of size 2460
+      Request (18)
+      Request Length: 4
+      Opcode = 53
+SERVER (22) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 100 (trckd: 100)
+      index:0]
+CLIENT (19) sent a message of msg of size 20
+      Request (19)
+      Request Length: 5
+      Opcode = 85
+SERVER (23) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 101 (trckd: 101)
+      index:0]
+CLIENT (20) sent a message of msg of size 24
+      Request (20)
+      Request Length: 6
+      Opcode = 98
+SERVER (24) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 102 (trckd: 102)
+      index:0]
+CLIENT (21) sent a message of msg of size 56
+      Request (21)
+      Request Length: 12
+      Opcode = 45
+SERVER (25) sent a message of msg of size 3316
+      OP Code: 1
+      Type: Reply
+      Length: 821
+      Seq #: 104 (trckd: 104)
+      index:0]
+CLIENT (22) sent a message of msg of size 44
+      Request (22)
+      Request Length: 11
+      Opcode = 49
+SERVER (26) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 14
+      Seq #: 105 (trckd: 105)
+      index:0]
+SERVER (27) sent a message of msg of size 56
+      OP Code: 54
+      Type: Event
+      Length: 32
+      Seq #: 26989 (trckd: 105)
+      index:0]
+CLIENT (23) sent a message of msg of size 44
+      Request (23)
+      Request Length: 11
+      Opcode = 49
+SERVER (28) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 14
+      Seq #: 106 (trckd: 106)
+      index:0]
+SERVER (29) sent a message of msg of size 56
+      OP Code: 54
+      Type: Event
+      Length: 32
+      Seq #: 26989 (trckd: 106)
+      index:0]
+CLIENT (24) sent a message of msg of size 76
+      Request (24)
+      Request Length: 17
+      Opcode = 45
+SERVER (30) sent a message of msg of size 3316
+      OP Code: 1
+      Type: Reply
+      Length: 821
+      Seq #: 108 (trckd: 108)
+      index:0]
+CLIENT (25) sent a message of msg of size 76
+      Request (25)
+      Request Length: 17
+      Opcode = 45
+SERVER (31) sent a message of msg of size 3316
+      OP Code: 1
+      Type: Reply
+      Length: 821
+      Seq #: 110 (trckd: 110)
+      index:0]
+CLIENT (26) sent a message of msg of size 280
+      Request (26)
+      Request Length: 4
+      Opcode = 53
+SERVER (32) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 121 (trckd: 121)
+      index:0]
+CLIENT (27) sent a message of msg of size 16
+      Request (27)
+      Request Length: 4
+      Opcode = 98
+SERVER (33) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 122 (trckd: 122)
+      index:0]
+CLIENT (28) sent a message of msg of size 32
+      Request (28)
+      Request Length: 8
+      Opcode = 98
+SERVER (34) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 123 (trckd: 123)
+      index:0]
+CLIENT (29) sent a message of msg of size 8
+      Request (29)
+      Request Length: 2
+      Opcode = -128
+SERVER (35) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 124 (trckd: 124)
+      index:0]
+CLIENT (30) sent a message of msg of size 356
+      Request (30)
+      Request Length: 8
+      Opcode = 55
+SERVER (36) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 138 (trckd: 138)
+      index:0]
+CLIENT (31) sent a message of msg of size 28
+      Request (31)
+      Request Length: 2
+      Opcode = 60
+SERVER (37) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 140 (trckd: 140)
+      index:0]
+CLIENT (32) sent a message of msg of size 664
+      Request (32)
+      Request Length: 8
+      Opcode = 55
+SERVER (38) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 166 (trckd: 166)
+      index:0]
+CLIENT (33) sent a message of msg of size 240
+      Request (33)
+      Request Length: 2
+      Opcode = 60
+SERVER (39) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 173 (trckd: 173)
+      index:0]
+CLIENT (34) sent a message of msg of size 240
+      Request (34)
+      Request Length: 2
+      Opcode = 60
+SERVER (40) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 180 (trckd: 180)
+      index:0]
+CLIENT (35) sent a message of msg of size 240
+      Request (35)
+      Request Length: 2
+      Opcode = 60
+SERVER (41) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 187 (trckd: 187)
+      index:0]
+CLIENT (36) sent a message of msg of size 240
+      Request (36)
+      Request Length: 2
+      Opcode = 60
+SERVER (42) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 194 (trckd: 194)
+      index:0]
+CLIENT (37) sent a message of msg of size 240
+      Request (37)
+      Request Length: 2
+      Opcode = 60
+SERVER (43) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 201 (trckd: 201)
+      index:0]
+CLIENT (38) sent a message of msg of size 240
+      Request (38)
+      Request Length: 2
+      Opcode = 60
+SERVER (44) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 208 (trckd: 208)
+      index:0]
+CLIENT (39) sent a message of msg of size 240
+      Request (39)
+      Request Length: 2
+      Opcode = 60
+SERVER (45) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 215 (trckd: 215)
+      index:0]
+CLIENT (40) sent a message of msg of size 240
+      Request (40)
+      Request Length: 2
+      Opcode = 60
+SERVER (46) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 222 (trckd: 222)
+      index:0]
+CLIENT (41) sent a message of msg of size 2908
+      Request (41)
+      Request Length: 2
+      Opcode = 60
+SERVER (47) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 255 (trckd: 255)
+      index:0]
+CLIENT (42) sent a message of msg of size 28
+      Request (42)
+      Request Length: 7
+      Opcode = 85
+SERVER (48) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 256 (trckd: 256)
+      index:0]
+CLIENT (43) sent a message of msg of size 684
+      Request (43)
+      Request Length: 4
+      Opcode = 53
+SERVER (49) sent a message of msg of size 32
+      OP Code: 28
+      Type: Event
+      Length: 32
+      Seq #: 270 (trckd: 270)
+      index:0]
+SERVER (53) sent a message of msg of size 128
+      OP Code: 28
+      Type: Event
+      Length: 32
+      Seq #: 271 (trckd: 274)
+      index:1]
+SERVER (56) sent a message of msg of size 96
+      OP Code: 28
+      Type: Event
+      Length: 32
+      Seq #: 275 (trckd: 277)
+      index:1]
+CLIENT (44) sent a message of msg of size 52
+      Request (44)
+      Request Length: 7
+      Opcode = 18
+SERVER (57) sent a message of msg of size 32
+      OP Code: 28
+      Type: Event
+      Length: 32
+      Seq #: 278 (trckd: 278)
+      index:1]
+SERVER (58) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 279 (trckd: 279)
+      index:2]
+CLIENT (45) sent a message of msg of size 9072
+      Request (45)
+      Request Length: 7
+      Opcode = 18
+SERVER (59) sent a message of msg of size 32
+      OP Code: 28
+      Type: Event
+      Length: 32
+      Seq #: 280 (trckd: 280)
+      index:2]
+SERVER (60) sent a message of msg of size 32
+      OP Code: 19
+      Type: Event
+      Length: 32
+      Seq #: 316 (trckd: 316)
+      index:3]
+SERVER (61) sent a message of msg of size 32
+      OP Code: 19
+      Type: Event
+      Length: 32
+      Seq #: 316 (trckd: 316)
+      index:4]
+SERVER (62) sent a message of msg of size 32
+      OP Code: 19
+      Type: Event
+      Length: 32
+      Seq #: 722 (trckd: 722)
+      index:5]
+SERVER (63) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 724 (trckd: 724)
+      index:6]
+CLIENT (46) sent a message of msg of size 48
+      Request (46)
+      Request Length: 7
+      Opcode = 18
+SERVER (64) sent a message of msg of size 32
+      OP Code: 22
+      Type: Event
+      Length: 32
+      Seq #: 724 (trckd: 724)
+      index:6]
+SERVER (65) sent a message of msg of size 32
+      OP Code: 28
+      Type: Event
+      Length: 32
+      Seq #: 725 (trckd: 725)
+      index:7]
+SERVER (66) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 726 (trckd: 726)
+      index:8]
+CLIENT (47) sent a message of msg of size 428
+      Request (47)
+      Request Length: 8
+      Opcode = 55
+SERVER (67) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 743 (trckd: 743)
+      index:8]
+CLIENT (48) sent a message of msg of size 8
+      Request (48)
+      Request Length: 2
+      Opcode = 14
+SERVER (68) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 744 (trckd: 744)
+      index:8]
+CLIENT (49) sent a message of msg of size 808
+      Request (49)
+      Request Length: 14
+      Opcode = 1
+SERVER (69) sent a message of msg of size 32
+      OP Code: 28
+      Type: Event
+      Length: 32
+      Seq #: 746 (trckd: 746)
+      index:8]
+SERVER (73) sent a message of msg of size 128
+      OP Code: 28
+      Type: Event
+      Length: 32
+      Seq #: 747 (trckd: 750)
+      index:9]
+SERVER (77) sent a message of msg of size 128
+      OP Code: 28
+      Type: Event
+      Length: 32
+      Seq #: 751 (trckd: 758)
+      index:9]
+SERVER (78) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 764 (trckd: 764)
+      index:9]
+CLIENT (50) sent a message of msg of size 160
+      Request (50)
+      Request Length: 8
+      Opcode = 55
+SERVER (79) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 771 (trckd: 771)
+      index:9]
+CLIENT (51) sent a message of msg of size 416
+      Request (51)
+      Request Length: 8
+      Opcode = 55
+SERVER (80) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 780 (trckd: 780)
+      index:9]
+SERVER (81) sent a message of msg of size 32
+      OP Code: 28
+      Type: Event
+      Length: 32
+      Seq #: 780 (trckd: 780)
+      index:9]
+CLIENT (52) sent a message of msg of size 88
+      Request (52)
+      Request Length: 8
+      Opcode = 55
+SERVER (82) sent a message of msg of size 32
+      OP Code: 1
+      Type: Reply
+      Length: 0
+      Seq #: 785 (trckd: 785)
+      index:10]
+CLIENT (53) sent a message of msg of size 248
+      Request (53)
+      Request Length: 8
+      Opcode = 55
+SERVER (83) sent a message of msg of size 32
+      OP Code: 21
+      Type: Event
+      Length: 32
+      Seq #: 785 (trckd: 785)
+      index:10]
+SERVER (84) sent a message of msg of size 32
+      OP Code: 28
+      Type: Event
+      Length: 32
+      Seq #: 798 (trckd: 798)
+      index:11]
+SERVER (85) sent a message of msg of size 32
+      OP Code: 22
+      Type: Event
+      Length: 32
+      Seq #: 798 (trckd: 798)
+      index:12]
+SERVER (86) sent a message of msg of size 32
+      OP Code: 28
+      Type: Event
+      Length: 32
+      Seq #: 798 (trckd: 798)
+      index:13]
+SERVER (87) sent a message of msg of size 32
+      OP Code: 28
+      Type: Event
+      Length: 32
+      Seq #: 798 (trckd: 798)
+      index:14]
+SERVER (88) sent a message of msg of size 32
+      OP Code: 28
+      Type: Event
+      Length: 32
+      Seq #: 798 (trckd: 798)
+      index:15]
+SERVER (90) sent a message of msg of size 64
+      OP Code: 28
+      Type: Event
+      Length: 32
+      Seq #: 798 (trckd: 798)
+      index:16]
+SERVER (91) sent a message of msg of size 32
+      OP Code: 28
+      Type: Event
+      Length: 32
+      Seq #: 798 (trckd: 798)
+      index:16]
+SERVER (92) sent a message of msg of size 32
+      OP Code: -106
+      Type: Event
+      Length: 32
+      Seq #: 798 (trckd: 798)
+      index:17]
+SERVER (93) sent a message of msg of size 32
+      OP Code: 28
+      Type: Event
+      Length: 32
+      Seq #: 798 (trckd: 798)
+      index:17]
+SERVER (94) sent a message of msg of size 32
+      OP Code: 28
+      Type: Event
+      Length: 32
+      Seq #: 798 (trckd: 798)
+      index:18]
+SERVER (96) sent a message of msg of size 64
+      OP Code: 28
+      Type: Event
+      Length: 32
+      Seq #: 798 (trckd: 798)
+      index:19]
+SERVER (97) sent a message of msg of size 32
+      OP Code: 15
+      Type: Event
+      Length: 32
+      Seq #: 798 (trckd: 798)
+      index:19]
+SERVER (99) sent a message of msg of size 64
+      OP Code: 12
+      Type: Event
+      Length: 32
+      Seq #: 798 (trckd: 798)
+      index:20]
+SERVER (100) sent a message of msg of size 32
+      OP Code: 12
+      Type: Event
+      Length: 32
+      Seq #: 798 (trckd: 798)
+      index:20]
+SERVER (103) sent a message of msg of size 96
+      OP Code: 12
+      Type: Event
+      Length: 32
+      Seq #: 798 (trckd: 798)
+      index:21]
+SERVER (108) sent a message of msg of size 160
+      OP Code: 12
+      Type: Event
+      Length: 32
+      Seq #: 798 (trckd: 798)
+      index:21]
+CLIENT (54) sent a message of msg of size 56
+      Request (54)
+      Request Length: 7
+      Opcode = 70
+CLIENT (55) sent a message of msg of size 1764
+      Request (55)
+      Request Length: 4
+      Opcode = 61
+SERVER (109) sent a message of msg of size 32
+      OP Code: 12
+      Type: Event
+      Length: 32
+      Seq #: 798 (trckd: 798)
+      index:21]
+SERVER (127) sent a message of msg of size 576
+      OP Code: 12
+      Type: Event
+      Length: 32
+      Seq #: 798 (trckd: 798)
+      index:22]
+SERVER (136) sent a message of msg of size 288
+      OP Code: 12
+      Type: Event
+      Length: 32
+      Seq #: 798 (trckd: 798)
+      index:22]
+SERVER (145) sent a message of msg of size 288
+      OP Code: 12
+      Type: Event
+      Length: 32
+      Seq #: 798 (trckd: 798)
+      index:22]
+SERVER (154) sent a message of msg of size 288
+      OP Code: 12
+      Type: Event
+      Length: 32
+      Seq #: 798 (trckd: 798)
+      index:22]
+SERVER (163) sent a message of msg of size 288
+      OP Code: 12
+      Type: Event
+      Length: 32
+      Seq #: 798 (trckd: 798)
+      index:22]
+SERVER (172) sent a message of msg of size 288
+      OP Code: 12
+      Type: Event
+      Length: 32
+      Seq #: 798 (trckd: 798)
+      index:22]
+SERVER (192) sent a message of msg of size 640
+      OP Code: 12
+      Type: Event
+      Length: 32
+      Seq #: 798 (trckd: 798)
+      index:22]
+SERVER (212) sent a message of msg of size 640
+      OP Code: 12
+      Type: Event
+      Length: 32
+      Seq #: 798 (trckd: 798)
+      index:22]
+SERVER (232) sent a message of msg of size 640
+      OP Code: 12
+      Type: Event
+      Length: 32
+      Seq #: 798 (trckd: 798)
+      index:22]
+SERVER (252) sent a message of msg of size 640
+      OP Code: 12
+      Type: Event
+      Length: 32
+      Seq #: 798 (trckd: 798)
+      index:22]
+SERVER (272) sent a message of msg of size 640
+      OP Code: 12
+      Type: Event
+      Length: 32
+      Seq #: 798 (trckd: 798)
+      index:22]
+SERVER (292) sent a message of msg of size 640
+      OP Code: 12
+      Type: Event
+      Length: 32
+      Seq #: 798 (trckd: 798)
+      index:22]
+SERVER (312) sent a message of msg of size 640
+      OP Code: 12
+      Type: Event
+      Length: 32
+      Seq #: 798 (trckd: 798)
+      index:22]
+SERVER (332) sent a message of msg of size 640
+      OP Code: 12
+      Type: Event
+      Length: 32
+      Seq #: 798 (trckd: 798)
+      index:22]
+SERVER (352) sent a message of msg of size 640
+      OP Code: 12
+      Type: Event
+      Length: 32
+      Seq #: 798 (trckd: 798)
+      index:22]
+SERVER (361) sent a message of msg of size 288
+      OP Code: 12
+      Type: Event
+      Length: 32
+      Seq #: 798 (trckd: 798)
+      index:22]
+SERVER (370) sent a message of msg of size 288
+      OP Code: 12
+      Type: Event
+      Length: 32
+      Seq #: 798 (trckd: 798)
+      index:22]
+SERVER (379) sent a message of msg of size 288
+      OP Code: 12
+      Type: Event
+      Length: 32
+      Seq #: 798 (trckd: 798)
+      index:22]
+SERVER (388) sent a message of msg of size 288
+      OP Code: 12
+      Type: Event
+      Length: 32
+      Seq #: 798 (trckd: 798)
+      index:22]
+SERVER (397) sent a message of msg of size 288
+      OP Code: 12
+      Type: Event
+      Length: 32
+      Seq #: 798 (trckd: 798)
+      index:22]
+SERVER (406) sent a message of msg of size 288
+      OP Code: 12
+      Type: Event
+      Length: 32
+      Seq #: 798 (trckd: 798)
+      index:22]
+SERVER (415) sent a message of msg of size 288
+      OP Code: 12
+      Type: Event
+      Length: 32
+      Seq #: 798 (trckd: 798)
+      index:22]
+SERVER (424) sent a message of msg of size 288
+      OP Code: 12
+      Type: Event
+      Length: 32
+      Seq #: 798 (trckd: 798)
+      index:22]
+SERVER (433) sent a message of msg of size 288
+      OP Code: 12
+      Type: Event
+      Length: 32
+      Seq #: 798 (trckd: 798)
+      index:22]
+SERVER (442) sent a message of msg of size 288
+      OP Code: 12
+      Type: Event
+      Length: 32
+      Seq #: 798 (trckd: 798)
+      index:22]
+SERVER (451) sent a message of msg of size 288
+      OP Code: 12
+      Type: Event
+      Length: 32
+      Seq #: 798 (trckd: 798)
+      index:22]
+SERVER (452) sent a message of msg of size 32
+      OP Code: 12
+      Type: Event
+      Length: 32
+      Seq #: 798 (trckd: 798)
+      index:22]
+SERVER (461) sent a message of msg of size 288
+      OP Code: 12
+      Type: Event
+      Length: 32
+      Seq #: 798 (trckd: 798)
+      index:23]
+SERVER (470) sent a message of msg of size 288
+      OP Code: 12
+      Type: Event
+      Length: 32
+      Seq #: 798 (trckd: 798)
+      index:23]
+SERVER (471) sent a message of msg of size 32
+      OP Code: 12
+      Type: Event
+      Length: 32
+      Seq #: 798 (trckd: 798)
+      index:23]
+SERVER (472) sent a message of msg of size 32
+      OP Code: 9
+      Type: Event
+      Length: 32
+      Seq #: 798 (trckd: 798)
+      index:24]
+SERVER (473) sent a message of msg of size 32
+      OP Code: 28
+      Type: Event
+      Length: 32
+      Seq #: 860 (trckd: 860)
+      index:25]
+SERVER (476) sent a message of msg of size 96
+      OP Code: 28
+      Type: Event
+      Length: 32
+      Seq #: 860 (trckd: 860)
+      index:26]
+CLIENT (56) sent a message of msg of size 944
+      Request (56)
+      Request Length: 6
+      Opcode = 74
+SERVER (477) sent a message of msg of size 32
+      OP Code: 14
+      Type: Event
+      Length: 32
+      Seq #: 868 (trckd: 868)
+      index:26]
+SERVER (478) sent a message of msg of size 32
+      OP Code: 14
+      Type: Event
+      Length: 32
+      Seq #: 869 (trckd: 869)
+      index:27]
+SERVER (479) sent a message of msg of size 32
+      OP Code: 14
+      Type: Event
+      Length: 32
+      Seq #: 870 (trckd: 870)
+      index:28]
+SERVER (480) sent a message of msg of size 32
+      OP Code: 14
+      Type: Event
+      Length: 32
+      Seq #: 871 (trckd: 871)
+      index:29]
+      -->Kill Sequence
+      OP Code: 14
+      Type: Event
+      Length: 32
+      Seq #: 2335 (trckd: 871)
+      index:29]
+SERVER (481) sent a message of msg of size 32
+      OP Code: 14
+      Type: Event
+      Length: 32
+      Seq #: 872 (trckd: 872)
+      index:30]
+SERVER (482) sent a message of msg of size 32
+      OP Code: 14
+      Type: Event
+      Length: 32
+      Seq #: 873 (trckd: 873)
+      index:31]
+SERVER (483) sent a message of msg of size 32
+      OP Code: 14
+      Type: Event
+      Length: 32
+      Seq #: 874 (trckd: 874)
+      index:0]
+SERVER (484) sent a message of msg of size 32
+      OP Code: 14
+      Type: Event
+      Length: 32
+      Seq #: 875 (trckd: 875)
+      index:1]
+SERVER (485) sent a message of msg of size 32
+      OP Code: 14
+      Type: Event
+      Length: 32
+      Seq #: 876 (trckd: 876)
+      index:2]
+SERVER (486) sent a message of msg of size 32
+      OP Code: 14
+      Type: Event
+      Length: 32
+      Seq #: 888 (trckd: 888)
+      index:3]
+SERVER (487) sent a message of msg of size 32
+      OP Code: 14
+      Type: Event
+      Length: 32
+      Seq #: 890 (trckd: 890)
+      index:4]
+SERVER (488) sent a message of msg of size 32
+      OP Code: 28
+      Type: Event
+      Length: 32
+      Seq #: 892 (trckd: 892)
+      index:5]
+ERROR: revents event returned 8 POLLERR (read end of client pipe has closed) 
+Converse() reported that poll.revents returned unexpected value
